@@ -227,61 +227,6 @@ textarea {
   transform: rotate(-18deg);
 }
 
-.portfolio-art {
-  position: relative;
-  display: grid;
-  aspect-ratio: 4 / 3;
-  place-items: center;
-  overflow: hidden;
-  border-radius: 1.35rem;
-  background: var(--ink);
-}
-
-.portfolio-art::before,
-.portfolio-art::after {
-  content: "";
-  position: absolute;
-  border-radius: 999px;
-}
-
-.portfolio-art::before {
-  inset: 14%;
-  border: 1px dashed rgb(224 191 131 / 65%);
-}
-
-.portfolio-art::after {
-  inset: 27%;
-  border: 1px solid rgb(255 255 255 / 22%);
-}
-
-.portfolio-art span {
-  position: relative;
-  z-index: 1;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 4rem;
-  color: var(--gold-light);
-}
-
-.portfolio-northstar {
-  background: #725b44;
-}
-
-.portfolio-harvest {
-  background: #325b51;
-}
-
-.portfolio-wave {
-  background: #314d6c;
-}
-
-.portfolio-monogram {
-  background: #5d4653;
-}
-
-.portfolio-badge {
-  background: #816846;
-}
-
 .page-hero-pattern {
   background-image: repeating-linear-gradient(125deg, transparent 0 28px, rgb(255 255 255 / 5%) 28px 29px);
 }
