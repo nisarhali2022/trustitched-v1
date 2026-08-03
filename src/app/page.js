@@ -1,147 +1,136 @@
+import Image from "next/image";
 import Link from "next/link";
-import localFont from "next/font/local";
-import { CallToAction } from "@/components/call-to-action";
-import { HeroStitchPreview } from "@/components/hero-stitch-preview";
+import { QuoteForm } from "@/components/quote-form";
 import { SectionHeading } from "@/components/section-heading";
 
-const inter = localFont({
-  src: "../../node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2",
-  variable: "--font-inter",
-  weight: "100 900",
-  display: "swap",
-});
-
-const heroStats = [
-  ["12+ Yrs", "Experience"],
-  ["85,000+", "Files Delivered"],
-  ["12 - 24h", "Fast Turnaround"],
-  ["99.8%", "Approval Rate"],
+const metrics = [
+  ["12+ years", "Hands-on experience"],
+  ["85,000+", "Files delivered"],
+  ["12–24 hr", "Standard turnaround"],
+  ["99.8%", "Approval rate"],
 ];
 
 const services = [
   {
-    number: "01",
     eyebrow: "Thread-ready files",
     title: "Embroidery Digitizing",
-    description:
-      "Clean, production-ready stitch files shaped for smooth runs, crisp details, and the fabric you plan to use.",
+    description: "Production-minded stitch files prepared around the finished size, fabric, placement, and machine format—not a generic preset.",
+    features: ["Caps, polos, jackets, and patches", "Small lettering, appliqué, and 3D puff", "DST, PES, EXP, EMB, and more"],
     href: "/embroidery-digitizing",
-    accent: "needle",
+    cta: "Explore digitizing",
+    image: "/images/embroidery/hero-studio.png",
+    alt: "Multi-needle embroidery machine stitching a detailed crest in a professional studio",
   },
   {
-    number: "02",
-    eyebrow: "Scalable artwork",
-    title: "Vector Art",
-    description:
-      "Sharp, editable vector artwork for screen printing, signage, packaging, and every size your brand needs.",
+    eyebrow: "Scalable master artwork",
+    title: "Vector Art Conversion",
+    description: "Clean, manually redrawn vector artwork that stays sharp for printing, signage, cutting, engraving, packaging, and future edits.",
+    features: ["Logo redraws and manual vector tracing", "Screen print, vinyl, and engraving artwork", "AI, EPS, SVG, PDF, CDR, and previews"],
     href: "/vector-art",
-    accent: "vector",
+    cta: "Explore vector art",
+    image: "/images/vector/hero-workspace.png",
+    alt: "Design workspace showing an original fox emblem being rebuilt with precise vector paths",
   },
 ];
 
-const benefits = [
-  ["12–24 hr", "Standard turnaround"],
-  ["Quality", "Manually checked files"],
-  ["Flexible", "Major machine formats"],
-  ["Helpful", "Revisions included"],
+const pricing = [
+  {
+    service: "Embroidery digitizing",
+    price: "$15",
+    description: "A typical starting point for straightforward logos and standard placements.",
+    href: "/embroidery-digitizing",
+  },
+  {
+    service: "Vector art conversion",
+    price: "$15",
+    description: "A typical starting point for clean, low-complexity raster-to-vector redraws.",
+    href: "/vector-art",
+  },
 ];
 
 const process = [
-  ["01", "Share your artwork", "Send your logo, reference, size, fabric, and preferred file format."],
-  ["02", "We craft the file", "A specialist prepares and quality-checks every stitch path or vector curve."],
-  ["03", "Download & produce", "Receive clean files that are ready for your embroidery or print workflow."],
+  ["01", "Send your artwork", "Share the clearest source available together with the intended size, material, application, deadline, and required format."],
+  ["02", "We build the production file", "A specialist manually plans the stitch paths or vector curves and checks the work around its real production use."],
+  ["03", "Review, download, and produce", "Receive the requested files and practical previews, with reasonable minor revisions available within the approved brief."],
 ];
 
-const portfolio = [
-  { title: "Heritage Crest", type: "Cap digitizing", style: "crest" },
-  { title: "Northstar Athletics", type: "Jacket embroidery", style: "northstar" },
-  { title: "Harvest & Co.", type: "Vector redraw", style: "harvest" },
+const qualityBenefits = [
+  ["Built manually", "Digitizing paths and vector curves are shaped by specialists instead of accepted from one-click automatic tracing."],
+  ["Production-aware", "Files are prepared around fabric, placement, scale, printing, cutting, engraving, or the other output you actually need."],
+  ["Checked before delivery", "We review small details, color order, trims, path construction, formats, and practical file organization."],
+  ["Clear revision support", "Reasonable minor revisions are included when they stay within the original artwork, size, and production brief."],
+];
+
+const faqs = [
+  ["Which service do I need?", "Choose embroidery digitizing when you need a machine-readable stitch file. Choose vector art when you need scalable editable artwork for printing, cutting, engraving, signage, or design use. Select both or Not sure in the quote form if you would like us to recommend the best path."],
+  ["How much does a typical project cost?", "Many straightforward homepage projects start around $15, but this is general guidance rather than a guaranteed minimum. Final pricing depends on artwork complexity, size, source quality, placement, technique, required formats, revisions, and turnaround. The service pages provide more detailed examples."],
+  ["How quickly will I receive my files?", "Most standard projects are prepared within 12–24 hours after the artwork, intended use, output format, and deadline are confirmed. Complex or urgent projects may follow a different schedule."],
+  ["What artwork can I send?", "You can send JPG, JPEG, PNG, PDF, AI, EPS, SVG, CDR, PSD, TIFF, ZIP, scans, or clear photographs. Send the best source available and include any known sizes, colors, or production requirements."],
+  ["Are revisions included?", "Reasonable minor revisions are included when they stay within the confirmed brief. Major changes to the artwork, size, placement, application, or technique may require a revised quote."],
+  ["Does the quote form upload and send files yet?", "Not yet. The current form is presentation-ready but still needs to be connected to a form or email service before launch. It clearly identifies this limitation beside the request button."],
 ];
 
 export const metadata = {
   title: "Professional Embroidery Digitizing & Vector Art",
-  description:
-    "Production-ready embroidery digitizing and vector art services for apparel decorators, print shops, and growing brands.",
+  description: "Manual embroidery digitizing and vector art conversion prepared for reliable apparel, print, signage, cutting, engraving, and brand production.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Professional Embroidery Digitizing & Vector Art | Trustitched",
+    description: "Production-minded embroidery digitizing and vector artwork with fast standard turnaround and support for major file formats.",
+  },
 };
 
 export default function Home() {
   return (
     <>
-      <section className={`${inter.variable} reference-hero relative overflow-hidden text-white`}>
-        <div className="reference-hero-glow absolute inset-0" aria-hidden="true" />
-        <div className="relative mx-auto grid max-w-[82rem] gap-12 px-6 py-16 lg:grid-cols-[1.25fr_0.9fr] lg:items-center lg:gap-16 lg:px-8 lg:py-20 xl:min-h-[42rem]">
+      <section className="relative overflow-hidden bg-ink text-white">
+        <div className="page-hero-pattern absolute inset-0" aria-hidden="true" />
+        <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-16 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-16 lg:px-8 lg:py-20">
           <div>
-            <p className="inline-flex items-center gap-2 rounded-full border border-[#b98d1b]/60 bg-[#d7a915]/10 px-4 py-2 text-xs font-extrabold tracking-wide text-[#f2c329]">
-              <span aria-hidden="true">♙</span> MASTER DIGITIZERS • ZERO AUTO-TRACING
-            </p>
-            <h1 className="mt-7 max-w-[48rem] text-[clamp(2.75rem,4.5vw,4.55rem)] font-black leading-[1.03] tracking-[-0.055em] text-white">
-              Embroidery Digitizing<br className="hidden sm:block" /> &amp; Vector Art{" "}
-              
+            <p className="eyebrow text-gold-light">Manual craft • production-ready files</p>
+            <h1 className="mt-4 max-w-3xl font-display text-5xl leading-[1.02] tracking-[-0.035em] sm:text-6xl">
+              Professional Embroidery Digitizing &amp; Vector Art, Built for Production.
             </h1>
-            <p className="mt-7 max-w-[44rem] text-base leading-7 text-[#eef5ff] sm:text-lg sm:leading-8">
-              We convert complex logos and graphics into flawless embroidery stitch files (DST, PES, EMB) and razor-sharp vectors. Hand-crafted by master digitizers with fast next-day turnaround.
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70">
+              Turn logos, scans, sketches, and rough graphics into dependable embroidery stitch files and clean, scalable vector artwork.
             </p>
-
-            <div className="mt-8 grid max-w-[42rem] grid-cols-2 gap-3 sm:grid-cols-4">
-              {heroStats.map(([value, label], index) => (
-                <div className="rounded-lg border border-[#7290ad]/30 bg-white/[0.06] px-3 py-4 text-center" key={label}>
-                  <strong className={`block text-2xl font-black ${index === 3 ? "text-[#00d8a0]" : "text-[#f2c329]"}`}>{value}</strong>
-                  <span className="mt-1 block text-xs font-medium text-[#e6f0fb]">{label}</span>
-                </div>
+            <ul className="mt-7 grid gap-3 text-sm font-semibold text-white/82 sm:grid-cols-2">
+              {["Digitized and redrawn manually", "12–24 hour standard turnaround", "Major embroidery and vector formats", "Reasonable minor revisions included"].map((item) => (
+                <li className="flex items-center gap-3" key={item}><span className="text-gold-light" aria-hidden="true">✓</span>{item}</li>
               ))}
-            </div>
-
+            </ul>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link className="reference-primary-cta" href="/contact">
-                Get a Free Quote Now <span aria-hidden="true">→</span>
-              </Link>
-              <Link className="reference-secondary-cta" href="/portfolio">
-                <span aria-hidden="true">▱</span> See Before &amp; After Work
-              </Link>
+              <Link className="button button-gold" href="#quote-form">Get a free quote <span aria-hidden="true">↓</span></Link>
+              <Link className="button button-ghost" href="/portfolio">View our work</Link>
             </div>
-
-            <div className="mt-7 flex flex-wrap gap-x-7 gap-y-3 text-xs font-medium text-[#ecf5ff]">
-              <span className="flex items-center gap-2"><b className="text-[#00d8a0]" aria-hidden="true">✓</b> No credit card required</span>
-              <span className="flex items-center gap-2"><b className="text-[#f2c329]" aria-hidden="true">♢</b> 100% Stitch Guarantee</span>
-              <span className="flex items-center gap-2"><b className="text-[#f2c329]" aria-hidden="true">ϟ</b> Free minor revisions</span>
+            <div className="mt-7 flex flex-wrap gap-x-7 gap-y-3 text-xs font-semibold text-white/70">
+              <span className="flex items-center gap-2"><b className="text-gold-light" aria-hidden="true">✓</b> No credit card required</span>
+              <span className="flex items-center gap-2"><b className="text-gold-light" aria-hidden="true">✓</b> Clear price before production</span>
+              <span className="flex items-center gap-2"><b className="text-gold-light" aria-hidden="true">✓</b> Direct studio support</span>
             </div>
           </div>
 
-          <HeroStitchPreview />
-        </div>
-      </section>
-
-      <section className="bg-canvas py-20 sm:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="What we do"
-            title="Two specialties. One production-minded studio."
-            description="From the first path to the last anchor point, every file is prepared by hand for reliable output."
-          />
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            {services.map((service) => (
-              <article className="group overflow-hidden rounded-3xl border border-line bg-white" key={service.title}>
-                <div className={`service-art service-art-${service.accent}`} aria-hidden="true">
-                  <span>{service.number}</span>
-                </div>
-                <div className="p-7 sm:p-9">
-                  <p className="eyebrow text-gold-dark">{service.eyebrow}</p>
-                  <h2 className="mt-3 font-display text-4xl text-ink">{service.title}</h2>
-                  <p className="mt-4 max-w-xl leading-7 text-slate">{service.description}</p>
-                  <Link className="mt-7 inline-flex items-center gap-2 font-semibold text-ink transition hover:text-gold-dark" href={service.href}>
-                    View service <span aria-hidden="true">→</span>
-                  </Link>
-                </div>
-              </article>
-            ))}
+          <div className="relative min-h-[24rem] overflow-hidden rounded-[1.75rem] border border-white/15 shadow-2xl sm:min-h-[31rem]">
+            <Image
+              src="/images/home/hero-dual-service.png"
+              alt="An original owl crest transitioning from clean vector artwork into detailed commercial embroidery"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 52vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-x-5 bottom-5 flex flex-col gap-2 rounded-xl border border-white/15 bg-ink/88 px-5 py-4 backdrop-blur sm:flex-row sm:items-center sm:justify-between">
+              <span className="text-sm font-bold">One studio. Two production specialties.</span>
+              <span className="text-xs text-gold-light">STITCH FILES • VECTOR ARTWORK</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="border-y border-line bg-white">
+      <section className="border-b border-line bg-white" aria-label="Trustitched performance metrics">
         <div className="mx-auto grid max-w-7xl grid-cols-2 px-6 lg:grid-cols-4 lg:px-8">
-          {benefits.map(([value, label]) => (
-            <div className="border-line px-3 py-9 text-center even:border-l lg:border-l lg:first:border-l-0" key={label}>
+          {metrics.map(([value, label]) => (
+            <div className="border-line px-3 py-8 text-center even:border-l lg:border-l lg:first:border-l-0" key={label}>
               <strong className="block font-display text-3xl text-ink sm:text-4xl">{value}</strong>
               <span className="mt-2 block text-sm text-slate">{label}</span>
             </div>
@@ -149,50 +138,162 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white py-20 sm:py-24">
+      <section className="bg-canvas py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
-            <SectionHeading
-              eyebrow="Simple by design"
-              title="From artwork to production in three steps."
-              description="Clear communication, thoughtful file preparation, and no complicated handoffs."
-            />
-            <ol className="divide-y divide-line border-y border-line">
-              {process.map(([number, title, description]) => (
-                <li className="grid gap-3 py-7 sm:grid-cols-[3.5rem_1fr]" key={number}>
-                  <span className="font-display text-2xl text-gold-dark">{number}</span>
-                  <div>
-                    <h3 className="text-lg font-bold text-ink">{title}</h3>
-                    <p className="mt-2 leading-7 text-slate">{description}</p>
-                  </div>
-                </li>
+          <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-center lg:gap-20">
+            <div>
+              <p className="eyebrow text-gold-dark">Typical project pricing</p>
+              <h2 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">Straightforward production files often start around $15.</h2>
+              <p className="mt-5 text-lg leading-8 text-slate">This is general homepage guidance, not a guaranteed minimum. We review the source and confirm the exact price before work begins.</p>
+              <p className="mt-5 leading-7 text-slate">Complexity, finished size, source quality, stitch technique, required formats, revisions, and turnaround can all affect the final quote.</p>
+              <Link className="button button-ink mt-8" href="#quote-form">Request exact pricing</Link>
+            </div>
+            <div className="grid gap-5 sm:grid-cols-2">
+              {pricing.map((item) => (
+                <article className="rounded-3xl border border-line bg-white p-7 shadow-[0_16px_45px_rgba(16,40,61,0.06)]" key={item.service}>
+                  <p className="eyebrow text-gold-dark">{item.service}</p>
+                  <p className="mt-5 text-sm font-semibold uppercase tracking-wider text-slate">Typical projects from</p>
+                  <strong className="mt-1 block font-display text-5xl text-ink">{item.price}</strong>
+                  <p className="mt-4 leading-7 text-slate">{item.description}</p>
+                  <Link className="mt-7 inline-flex items-center gap-2 font-bold text-ink hover:text-gold-dark" href={item.href}>View detailed pricing <span aria-hidden="true">→</span></Link>
+                </article>
               ))}
-            </ol>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-mist py-20 sm:py-24">
+      <section className="bg-white py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-            <SectionHeading eyebrow="Selected work" title="Craft that holds up close." />
-            <Link className="inline-flex items-center gap-2 font-semibold text-ink hover:text-gold-dark" href="/portfolio">
-              View the portfolio <span aria-hidden="true">→</span>
-            </Link>
-          </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {portfolio.map((item) => (
-              <article key={item.title}>
-                <div className={`portfolio-art portfolio-${item.style}`} aria-hidden="true"><span>{item.title.slice(0, 1)}</span></div>
-                <p className="mt-5 text-xs font-bold uppercase tracking-[0.18em] text-gold-dark">{item.type}</p>
-                <h3 className="mt-2 font-display text-2xl text-ink">{item.title}</h3>
+          <SectionHeading
+            eyebrow="Services we provide"
+            title="Two specialties, one production-minded studio."
+            description="Choose a focused service or send the artwork once and let us help determine which deliverables your production workflow needs."
+            align="center"
+          />
+          <div className="mt-12 space-y-8">
+            {services.map((service, index) => (
+              <article className="grid overflow-hidden rounded-3xl border border-line bg-canvas lg:grid-cols-2" key={service.title}>
+                <div className={`relative min-h-[22rem] ${index % 2 === 1 ? "lg:order-2" : ""}`}>
+                  <Image src={service.image} alt={service.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+                </div>
+                <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-12">
+                  <p className="eyebrow text-gold-dark">{service.eyebrow}</p>
+                  <h2 className="mt-3 font-display text-4xl leading-tight text-ink">{service.title}</h2>
+                  <p className="mt-5 text-lg leading-8 text-slate">{service.description}</p>
+                  <ul className="mt-6 space-y-3 text-sm text-slate">
+                    {service.features.map((feature) => <li className="flex gap-3" key={feature}><span className="text-gold-dark" aria-hidden="true">✓</span>{feature}</li>)}
+                  </ul>
+                  <div className="mt-8"><Link className="button button-ink" href={service.href}>{service.cta}</Link></div>
+                </div>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <CallToAction />
+      <section className="bg-mist py-20 sm:py-24">
+        <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20 lg:px-8">
+          <div>
+            <p className="eyebrow text-gold-dark">How it works</p>
+            <h2 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">From source artwork to production in three clear steps.</h2>
+            <p className="mt-5 text-lg leading-8 text-slate">A useful brief helps us prepare the right file efficiently and reduces production guesswork.</p>
+            <Link className="button button-ink mt-8" href="#quote-form">Start your project</Link>
+          </div>
+          <ol className="divide-y divide-line border-y border-line">
+            {process.map(([number, title, description]) => (
+              <li className="grid gap-4 py-7 sm:grid-cols-[4rem_1fr]" key={number}>
+                <span className="font-display text-3xl text-gold-dark">{number}</span>
+                <div><h3 className="text-lg font-bold text-ink">{title}</h3><p className="mt-2 leading-7 text-slate">{description}</p></div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+            <SectionHeading
+              eyebrow="Take a closer look"
+              title="Original work across stitches and scalable paths."
+              description="Explore different embroidery techniques and vector styles prepared around practical production goals."
+            />
+            <Link className="inline-flex items-center gap-2 font-bold text-ink hover:text-gold-dark" href="/portfolio">View the portfolio <span aria-hidden="true">→</span></Link>
+          </div>
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            <article>
+              <div className="relative aspect-square overflow-hidden rounded-3xl border border-line bg-mist shadow-lg">
+                <Image src="/images/embroidery/gallery-mosaic.png" alt="Nine original embroidery samples demonstrating badges, portraits, monograms, and garment applications" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+              </div>
+              <p className="mt-5 eyebrow text-gold-dark">Embroidery showcase</p>
+              <h3 className="mt-2 font-display text-3xl text-ink">Texture, sequencing, and detail.</h3>
+            </article>
+            <article>
+              <div className="relative aspect-square overflow-hidden rounded-3xl border border-line bg-mist shadow-lg">
+                <Image src="/images/vector/portfolio-mosaic.png" alt="Nine original vector examples demonstrating badges, mascots, icons, and product graphics" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+              </div>
+              <p className="mt-5 eyebrow text-gold-dark">Vector showcase</p>
+              <h3 className="mt-2 font-display text-3xl text-ink">Clean construction at every scale.</h3>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-ink py-20 text-white sm:py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow text-gold-light">Quality you can verify</p>
+            <h2 className="mt-3 font-display text-4xl leading-tight sm:text-5xl">The value is in how the file is built.</h2>
+            <p className="mt-5 text-lg leading-8 text-white/65">Instead of unverified customer claims, here is what every approved production brief is designed to receive.</p>
+          </div>
+          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {qualityBenefits.map(([title, description], index) => (
+              <article className="rounded-2xl border border-white/15 bg-white/5 p-6" key={title}>
+                <span className="font-display text-3xl text-gold-light">0{index + 1}</span>
+                <h3 className="mt-7 text-lg font-bold">{title}</h3>
+                <p className="mt-3 text-sm leading-6 text-white/60">{description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-canvas py-20 sm:py-24">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+          <SectionHeading
+            eyebrow="Frequently asked questions"
+            title="Helpful answers before you request a quote."
+            description="If your project has an unusual material, application, source file, or deadline, include it in the request and we will review it directly."
+            align="center"
+          />
+          <div className="mt-12 divide-y divide-line border-y border-line">
+            {faqs.map(([question, answer]) => (
+              <details className="group" key={question}>
+                <summary className="flex cursor-pointer items-center justify-between gap-6 py-5 font-bold text-ink">
+                  {question}<span className="text-xl font-normal text-gold-dark transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+                </summary>
+                <p className="max-w-3xl pb-6 pr-12 leading-7 text-slate">{answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="scroll-mt-28 bg-mist py-20 sm:py-24" id="quote-form">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-start lg:gap-20 lg:px-8">
+          <div>
+            <p className="eyebrow text-gold-dark">Ready to start?</p>
+            <h2 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">Send the artwork you have. We will help define the file you need.</h2>
+            <p className="mt-5 text-lg leading-8 text-slate">Include the intended size, material or application, deadline, and preferred format. Select Not sure yet if you would like a recommendation.</p>
+            <div className="mt-8 border-y border-line py-6 text-sm text-slate">
+              <p><strong className="text-ink">Prefer to talk?</strong> Call <a className="font-bold text-gold-dark hover:text-ink" href="tel:+1800123456">+1 (800) 123456</a>.</p>
+              <p className="mt-3">You can also use the full <Link className="font-bold text-gold-dark hover:text-ink" href="/contact">Contact Us page</Link>.</p>
+            </div>
+          </div>
+          <QuoteForm idPrefix="home" />
+        </div>
+      </section>
     </>
   );
 }
