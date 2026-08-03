@@ -1,6 +1,22 @@
 import Link from "next/link";
+import localFont from "next/font/local";
 import { CallToAction } from "@/components/call-to-action";
+import { HeroStitchPreview } from "@/components/hero-stitch-preview";
 import { SectionHeading } from "@/components/section-heading";
+
+const inter = localFont({
+  src: "../../node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2",
+  variable: "--font-inter",
+  weight: "100 900",
+  display: "swap",
+});
+
+const heroStats = [
+  ["12+ Yrs", "Experience"],
+  ["85,000+", "Files Delivered"],
+  ["12 - 24h", "Fast Turnaround"],
+  ["99.8%", "Approval Rate"],
+];
 
 const services = [
   {
@@ -51,63 +67,47 @@ export const metadata = {
 export default function Home() {
   return (
     <>
-      <section className="relative overflow-hidden bg-ink text-white">
-        <div className="stitch-grid absolute inset-0 opacity-25" aria-hidden="true" />
-        <div className="relative mx-auto grid max-w-7xl gap-14 px-6 py-20 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:px-8 lg:py-28">
+      <section className={`${inter.variable} reference-hero relative overflow-hidden text-white`}>
+        <div className="reference-hero-glow absolute inset-0" aria-hidden="true" />
+        <div className="relative mx-auto grid max-w-[82rem] gap-12 px-6 py-16 lg:grid-cols-[1.25fr_0.9fr] lg:items-center lg:gap-16 lg:px-8 lg:py-20 xl:min-h-[42rem]">
           <div>
-            <p className="eyebrow text-gold-light">Crafted for flawless production</p>
-            <h1 className="mt-5 max-w-3xl font-display text-5xl leading-[0.98] tracking-[-0.035em] sm:text-6xl lg:text-7xl">
-              Artwork refined.<br />Every stitch considered.
-            </h1>
-            <p className="mt-7 max-w-xl text-lg leading-8 text-white/70">
-              Professional embroidery digitizing and vector conversion for decorators who need dependable files, thoughtful details, and quick turnaround.
+            <p className="inline-flex items-center gap-2 rounded-full border border-[#b98d1b]/60 bg-[#d7a915]/10 px-4 py-2 text-xs font-extrabold tracking-wide text-[#f2c329]">
+              <span aria-hidden="true">♙</span> MASTER DIGITIZERS • ZERO AUTO-TRACING
             </p>
+            <h1 className="mt-7 max-w-[48rem] text-[clamp(2.75rem,4.5vw,4.55rem)] font-black leading-[1.03] tracking-[-0.055em] text-white">
+              Embroidery Digitizing<br className="hidden sm:block" /> &amp; Vector Art{" "}
+              
+            </h1>
+            <p className="mt-7 max-w-[44rem] text-base leading-7 text-[#eef5ff] sm:text-lg sm:leading-8">
+              We convert complex logos and graphics into flawless embroidery stitch files (DST, PES, EMB) and razor-sharp vectors. Hand-crafted by master digitizers with fast next-day turnaround.
+            </p>
+
+            <div className="mt-8 grid max-w-[42rem] grid-cols-2 gap-3 sm:grid-cols-4">
+              {heroStats.map(([value, label], index) => (
+                <div className="rounded-lg border border-[#7290ad]/30 bg-white/[0.06] px-3 py-4 text-center" key={label}>
+                  <strong className={`block text-2xl font-black ${index === 3 ? "text-[#00d8a0]" : "text-[#f2c329]"}`}>{value}</strong>
+                  <span className="mt-1 block text-xs font-medium text-[#e6f0fb]">{label}</span>
+                </div>
+              ))}
+            </div>
+
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link className="button button-gold" href="/contact">
-                Get a free quote <span aria-hidden="true">↗</span>
+              <Link className="reference-primary-cta" href="/contact">
+                Get a Free Quote Now <span aria-hidden="true">→</span>
               </Link>
-              <Link className="button button-ghost" href="/portfolio">
-                Explore our work
+              <Link className="reference-secondary-cta" href="/portfolio">
+                <span aria-hidden="true">▱</span> See Before &amp; After Work
               </Link>
             </div>
-            <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/65">
-              {['Fast turnaround', 'Revisions included', 'Quality checked'].map((item) => (
-                <span className="flex items-center gap-2" key={item}>
-                  <span className="h-1.5 w-1.5 rounded-full bg-gold" aria-hidden="true" />
-                  {item}
-                </span>
-              ))}
+
+            <div className="mt-7 flex flex-wrap gap-x-7 gap-y-3 text-xs font-medium text-[#ecf5ff]">
+              <span className="flex items-center gap-2"><b className="text-[#00d8a0]" aria-hidden="true">✓</b> No credit card required</span>
+              <span className="flex items-center gap-2"><b className="text-[#f2c329]" aria-hidden="true">♢</b> 100% Stitch Guarantee</span>
+              <span className="flex items-center gap-2"><b className="text-[#f2c329]" aria-hidden="true">ϟ</b> Free minor revisions</span>
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-lg lg:ml-auto">
-            <div className="absolute -inset-4 rotate-2 rounded-[2rem] border border-dashed border-gold/45" aria-hidden="true" />
-            <div className="relative overflow-hidden rounded-[1.6rem] border border-white/15 bg-white/[0.07] p-6 shadow-2xl backdrop-blur-sm sm:p-8">
-              <div className="flex items-center justify-between border-b border-white/15 pb-5">
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.22em] text-gold-light">File preparation</p>
-                  <p className="mt-1 text-sm text-white/55">Built around your production needs</p>
-                </div>
-                <div className="flex h-11 w-11 items-center justify-center rounded-full border border-gold/50 font-display text-xl text-gold-light">T</div>
-              </div>
-              <div className="my-8 flex items-center justify-center">
-                <div className="thread-emblem" aria-hidden="true">
-                  <span>TS</span>
-                </div>
-              </div>
-              <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 text-center text-sm">
-                <div className="rounded-xl border border-white/10 bg-white/[0.05] px-3 py-4">
-                  <span className="block text-white/45">Input</span>
-                  <strong className="mt-1 block font-medium">Your artwork</strong>
-                </div>
-                <span className="text-gold" aria-hidden="true">→</span>
-                <div className="rounded-xl border border-gold/30 bg-gold/10 px-3 py-4">
-                  <span className="block text-white/45">Output</span>
-                  <strong className="mt-1 block font-medium">Ready to run</strong>
-                </div>
-              </div>
-            </div>
-          </div>
+          <HeroStitchPreview />
         </div>
       </section>
 

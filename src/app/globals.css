@@ -321,3 +321,338 @@ details > summary::-webkit-details-marker {
     transition-duration: 0.01ms !important;
   }
 }
+
+.reference-hero {
+  background: #102f51;
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+}
+
+.reference-hero-glow {
+  background:
+    radial-gradient(circle at 58% 52%, rgb(225 173 27 / 7%), transparent 32%),
+    linear-gradient(90deg, #102f51 0%, #102f51 46%, #0e2c4c 100%);
+}
+
+.reference-gold-underline {
+  text-decoration-line: underline;
+  text-decoration-color: rgb(212 170 32 / 42%);
+  text-decoration-thickness: 0.11em;
+  text-underline-offset: 0.14em;
+}
+
+.reference-primary-cta,
+.reference-secondary-cta {
+  display: inline-flex;
+  min-height: 3.65rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  border-radius: 0.65rem;
+  padding: 0.85rem 1.65rem;
+  font-size: 0.97rem;
+  font-weight: 850;
+  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+.reference-primary-cta {
+  background: #d4aa20;
+  color: #08233d;
+}
+
+.reference-primary-cta:hover {
+  background: #f2c329;
+  transform: translateY(-2px);
+}
+
+.reference-secondary-cta {
+  border: 1px solid rgb(150 183 216 / 45%);
+  background: rgb(255 255 255 / 7%);
+  color: white;
+}
+
+.reference-secondary-cta > span {
+  color: #f2c329;
+  font-size: 1.35rem;
+}
+
+.reference-secondary-cta:hover {
+  border-color: #d4aa20;
+  background: rgb(255 255 255 / 11%);
+  transform: translateY(-2px);
+}
+
+.hero-preview-card {
+  width: 100%;
+  border: 2px solid rgb(212 170 32 / 50%);
+  border-radius: 1rem;
+  background: #091d32;
+  padding: 1.25rem;
+  box-shadow: 0 28px 60px rgb(0 11 23 / 22%);
+}
+
+.hero-preview-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid rgb(125 164 203 / 25%);
+  padding: 0 0.25rem 1rem;
+  font-size: 0.72rem;
+}
+
+.hero-compare-stage {
+  --compare-position: 50%;
+  position: relative;
+  height: 18rem;
+  margin-top: 1rem;
+  overflow: hidden;
+  border: 1px solid rgb(130 164 199 / 45%);
+  border-radius: 0.85rem;
+  background: #1e2d43;
+  isolation: isolate;
+}
+
+.hero-compare-raw,
+.hero-compare-stitched {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-compare-raw {
+  background: #202e43;
+}
+
+.hero-compare-stitched {
+  background:
+    repeating-linear-gradient(45deg, transparent 0 5px, rgb(242 195 41 / 3%) 5px 6px),
+    #102f51;
+  clip-path: inset(0 0 0 var(--compare-position));
+}
+
+.hero-preview-label {
+  position: absolute;
+  top: 0.75rem;
+  z-index: 2;
+  border-radius: 0.3rem;
+  padding: 0.28rem 0.55rem;
+  font-size: 0.61rem;
+  font-weight: 900;
+}
+
+.hero-preview-label-raw {
+  left: 0.75rem;
+  background: #f39a05;
+  color: white;
+}
+
+.hero-preview-label-stitched {
+  right: 0.75rem;
+  background: #00bf88;
+  color: white;
+}
+
+.raw-logo-orbit {
+  display: grid;
+  height: 10rem;
+  width: 10rem;
+  place-items: center;
+  border: 2px solid #60718a;
+  border-radius: 999px;
+}
+
+.raw-logo-core {
+  display: grid;
+  height: 5rem;
+  width: 5rem;
+  place-items: center;
+  border-radius: 999px;
+  background: #3d4e68;
+  color: #91afd0;
+  font-size: 1rem;
+}
+
+.raw-logo-caption {
+  position: absolute;
+  top: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.76rem;
+}
+
+.raw-logo-caption span {
+  margin-top: 0.2rem;
+  color: #f2c329;
+  font-size: 0.54rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.stitched-logo-mark {
+  position: relative;
+  display: flex;
+  height: 10rem;
+  width: 10rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 4px dashed #e6b824;
+  border-radius: 999px;
+  color: #f2c329;
+}
+
+.stitched-logo-mark::before,
+.stitched-logo-mark::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+}
+
+.stitched-logo-mark::before {
+  inset: 0.85rem;
+  border: 1px solid rgb(242 195 41 / 85%);
+}
+
+.stitched-logo-mark::after {
+  inset: 2rem;
+  border: 1px dashed rgb(0 216 160 / 75%);
+}
+
+.stitched-logo-inner {
+  position: relative;
+  z-index: 1;
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+
+.stitched-logo-mark strong,
+.stitched-logo-mark small {
+  position: relative;
+  z-index: 1;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+}
+
+.stitched-logo-mark small {
+  margin-top: 0.15rem;
+  color: #00d8a0;
+  font-size: 0.48rem;
+  letter-spacing: 0.03em;
+}
+
+.hero-preview-note {
+  position: absolute;
+  bottom: 1.5rem;
+  border-radius: 0.3rem;
+  background: rgb(4 16 29 / 90%);
+  padding: 0.55rem 0.65rem;
+  font-size: 0.6rem;
+  line-height: 1.25;
+}
+
+.hero-preview-note-left {
+  left: 1.4rem;
+  max-width: 10.5rem;
+  color: #9ebee0;
+}
+
+.hero-preview-note-right {
+  right: 1.4rem;
+  color: #f2c329;
+}
+
+.hero-compare-divider {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  bottom: 0;
+  left: var(--compare-position);
+  width: 0.34rem;
+  background: #f2c329;
+  box-shadow: 0 0 0 2px rgb(242 195 41 / 12%), 0 0 20px rgb(242 195 41 / 35%);
+  transform: translateX(-50%);
+}
+
+.hero-compare-divider span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: grid;
+  height: 2rem;
+  width: 2rem;
+  place-items: center;
+  border: 2px solid white;
+  border-radius: 999px;
+  background: #d4aa20;
+  color: #092640;
+  font-size: 0.8rem;
+  font-weight: 900;
+  transform: translate(-50%, -50%);
+}
+
+.hero-compare-range {
+  position: absolute;
+  z-index: 10;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  cursor: ew-resize;
+  opacity: 0;
+}
+
+.hero-compare-stage:has(.hero-compare-range:focus-visible) {
+  outline: 3px solid #f2c329;
+  outline-offset: 4px;
+}
+
+.hero-compare-stage:has(.hero-compare-range:focus-visible) .hero-compare-divider span {
+  box-shadow: 0 0 0 5px rgb(242 195 41 / 28%);
+}
+
+.hero-preview-footnote {
+  margin: 0.9rem auto 0;
+  max-width: 28rem;
+  text-align: center;
+  color: #8fb1d5;
+  font-size: 0.62rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 639px) {
+  .reference-primary-cta,
+  .reference-secondary-cta {
+    width: 100%;
+  }
+
+  .hero-preview-card {
+    padding: 0.75rem;
+  }
+
+  .hero-preview-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .hero-compare-stage {
+    height: 16rem;
+  }
+
+  .raw-logo-orbit,
+  .stitched-logo-mark {
+    height: 8.5rem;
+    width: 8.5rem;
+  }
+
+  .hero-preview-note-left {
+    left: 0.6rem;
+    max-width: 7rem;
+  }
+
+  .hero-preview-note-right {
+    right: 0.6rem;
+  }
+}
