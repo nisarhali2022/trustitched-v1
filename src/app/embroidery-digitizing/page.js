@@ -3,6 +3,21 @@ import Link from "next/link";
 import { QuoteForm } from "@/components/quote-form";
 import { SectionHeading } from "@/components/section-heading";
 
+const embroideryImages = {
+  hero: {
+    src: "/images/embroidery/hero-studio.png",
+    alt: "Multi-needle embroidery machine stitching a detailed crest in a professional studio",
+  },
+  showcase: {
+    src: "/images/embroidery/gallery-mosaic.png",
+    alt: "Nine original embroidery samples including patches, a cap design, monogram, animal portrait, and club emblems",
+  },
+  quality: {
+    src: "/images/embroidery/cap-detail.png",
+    alt: "Close-up of a navy cap with a crisp gold and ivory embroidered T monogram",
+  },
+};
+
 const metrics = [
   ["12+ years", "Hands-on experience"],
   ["85,000+", "Files delivered"],
@@ -110,10 +125,10 @@ export default function EmbroideryDigitizingPage() {
             </div>
             <div className="relative min-h-[22rem] overflow-hidden rounded-[1.75rem] border border-white/15 shadow-2xl sm:min-h-[28rem]">
               <Image
-                src="/images/embroidery/hero-studio.png"
-                alt="Multi-needle embroidery machine stitching a detailed crest in a professional studio"
+                src={embroideryImages.hero.src}
+                alt={embroideryImages.hero.alt}
                 fill
-                priority
+                preload
                 sizes="(max-width: 1024px) 100vw, 52vw"
                 className="object-cover"
               />
@@ -167,8 +182,8 @@ export default function EmbroideryDigitizingPage() {
           />
           <div className="relative mt-12 aspect-square overflow-hidden rounded-3xl border border-line bg-mist shadow-xl">
             <Image
-              src="/images/embroidery/gallery-mosaic.png"
-              alt="Nine original embroidery samples including patches, a cap design, monogram, animal portrait, and club emblems"
+              src={embroideryImages.showcase.src}
+              alt={embroideryImages.showcase.alt}
               fill
               sizes="(max-width: 1152px) 100vw, 1100px"
               className="object-cover"
@@ -225,8 +240,8 @@ export default function EmbroideryDigitizingPage() {
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center lg:gap-20 lg:px-8">
           <div className="relative min-h-[25rem] overflow-hidden rounded-3xl border border-line bg-white shadow-xl sm:min-h-[32rem]">
             <Image
-              src="/images/embroidery/cap-detail.png"
-              alt="Close-up of a navy cap with a crisp gold and ivory embroidered T monogram"
+              src={embroideryImages.quality.src}
+              alt={embroideryImages.quality.alt}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"

@@ -3,6 +3,25 @@ import Link from "next/link";
 import { QuoteForm } from "@/components/quote-form";
 import { SectionHeading } from "@/components/section-heading";
 
+const vectorImages = {
+  hero: {
+    src: "/images/vector/hero-workspace.png",
+    alt: "Design workspace showing an original fox emblem being rebuilt with precise vector paths",
+  },
+  comparison: {
+    src: "/images/vector/raster-vector-comparison.png",
+    alt: "The same original hummingbird emblem shown as a pixelated raster image and a clean vector redraw",
+  },
+  applications: {
+    src: "/images/vector/production-mockups.png",
+    alt: "An original fox emblem applied consistently to apparel, stickers, signage, packaging, and an engraved tag",
+  },
+  showcase: {
+    src: "/images/vector/portfolio-mosaic.png",
+    alt: "Nine original vector artwork examples including badges, mascots, icons, and product graphics",
+  },
+};
+
 const metrics = [
   ["12+ years", "Hands-on experience"],
   ["85,000+", "Files delivered"],
@@ -121,10 +140,10 @@ export default function VectorArtPage() {
 
             <div className="relative min-h-[22rem] overflow-hidden rounded-[1.75rem] border border-white/15 shadow-2xl sm:min-h-[28rem]">
               <Image
-                src="/images/vector/hero-workspace.png"
-                alt="Design workspace showing an original fox emblem being rebuilt with precise vector paths"
+                src={vectorImages.hero.src}
+                alt={vectorImages.hero.alt}
                 fill
-                priority
+                preload
                 sizes="(max-width: 1024px) 100vw, 52vw"
                 className="object-cover"
               />
@@ -152,8 +171,8 @@ export default function VectorArtPage() {
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center lg:gap-20 lg:px-8">
           <div className="relative aspect-[3/2] overflow-hidden rounded-3xl border border-line bg-white shadow-xl">
             <Image
-              src="/images/vector/raster-vector-comparison.png"
-              alt="The same original hummingbird emblem shown as a pixelated raster image and a clean vector redraw"
+              src={vectorImages.comparison.src}
+              alt={vectorImages.comparison.alt}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
@@ -213,8 +232,8 @@ export default function VectorArtPage() {
           </div>
           <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-line bg-white shadow-xl">
             <Image
-              src="/images/vector/production-mockups.png"
-              alt="An original fox emblem applied consistently to apparel, stickers, signage, packaging, and an engraved tag"
+              src={vectorImages.applications.src}
+              alt={vectorImages.applications.alt}
               fill
               sizes="(max-width: 1024px) 100vw, 46vw"
               className="object-cover"
@@ -233,8 +252,8 @@ export default function VectorArtPage() {
           />
           <div className="relative mt-12 aspect-square overflow-hidden rounded-3xl border border-line bg-mist shadow-xl">
             <Image
-              src="/images/vector/portfolio-mosaic.png"
-              alt="Nine original vector artwork examples including badges, mascots, icons, and product graphics"
+              src={vectorImages.showcase.src}
+              alt={vectorImages.showcase.alt}
               fill
               sizes="(max-width: 1152px) 100vw, 1100px"
               className="object-cover"

@@ -5,6 +5,17 @@ import { PortfolioGallery } from "@/components/portfolio-gallery";
 import { SectionHeading } from "@/components/section-heading";
 import { portfolioProjects } from "@/data/portfolio-projects";
 
+const portfolioImages = {
+  embroideryQuality: {
+    src: "/images/portfolio/quality-embroidery.png",
+    alt: "Close-up of a navy cap demonstrating clean gold and ivory embroidery detail",
+  },
+  vectorQuality: {
+    src: "/images/portfolio/quality-vector.png",
+    alt: "Original hummingbird emblem comparing pixelated raster artwork with a clean vector redraw",
+  },
+};
+
 const qualityPrinciples = [
   ["Manual construction", "Stitch paths and vector curves are shaped intentionally instead of accepted from one-click automatic tracing."],
   ["Production awareness", "Artwork is prepared around the fabric, placement, scale, print method, cutting process, or other real output."],
@@ -115,8 +126,8 @@ export default function PortfolioPage() {
             <article className="overflow-hidden rounded-3xl border border-line bg-canvas">
               <div className="relative aspect-[4/3] overflow-hidden bg-mist">
                 <Image
-                  src="/images/embroidery/cap-detail.png"
-                  alt="Close-up of a navy cap demonstrating clean gold and ivory embroidery detail"
+                  src={portfolioImages.embroideryQuality.src}
+                  alt={portfolioImages.embroideryQuality.alt}
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
@@ -132,8 +143,8 @@ export default function PortfolioPage() {
             <article className="overflow-hidden rounded-3xl border border-line bg-canvas">
               <div className="relative aspect-[4/3] overflow-hidden bg-mist">
                 <Image
-                  src="/images/vector/raster-vector-comparison.png"
-                  alt="Original hummingbird emblem comparing pixelated raster artwork with a clean vector redraw"
+                  src={portfolioImages.vectorQuality.src}
+                  alt={portfolioImages.vectorQuality.alt}
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"

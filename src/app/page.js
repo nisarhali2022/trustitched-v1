@@ -3,6 +3,29 @@ import Link from "next/link";
 import { QuoteForm } from "@/components/quote-form";
 import { SectionHeading } from "@/components/section-heading";
 
+const homeImages = {
+  hero: {
+    src: "/images/home/hero-dual-service.png",
+    alt: "An original owl crest transitioning from clean vector artwork into detailed commercial embroidery",
+  },
+  embroideryService: {
+    src: "/images/home/service-embroidery.png",
+    alt: "Multi-needle embroidery machine stitching a detailed crest in a professional studio",
+  },
+  vectorService: {
+    src: "/images/home/service-vector.png",
+    alt: "Design workspace showing an original fox emblem being rebuilt with precise vector paths",
+  },
+  embroideryShowcase: {
+    src: "/images/home/showcase-embroidery.png",
+    alt: "Nine original embroidery samples demonstrating badges, portraits, monograms, and garment applications",
+  },
+  vectorShowcase: {
+    src: "/images/home/showcase-vector.png",
+    alt: "Nine original vector examples demonstrating badges, mascots, icons, and product graphics",
+  },
+};
+
 const metrics = [
   ["12+ years", "Hands-on experience"],
   ["85,000+", "Files delivered"],
@@ -18,8 +41,7 @@ const services = [
     features: ["Caps, polos, jackets, and patches", "Small lettering, appliqué, and 3D puff", "DST, PES, EXP, EMB, and more"],
     href: "/embroidery-digitizing",
     cta: "Explore digitizing",
-    image: "/images/embroidery/hero-studio.png",
-    alt: "Multi-needle embroidery machine stitching a detailed crest in a professional studio",
+    image: homeImages.embroideryService,
   },
   {
     eyebrow: "Scalable master artwork",
@@ -28,8 +50,7 @@ const services = [
     features: ["Logo redraws and manual vector tracing", "Screen print, vinyl, and engraving artwork", "AI, EPS, SVG, PDF, CDR, and previews"],
     href: "/vector-art",
     cta: "Explore vector art",
-    image: "/images/vector/hero-workspace.png",
-    alt: "Design workspace showing an original fox emblem being rebuilt with precise vector paths",
+    image: homeImages.vectorService,
   },
 ];
 
@@ -112,10 +133,10 @@ export default function Home() {
 
           <div className="relative min-h-[24rem] overflow-hidden rounded-[1.75rem] border border-white/15 shadow-2xl sm:min-h-[31rem]">
             <Image
-              src="/images/home/hero-dual-service.png"
-              alt="An original owl crest transitioning from clean vector artwork into detailed commercial embroidery"
+              src={homeImages.hero.src}
+              alt={homeImages.hero.alt}
               fill
-              priority
+              preload
               sizes="(max-width: 1024px) 100vw, 52vw"
               className="object-cover"
             />
@@ -175,7 +196,7 @@ export default function Home() {
             {services.map((service, index) => (
               <article className="grid overflow-hidden rounded-3xl border border-line bg-canvas lg:grid-cols-2" key={service.title}>
                 <div className={`relative min-h-[22rem] ${index % 2 === 1 ? "lg:order-2" : ""}`}>
-                  <Image src={service.image} alt={service.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+                  <Image src={service.image.src} alt={service.image.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
                 </div>
                 <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-12">
                   <p className="eyebrow text-gold-dark">{service.eyebrow}</p>
@@ -224,14 +245,14 @@ export default function Home() {
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
             <article>
               <div className="relative aspect-square overflow-hidden rounded-3xl border border-line bg-mist shadow-lg">
-                <Image src="/images/embroidery/gallery-mosaic.png" alt="Nine original embroidery samples demonstrating badges, portraits, monograms, and garment applications" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+                <Image src={homeImages.embroideryShowcase.src} alt={homeImages.embroideryShowcase.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
               </div>
               <p className="mt-5 eyebrow text-gold-dark">Embroidery showcase</p>
               <h3 className="mt-2 font-display text-3xl text-ink">Texture, sequencing, and detail.</h3>
             </article>
             <article>
               <div className="relative aspect-square overflow-hidden rounded-3xl border border-line bg-mist shadow-lg">
-                <Image src="/images/vector/portfolio-mosaic.png" alt="Nine original vector examples demonstrating badges, mascots, icons, and product graphics" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+                <Image src={homeImages.vectorShowcase.src} alt={homeImages.vectorShowcase.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
               </div>
               <p className="mt-5 eyebrow text-gold-dark">Vector showcase</p>
               <h3 className="mt-2 font-display text-3xl text-ink">Clean construction at every scale.</h3>
