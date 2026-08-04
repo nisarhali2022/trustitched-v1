@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
 const navigation = [
   ["Home", "/"],
@@ -26,7 +27,23 @@ function Brand() {
 }
 
 export function SiteHeader() {
+  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const menuButtonRef = useRef(null);
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return undefined;
+
+    function handleKeyDown(event) {
+      if (event.key === "Escape") {
+        setMobileMenuOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [mobileMenuOpen]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-canvas/95 backdrop-blur-md">
@@ -42,7 +59,7 @@ export function SiteHeader() {
         <Brand />
         <nav className="hidden items-center gap-6 xl:flex" aria-label="Primary navigation">
           {navigation.map(([label, href]) => (
-            <Link className="text-sm font-semibold text-slate transition hover:text-ink" href={href} key={href}>
+            <Link className={`text-sm font-semibold transition hover:text-ink ${pathname === href ? "text-ink" : "text-slate"}`} href={href} aria-current={pathname === href ? "page" : undefined} key={href}>
               {label}
             </Link>
           ))}
@@ -54,6 +71,7 @@ export function SiteHeader() {
         </div>
         <div className="relative xl:hidden">
           <button
+            ref={menuButtonRef}
             className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-line bg-white text-ink"
             type="button"
             aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
@@ -71,7 +89,7 @@ export function SiteHeader() {
             <div className="absolute right-0 top-14 w-[min(20rem,calc(100vw-2rem))] rounded-2xl border border-line bg-canvas p-3 shadow-2xl" id="mobile-navigation">
               <nav className="flex flex-col" aria-label="Mobile navigation">
                 {navigation.map(([label, href]) => (
-                  <Link className="rounded-xl px-4 py-3 text-sm font-semibold text-ink hover:bg-white" href={href} key={href} onClick={() => setMobileMenuOpen(false)}>
+                  <Link className={`rounded-xl px-4 py-3 text-sm font-semibold text-ink hover:bg-white ${pathname === href ? "bg-white" : ""}`} href={href} aria-current={pathname === href ? "page" : undefined} key={href} onClick={() => setMobileMenuOpen(false)}>
                     {label}
                   </Link>
                 ))}

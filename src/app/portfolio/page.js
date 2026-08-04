@@ -4,6 +4,7 @@ import { CallToAction } from "@/components/call-to-action";
 import { PortfolioGallery } from "@/components/portfolio-gallery";
 import { SectionHeading } from "@/components/section-heading";
 import { portfolioProjects } from "@/data/portfolio-projects";
+import { createPageMetadata } from "@/lib/site";
 
 const portfolioImages = {
   embroideryQuality: {
@@ -23,15 +24,11 @@ const qualityPrinciples = [
   ["Revision support", "Reasonable minor revisions stay focused on the approved artwork, dimensions, technique, and production brief."],
 ];
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Embroidery Digitizing & Vector Art Portfolio",
-  description: "Explore original Trustitched studio samples across cap, patch, jacket, and small-letter embroidery digitizing plus clean vector artwork for print, packaging, and signage.",
-  alternates: { canonical: "/portfolio" },
-  openGraph: {
-    title: "Embroidery Digitizing & Vector Art Portfolio | Trustitched",
-    description: "A production-focused selection of original embroidery digitizing and vector art studio samples from Trustitched.",
-  },
-};
+  description: "Explore original Trustitched studio samples across embroidery digitizing and vector art for apparel, patches, print, packaging, and signage.",
+  path: "/portfolio",
+});
 
 export default function PortfolioPage() {
   const featuredEmbroidery = portfolioProjects[0];

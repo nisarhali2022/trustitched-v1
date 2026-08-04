@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { QuoteForm } from "@/components/quote-form";
 import { SectionHeading } from "@/components/section-heading";
+import { StructuredData } from "@/components/structured-data";
+import { createPageMetadata, createServiceStructuredData } from "@/lib/site";
 
 const embroideryImages = {
   hero: {
@@ -83,19 +85,24 @@ const faqs = [
   ["What is the difference between digitizing and vector conversion?", "Digitizing creates instructions for an embroidery machine. Vector conversion creates scalable editable artwork for printing, cutting, or design use. Many projects benefit from both services."],
 ];
 
-export const metadata = {
+const embroideryDescription = "Production-ready embroidery digitizing for caps, polos, jacket backs, patches, small lettering, and 3D puff, with standard 12–24 hour turnaround.";
+
+export const metadata = createPageMetadata({
   title: "Professional Embroidery Digitizing Services",
-  description: "Fast, production-ready embroidery digitizing for caps, polos, jacket backs, patches, appliqué, small lettering, and 3D puff. Standard turnaround in 12–24 hours.",
-  alternates: { canonical: "/embroidery-digitizing" },
-  openGraph: {
-    title: "Professional Embroidery Digitizing Services | Trustitched",
-    description: "Manual, fabric-aware embroidery digitizing with 12–24 hour standard turnaround and support for major machine formats.",
-  },
-};
+  description: embroideryDescription,
+  path: "/embroidery-digitizing",
+});
+
+const embroideryStructuredData = createServiceStructuredData({
+  name: "Professional Embroidery Digitizing",
+  description: embroideryDescription,
+  path: "/embroidery-digitizing",
+});
 
 export default function EmbroideryDigitizingPage() {
   return (
     <>
+      <StructuredData data={embroideryStructuredData} />
       <section className="relative overflow-hidden bg-ink text-white">
         <div className="page-hero-pattern absolute inset-0" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">

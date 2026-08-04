@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { QuoteForm } from "@/components/quote-form";
 import { SectionHeading } from "@/components/section-heading";
+import { StructuredData } from "@/components/structured-data";
+import { createPageMetadata, createServiceStructuredData } from "@/lib/site";
 
 const vectorImages = {
   hero: {
@@ -96,19 +98,24 @@ const faqs = [
   ["Is vector conversion the same as embroidery digitizing?", "No. Vector conversion creates scalable design artwork for printing, cutting, and editing. Embroidery digitizing creates stitch instructions for an embroidery machine. Some projects need both services."],
 ];
 
-export const metadata = {
+const vectorDescription = "Manual raster-to-vector conversion for logos, apparel, signage, engraving, vinyl, packaging, and clean print-ready production artwork.";
+
+export const metadata = createPageMetadata({
   title: "Professional Vector Art Conversion Services",
-  description: "Manual raster-to-vector conversion for logos, screen printing, signage, engraving, vinyl cutting, packaging, and production artwork. Simple redraws from $10.",
-  alternates: { canonical: "/vector-art" },
-  openGraph: {
-    title: "Professional Vector Art Conversion Services | Trustitched",
-    description: "Clean, manually redrawn vector artwork prepared for printing, cutting, engraving, signage, packaging, and everyday design use.",
-  },
-};
+  description: vectorDescription,
+  path: "/vector-art",
+});
+
+const vectorStructuredData = createServiceStructuredData({
+  name: "Professional Vector Art Conversion",
+  description: vectorDescription,
+  path: "/vector-art",
+});
 
 export default function VectorArtPage() {
   return (
     <>
+      <StructuredData data={vectorStructuredData} />
       <section className="relative overflow-hidden bg-ink text-white">
         <div className="page-hero-pattern absolute inset-0" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { QuoteForm } from "@/components/quote-form";
 import { SectionHeading } from "@/components/section-heading";
+import { createPageMetadata } from "@/lib/site";
 
 const homeImages = {
   hero: {
@@ -91,15 +92,12 @@ const faqs = [
   ["Does the quote form upload and send files yet?", "Not yet. The current form is presentation-ready but still needs to be connected to a form or email service before launch. It clearly identifies this limitation beside the request button."],
 ];
 
-export const metadata = {
-  title: "Professional Embroidery Digitizing & Vector Art",
+export const metadata = createPageMetadata({
+  title: "Embroidery Digitizing & Vector Art",
   description: "Manual embroidery digitizing and vector art conversion prepared for reliable apparel, print, signage, cutting, engraving, and brand production.",
-  alternates: { canonical: "/" },
-  openGraph: {
-    title: "Professional Embroidery Digitizing & Vector Art | Trustitched",
-    description: "Production-minded embroidery digitizing and vector artwork with fast standard turnaround and support for major file formats.",
-  },
-};
+  path: "/",
+  absoluteTitle: true,
+});
 
 export default function Home() {
   return (

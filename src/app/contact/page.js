@@ -1,10 +1,12 @@
 import { PageHero } from "@/components/page-hero";
 import { QuoteForm } from "@/components/quote-form";
+import { createPageMetadata } from "@/lib/site";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Contact Us",
-  description: "Request a free quote for embroidery digitizing or vector artwork from the Trustitched studio.",
-};
+  description: "Request a free quote for professional embroidery digitizing or vector artwork and share your production requirements with the Trustitched studio.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

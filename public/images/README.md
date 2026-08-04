@@ -10,6 +10,7 @@ To replace an image without editing code, overwrite the existing file with the s
 - `embroidery/` contains the three Embroidery Digitizing page images.
 - `vector/` contains the four Vector Art page images.
 - `portfolio/` contains the twelve gallery projects and two Portfolio-only quality images.
+- `social/` contains the shared 1200Ã—630 Open Graph and Twitter preview image.
 
 The Portfolio gallery metadata, including paths and alt text, is stored in `src/data/portfolio-projects.js`. The Contact page currently has no content images. The header brand mark and decorative page patterns are built with text and CSS, so they do not require image files.
 
