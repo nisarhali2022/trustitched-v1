@@ -1,8 +1,12 @@
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { StructuredData } from "@/components/structured-data";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { siteConfig, siteStructuredData } from "@/lib/site";
 import "./globals.css";
+
+const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION;
+const googleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID;
 
 export const metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -31,6 +35,9 @@ export const metadata = {
     index: true,
     follow: true,
   },
+  ...(googleSiteVerification
+    ? { verification: { google: googleSiteVerification } }
+    : {}),
 };
 
 export default function RootLayout({ children }) {
@@ -47,6 +54,9 @@ export default function RootLayout({ children }) {
           <SiteFooter />
         </div>
       </body>
+      {process.env.NODE_ENV === "production" && googleAnalyticsId ? (
+        <GoogleAnalytics gaId={googleAnalyticsId} />
+      ) : null}
     </html>
   );
 }
