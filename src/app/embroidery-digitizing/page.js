@@ -109,11 +109,11 @@ export default function EmbroideryDigitizingPage() {
           <nav className="flex items-center gap-2 text-xs font-semibold text-white/55" aria-label="Breadcrumb">
             <Link className="hover:text-white" href="/">Home</Link>
             <span aria-hidden="true">/</span>
-            <span className="text-gold-light">Embroidery Digitizing</span>
+            <span className="text-teal-light">Embroidery Digitizing</span>
           </nav>
           <div className="mt-9 grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-16">
             <div>
-              <p className="eyebrow text-gold-light">Manual digitizing • zero auto-tracing</p>
+              <p className="eyebrow text-teal-light">Manual digitizing • zero auto-tracing</p>
               <h1 className="mt-4 font-display text-5xl leading-[1.02] tracking-[-0.035em] sm:text-6xl">
                 Fast, professional embroidery digitizing in 12–24 hours.
               </h1>
@@ -122,11 +122,11 @@ export default function EmbroideryDigitizingPage() {
               </p>
               <ul className="mt-7 grid gap-3 text-sm font-semibold text-white/82 sm:grid-cols-2">
                 {["Digitized manually", "Major machine formats", "Minor revisions included", "Fabric-aware file setup"].map((item) => (
-                  <li className="flex items-center gap-3" key={item}><span className="text-gold-light" aria-hidden="true">✓</span>{item}</li>
+                  <li className="flex items-center gap-3" key={item}><span className="text-teal-light" aria-hidden="true">✓</span>{item}</li>
                 ))}
               </ul>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <Link className="button button-gold" href="#quote-form">Get a free quote <span aria-hidden="true">↓</span></Link>
+                <Link className="button button-teal" href="#quote-form">Get a free quote <span aria-hidden="true">↓</span></Link>
                 <Link className="button button-ghost" href="/portfolio">View embroidery work</Link>
               </div>
             </div>
@@ -141,7 +141,7 @@ export default function EmbroideryDigitizingPage() {
               />
               <div className="absolute inset-x-5 bottom-5 flex items-center justify-between rounded-xl border border-white/15 bg-ink/85 px-5 py-4 backdrop-blur">
                 <span className="text-sm font-bold">Artwork in. Production file out.</span>
-                <span className="text-xs text-gold-light">DST • PES • EXP • EMB</span>
+                <span className="text-xs text-teal-light">DST • PES • EXP • EMB</span>
               </div>
             </div>
           </div>
@@ -170,7 +170,7 @@ export default function EmbroideryDigitizingPage() {
           <div className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
             {services.map(([number, title, description]) => (
               <article className="bg-white p-7 sm:p-8" key={title}>
-                <span className="font-display text-2xl text-gold-dark">{number}</span>
+                <span className="font-display text-2xl text-teal-dark">{number}</span>
                 <h2 className="mt-8 text-lg font-bold text-ink">{title}</h2>
                 <p className="mt-3 leading-7 text-slate">{description}</p>
               </article>
@@ -209,13 +209,13 @@ export default function EmbroideryDigitizingPage() {
           />
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {prices.map((price) => (
-              <article className={`relative rounded-3xl border bg-white p-8 ${price.featured ? "border-gold shadow-xl" : "border-line"}`} key={price.label}>
-                {price.featured ? <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gold px-4 py-1 text-xs font-bold uppercase tracking-wider text-ink">Most popular</span> : null}
-                <p className="eyebrow text-gold-dark">{price.label}</p>
+              <article className={`relative rounded-3xl border bg-white p-8 ${price.featured ? "border-teal shadow-xl" : "border-line"}`} key={price.label}>
+                {price.featured ? <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-teal-action px-4 py-1 text-xs font-bold uppercase tracking-wider text-ink">Most popular</span> : null}
+                <p className="eyebrow text-teal-dark">{price.label}</p>
                 <h2 className="mt-4 font-display text-4xl text-ink">{price.price}</h2>
                 <p className="mt-4 min-h-14 leading-7 text-slate">{price.description}</p>
                 <ul className="mt-6 space-y-3 border-t border-line pt-6 text-sm text-slate">
-                  {price.features.map((feature) => <li className="flex gap-3" key={feature}><span className="text-gold-dark" aria-hidden="true">✓</span>{feature}</li>)}
+                  {price.features.map((feature) => <li className="flex gap-3" key={feature}><span className="text-teal-dark" aria-hidden="true">✓</span>{feature}</li>)}
                 </ul>
                 <Link className="button button-ink mt-8 w-full" href="#quote-form">Get my quote</Link>
               </article>
@@ -227,7 +227,7 @@ export default function EmbroideryDigitizingPage() {
       <section className="bg-white py-20 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20 lg:px-8">
           <div>
-            <p className="eyebrow text-gold-dark">How it works</p>
+            <p className="eyebrow text-teal-dark">How it works</p>
             <h2 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">From artwork to embroidery file in three clear steps.</h2>
             <p className="mt-5 text-lg leading-8 text-slate">A complete brief helps us prepare the right file quickly and reduces production guesswork.</p>
             <Link className="button button-ink mt-8" href="#quote-form">Start your quote</Link>
@@ -235,7 +235,7 @@ export default function EmbroideryDigitizingPage() {
           <ol className="divide-y divide-line border-y border-line">
             {process.map(([number, title, description]) => (
               <li className="grid gap-4 py-7 sm:grid-cols-[4rem_1fr]" key={number}>
-                <span className="font-display text-3xl text-gold-dark">{number}</span>
+                <span className="font-display text-3xl text-teal-dark">{number}</span>
                 <div><h3 className="text-lg font-bold text-ink">{title}</h3><p className="mt-2 leading-7 text-slate">{description}</p></div>
               </li>
             ))}
@@ -255,7 +255,7 @@ export default function EmbroideryDigitizingPage() {
             />
           </div>
           <div>
-            <p className="eyebrow text-gold-dark">Why choose Trustitched</p>
+            <p className="eyebrow text-teal-dark">Why choose Trustitched</p>
             <h2 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">Quality comes from decisions made before the first stitch.</h2>
             <p className="mt-5 text-lg leading-8 text-slate">Reliable embroidery begins with a file planned for the actual material and placement—not just an image that looks right on screen.</p>
             <div className="mt-8 grid gap-5 sm:grid-cols-2">
@@ -272,7 +272,7 @@ export default function EmbroideryDigitizingPage() {
 
       <section className="border-y border-line bg-white py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <p className="eyebrow text-center text-gold-dark">Common delivery formats</p>
+          <p className="eyebrow text-center text-teal-dark">Common delivery formats</p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             {formats.map((format) => <span className="rounded-full border border-line bg-canvas px-5 py-2 text-sm font-bold text-ink" key={format}>{format}</span>)}
           </div>
@@ -283,17 +283,17 @@ export default function EmbroideryDigitizingPage() {
       <section className="bg-canvas py-20 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:gap-20 lg:px-8">
           <div>
-            <p className="eyebrow text-gold-dark">Built for real production</p>
+            <p className="eyebrow text-teal-dark">Built for real production</p>
             <h2 className="mt-3 font-display text-4xl leading-tight text-ink">Manual digitizing that respects fabric, size, and placement.</h2>
             <p className="mt-5 leading-8 text-slate">The same logo cannot be stitched identically on a cap, polo, fleece jacket, and patch. Fabric stretch, nap, panel structure, and finished size all affect the underlay, density, compensation, and stitch direction required for a clean result.</p>
             <p className="mt-5 leading-8 text-slate">We build each file around those production conditions, then review the color sequence, trims, small details, and overall efficiency before delivery. This helps reduce unnecessary stops and gives your operator a more dependable starting point.</p>
           </div>
           <div className="rounded-3xl border border-line bg-white p-7 sm:p-9">
-            <p className="eyebrow text-gold-dark">What to send</p>
+            <p className="eyebrow text-teal-dark">What to send</p>
             <h3 className="mt-3 font-display text-3xl text-ink">A strong brief makes a stronger file.</h3>
             <ul className="mt-7 divide-y divide-line text-sm leading-6 text-slate">
               {["The clearest artwork available", "Exact finished width or height", "Garment, fabric, and placement", "Required thread colors", "Machine format or machine brand", "Deadline and any special technique"].map((item) => (
-                <li className="flex items-center gap-3 py-3" key={item}><span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-canvas text-gold-dark" aria-hidden="true">✓</span>{item}</li>
+                <li className="flex items-center gap-3 py-3" key={item}><span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-canvas text-teal-dark" aria-hidden="true">✓</span>{item}</li>
               ))}
             </ul>
           </div>
@@ -312,7 +312,7 @@ export default function EmbroideryDigitizingPage() {
             {faqs.map(([question, answer]) => (
               <details className="group" key={question}>
                 <summary className="flex cursor-pointer items-center justify-between gap-6 py-5 font-bold text-ink">
-                  {question}<span className="text-xl font-normal text-gold-dark transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+                  {question}<span className="text-xl font-normal text-teal-dark transition-transform group-open:rotate-45" aria-hidden="true">+</span>
                 </summary>
                 <p className="max-w-3xl pb-6 pr-12 leading-7 text-slate">{answer}</p>
               </details>
@@ -324,12 +324,12 @@ export default function EmbroideryDigitizingPage() {
       <section className="scroll-mt-28 bg-mist py-20 sm:py-24" id="quote-form">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-start lg:gap-20 lg:px-8">
           <div>
-            <p className="eyebrow text-gold-dark">Ready to start?</p>
+            <p className="eyebrow text-teal-dark">Ready to start?</p>
             <h2 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">Send your artwork for a clear, no-pressure quote.</h2>
             <p className="mt-5 text-lg leading-8 text-slate">Include the finished size, fabric, placement, and output format. We will review the artwork and confirm the price before production begins.</p>
             <div className="mt-8 border-y border-line py-6 text-sm text-slate">
-              <p><strong className="text-ink">Prefer to talk?</strong> Call <a className="font-bold text-gold-dark hover:text-ink" href="tel:+1800123456">+1 (800) 123456</a>.</p>
-              <p className="mt-3">You can also use the full <Link className="font-bold text-gold-dark hover:text-ink" href="/contact">Contact Us page</Link>.</p>
+              <p><strong className="text-ink">Prefer to talk?</strong> Call <a className="font-bold text-teal-dark hover:text-ink" href="tel:+1800123456">+1 (800) 123456</a>.</p>
+              <p className="mt-3">You can also use the full <Link className="font-bold text-teal-dark hover:text-ink" href="/contact">Contact Us page</Link>.</p>
             </div>
           </div>
           <QuoteForm idPrefix="embroidery" defaultService="digitizing" />

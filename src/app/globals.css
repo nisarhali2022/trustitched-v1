@@ -1,22 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #10283d;
-  --canvas: #fbf8f1;
-  --gold: #bd914c;
-  --gold-dark: #8f672d;
-  --gold-light: #e0bf83;
+  --ink: #0c313d;
+  --canvas: #edf5f3;
+  --teal: #2aa0a2;
+  --teal-dark: #176f73;
+  --teal-light: #72d4d3;
+  --teal-action: #32a9aa;
   --slate: #5f6e78;
-  --line: #e6ddcd;
-  --mist: #f1f3f1;
+  --line: #d8e5e2;
+  --mist: #edf5f3;
 }
 
 @theme inline {
   --color-ink: var(--ink);
   --color-canvas: var(--canvas);
-  --color-gold: var(--gold);
-  --color-gold-dark: var(--gold-dark);
-  --color-gold-light: var(--gold-light);
+  --color-teal: var(--teal);
+  --color-teal-dark: var(--teal-dark);
+  --color-teal-light: var(--teal-light);
+  --color-teal-action: var(--teal-action);
   --color-slate: var(--slate);
   --color-line: var(--line);
   --color-mist: var(--mist);
@@ -55,11 +57,11 @@ textarea {
 }
 
 :focus-visible {
-  outline: 3px solid var(--gold);
+  outline: 3px solid var(--teal-dark);
 }
 
 ::selection {
-  background: var(--gold-light);
+  background: var(--teal-light);
   color: var(--ink);
 }
 
@@ -87,13 +89,13 @@ textarea {
   transform: translateY(-2px);
 }
 
-.button-gold {
-  background: var(--gold);
-  color: #102238;
+.button-teal {
+  background: var(--teal-action);
+  color: var(--ink);
 }
 
-.button-gold:hover {
-  background: var(--gold-light);
+.button-teal:hover {
+  background: var(--teal-light);
 }
 
 .button-ink {
@@ -102,7 +104,7 @@ textarea {
 }
 
 .button-ink:hover {
-  background: #1b3a53;
+  background: #164b59;
 }
 
 .button-ghost {
@@ -111,8 +113,8 @@ textarea {
 }
 
 .button-ghost:hover {
-  border-color: var(--gold-light);
-  color: var(--gold-light);
+  border-color: var(--teal-light);
+  color: var(--teal-light);
 }
 
 .page-hero-pattern {
@@ -130,8 +132,8 @@ textarea {
 }
 
 .form-field:focus {
-  border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgb(189 145 76 / 14%);
+  border-color: var(--teal-dark);
+  box-shadow: 0 0 0 3px rgb(23 111 115 / 20%);
   outline: none;
 }
 

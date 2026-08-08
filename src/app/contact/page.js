@@ -21,21 +21,21 @@ export default function ContactPage() {
       <section className="bg-canvas py-20 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20 lg:px-8">
           <aside>
-            <p className="eyebrow text-gold-dark">Studio details</p>
+            <p className="eyebrow text-teal-dark">Studio details</p>
             <h2 className="mt-3 font-display text-4xl leading-tight text-ink">A straightforward start to every project.</h2>
             <p className="mt-5 leading-7 text-slate">The more production information you can share, the more accurately we can prepare your quote and file.</p>
 
             <div className="mt-9 divide-y divide-line border-y border-line">
               <div className="py-5">
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-gold-dark">Call our studio</p>
-                <a className="mt-2 block font-display text-2xl text-ink hover:text-gold-dark" href="tel:+1800123456">+1 (800) 123456</a>
+                <p className="text-xs font-bold uppercase tracking-[0.16em] text-teal-dark">Call our studio</p>
+                <a className="mt-2 block font-display text-2xl text-ink hover:text-teal-dark" href="tel:+1800123456">+1 (800) 123456</a>
               </div>
               <div className="py-5">
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-gold-dark">Typical turnaround</p>
+                <p className="text-xs font-bold uppercase tracking-[0.16em] text-teal-dark">Typical turnaround</p>
                 <p className="mt-2 text-ink">12–24 hours for standard projects</p>
               </div>
               <div className="py-5">
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-gold-dark">Helpful details</p>
+                <p className="text-xs font-bold uppercase tracking-[0.16em] text-teal-dark">Helpful details</p>
                 <p className="mt-2 leading-7 text-slate">Finished size, fabric or application, color count, deadline, and preferred file format.</p>
               </div>
             </div>

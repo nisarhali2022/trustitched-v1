@@ -11,10 +11,10 @@ export function QuoteForm({ idPrefix = "quote", defaultService = "" }) {
   const noteId = `${idPrefix}-form-note`;
 
   return (
-    <div className="rounded-3xl border border-line bg-white p-6 shadow-[0_20px_60px_rgba(16,40,61,0.08)] sm:p-9">
+    <div className="rounded-3xl border border-line bg-white p-6 shadow-[0_20px_60px_rgba(12,49,61,0.08)] sm:p-9">
       <div className="flex flex-col gap-2 border-b border-line pb-6 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="eyebrow text-gold-dark">Free quote request</p>
+          <p className="eyebrow text-teal-dark">Free quote request</p>
           <h2 className="mt-2 font-display text-3xl text-ink">Project details</h2>
         </div>
         <p className="text-xs text-slate">Fields marked * are required</p>

@@ -1,13 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
+import { HeroComparisonSlider } from "@/components/hero-comparison-slider";
 import { QuoteForm } from "@/components/quote-form";
 import { SectionHeading } from "@/components/section-heading";
 import { createPageMetadata } from "@/lib/site";
 
 const homeImages = {
-  hero: {
-    src: "/images/home/hero-dual-service.png",
-    alt: "An original owl crest transitioning from clean vector artwork into detailed commercial embroidery",
+  heroBefore: {
+    src: "/images/home/hero-vector-before.png",
+    alt: "A complete ornamental owl crest constructed as clean vector artwork",
+  },
+  heroAfter: {
+    src: "/images/home/hero-embroidery-after.png",
+    alt: "The matching ornamental owl crest rendered as detailed commercial embroidery on navy fabric",
   },
   embroideryService: {
     src: "/images/home/service-embroidery.png",
@@ -106,7 +111,7 @@ export default function Home() {
         <div className="page-hero-pattern absolute inset-0" aria-hidden="true" />
         <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-16 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-16 lg:px-8 lg:py-20">
           <div>
-            <p className="eyebrow text-gold-light">Manual craft • production-ready files</p>
+            <p className="eyebrow text-teal-light">Manual craft • production-ready files</p>
             <h1 className="mt-4 max-w-3xl font-display text-5xl leading-[1.02] tracking-[-0.035em] sm:text-6xl">
               Professional Embroidery Digitizing &amp; Vector Art, Built for Production.
             </h1>
@@ -115,34 +120,21 @@ export default function Home() {
             </p>
             <ul className="mt-7 grid gap-3 text-sm font-semibold text-white/82 sm:grid-cols-2">
               {["Digitized and redrawn manually", "12–24 hour standard turnaround", "Major embroidery and vector formats", "Reasonable minor revisions included"].map((item) => (
-                <li className="flex items-center gap-3" key={item}><span className="text-gold-light" aria-hidden="true">✓</span>{item}</li>
+                <li className="flex items-center gap-3" key={item}><span className="text-teal-light" aria-hidden="true">✓</span>{item}</li>
               ))}
             </ul>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link className="button button-gold" href="#quote-form">Get a free quote <span aria-hidden="true">↓</span></Link>
+              <Link className="button button-teal" href="#quote-form">Get a free quote <span aria-hidden="true">↓</span></Link>
               <Link className="button button-ghost" href="/portfolio">View our work</Link>
             </div>
             <div className="mt-7 flex flex-wrap gap-x-7 gap-y-3 text-xs font-semibold text-white/70">
-              <span className="flex items-center gap-2"><b className="text-gold-light" aria-hidden="true">✓</b> No credit card required</span>
-              <span className="flex items-center gap-2"><b className="text-gold-light" aria-hidden="true">✓</b> Clear price before production</span>
-              <span className="flex items-center gap-2"><b className="text-gold-light" aria-hidden="true">✓</b> Direct studio support</span>
+              <span className="flex items-center gap-2"><b className="text-teal-light" aria-hidden="true">✓</b> No credit card required</span>
+              <span className="flex items-center gap-2"><b className="text-teal-light" aria-hidden="true">✓</b> Clear price before production</span>
+              <span className="flex items-center gap-2"><b className="text-teal-light" aria-hidden="true">✓</b> Direct studio support</span>
             </div>
           </div>
 
-          <div className="relative min-h-[24rem] overflow-hidden rounded-[1.75rem] border border-white/15 shadow-2xl sm:min-h-[31rem]">
-            <Image
-              src={homeImages.hero.src}
-              alt={homeImages.hero.alt}
-              fill
-              preload
-              sizes="(max-width: 1024px) 100vw, 52vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-x-5 bottom-5 flex flex-col gap-2 rounded-xl border border-white/15 bg-ink/88 px-5 py-4 backdrop-blur sm:flex-row sm:items-center sm:justify-between">
-              <span className="text-sm font-bold">One studio. Two production specialties.</span>
-              <span className="text-xs text-gold-light">STITCH FILES • VECTOR ARTWORK</span>
-            </div>
-          </div>
+          <HeroComparisonSlider before={homeImages.heroBefore} after={homeImages.heroAfter} />
         </div>
       </section>
 
@@ -157,24 +149,24 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-canvas py-20 sm:py-24">
+      <section className="border-y border-line bg-mist py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-center lg:gap-20">
             <div>
-              <p className="eyebrow text-gold-dark">Typical project pricing</p>
+              <p className="eyebrow text-teal-dark">Typical project pricing</p>
               <h2 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">Straightforward production files often start around $15.</h2>
               <p className="mt-5 text-lg leading-8 text-slate">This is general homepage guidance, not a guaranteed minimum. We review the source and confirm the exact price before work begins.</p>
               <p className="mt-5 leading-7 text-slate">Complexity, finished size, source quality, stitch technique, required formats, revisions, and turnaround can all affect the final quote.</p>
-              <Link className="button button-ink mt-8" href="#quote-form">Request exact pricing</Link>
+              <Link className="button button-teal mt-8" href="#quote-form">Request exact pricing</Link>
             </div>
             <div className="grid gap-5 sm:grid-cols-2">
               {pricing.map((item) => (
-                <article className="rounded-3xl border border-line bg-white p-7 shadow-[0_16px_45px_rgba(16,40,61,0.06)]" key={item.service}>
-                  <p className="eyebrow text-gold-dark">{item.service}</p>
+                <article className="rounded-3xl border border-teal/35 bg-white p-7 shadow-[0_18px_50px_rgba(12,49,61,0.10)]" key={item.service}>
+                  <p className="eyebrow text-teal-dark">{item.service}</p>
                   <p className="mt-5 text-sm font-semibold uppercase tracking-wider text-slate">Typical projects from</p>
-                  <strong className="mt-1 block font-display text-5xl text-ink">{item.price}</strong>
+                  <strong className="mt-1 block font-display text-5xl text-teal-dark">{item.price}</strong>
                   <p className="mt-4 leading-7 text-slate">{item.description}</p>
-                  <Link className="mt-7 inline-flex items-center gap-2 font-bold text-ink hover:text-gold-dark" href={item.href}>View detailed pricing <span aria-hidden="true">→</span></Link>
+                  <Link className="mt-7 inline-flex items-center gap-2 font-bold text-teal-dark hover:text-ink" href={item.href}>View detailed pricing <span aria-hidden="true">→</span></Link>
                 </article>
               ))}
             </div>
@@ -197,11 +189,11 @@ export default function Home() {
                   <Image src={service.image.src} alt={service.image.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
                 </div>
                 <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-12">
-                  <p className="eyebrow text-gold-dark">{service.eyebrow}</p>
+                  <p className="eyebrow text-teal-dark">{service.eyebrow}</p>
                   <h2 className="mt-3 font-display text-4xl leading-tight text-ink">{service.title}</h2>
                   <p className="mt-5 text-lg leading-8 text-slate">{service.description}</p>
                   <ul className="mt-6 space-y-3 text-sm text-slate">
-                    {service.features.map((feature) => <li className="flex gap-3" key={feature}><span className="text-gold-dark" aria-hidden="true">✓</span>{feature}</li>)}
+                    {service.features.map((feature) => <li className="flex gap-3" key={feature}><span className="text-teal-dark" aria-hidden="true">✓</span>{feature}</li>)}
                   </ul>
                   <div className="mt-8"><Link className="button button-ink" href={service.href}>{service.cta}</Link></div>
                 </div>
@@ -214,7 +206,7 @@ export default function Home() {
       <section className="bg-mist py-20 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20 lg:px-8">
           <div>
-            <p className="eyebrow text-gold-dark">How it works</p>
+            <p className="eyebrow text-teal-dark">How it works</p>
             <h2 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">From source artwork to production in three clear steps.</h2>
             <p className="mt-5 text-lg leading-8 text-slate">A useful brief helps us prepare the right file efficiently and reduces production guesswork.</p>
             <Link className="button button-ink mt-8" href="#quote-form">Start your project</Link>
@@ -222,7 +214,7 @@ export default function Home() {
           <ol className="divide-y divide-line border-y border-line">
             {process.map(([number, title, description]) => (
               <li className="grid gap-4 py-7 sm:grid-cols-[4rem_1fr]" key={number}>
-                <span className="font-display text-3xl text-gold-dark">{number}</span>
+                <span className="font-display text-3xl text-teal-dark">{number}</span>
                 <div><h3 className="text-lg font-bold text-ink">{title}</h3><p className="mt-2 leading-7 text-slate">{description}</p></div>
               </li>
             ))}
@@ -238,21 +230,21 @@ export default function Home() {
               title="Original work across stitches and scalable paths."
               description="Explore different embroidery techniques and vector styles prepared around practical production goals."
             />
-            <Link className="inline-flex items-center gap-2 font-bold text-ink hover:text-gold-dark" href="/portfolio">View the portfolio <span aria-hidden="true">→</span></Link>
+            <Link className="inline-flex items-center gap-2 font-bold text-ink hover:text-teal-dark" href="/portfolio">View the portfolio <span aria-hidden="true">→</span></Link>
           </div>
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
             <article>
               <div className="relative aspect-square overflow-hidden rounded-3xl border border-line bg-mist shadow-lg">
                 <Image src={homeImages.embroideryShowcase.src} alt={homeImages.embroideryShowcase.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
               </div>
-              <p className="mt-5 eyebrow text-gold-dark">Embroidery showcase</p>
+              <p className="mt-5 eyebrow text-teal-dark">Embroidery showcase</p>
               <h3 className="mt-2 font-display text-3xl text-ink">Texture, sequencing, and detail.</h3>
             </article>
             <article>
               <div className="relative aspect-square overflow-hidden rounded-3xl border border-line bg-mist shadow-lg">
                 <Image src={homeImages.vectorShowcase.src} alt={homeImages.vectorShowcase.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
               </div>
-              <p className="mt-5 eyebrow text-gold-dark">Vector showcase</p>
+              <p className="mt-5 eyebrow text-teal-dark">Vector showcase</p>
               <h3 className="mt-2 font-display text-3xl text-ink">Clean construction at every scale.</h3>
             </article>
           </div>
@@ -262,14 +254,14 @@ export default function Home() {
       <section className="bg-ink py-20 text-white sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow text-gold-light">Quality you can verify</p>
+            <p className="eyebrow text-teal-light">Quality you can verify</p>
             <h2 className="mt-3 font-display text-4xl leading-tight sm:text-5xl">The value is in how the file is built.</h2>
             <p className="mt-5 text-lg leading-8 text-white/65">Instead of unverified customer claims, here is what every approved production brief is designed to receive.</p>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {qualityBenefits.map(([title, description], index) => (
               <article className="rounded-2xl border border-white/15 bg-white/5 p-6" key={title}>
-                <span className="font-display text-3xl text-gold-light">0{index + 1}</span>
+                <span className="font-display text-3xl text-teal-light">0{index + 1}</span>
                 <h3 className="mt-7 text-lg font-bold">{title}</h3>
                 <p className="mt-3 text-sm leading-6 text-white/60">{description}</p>
               </article>
@@ -290,7 +282,7 @@ export default function Home() {
             {faqs.map(([question, answer]) => (
               <details className="group" key={question}>
                 <summary className="flex cursor-pointer items-center justify-between gap-6 py-5 font-bold text-ink">
-                  {question}<span className="text-xl font-normal text-gold-dark transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+                  {question}<span className="text-xl font-normal text-teal-dark transition-transform group-open:rotate-45" aria-hidden="true">+</span>
                 </summary>
                 <p className="max-w-3xl pb-6 pr-12 leading-7 text-slate">{answer}</p>
               </details>
@@ -302,12 +294,12 @@ export default function Home() {
       <section className="scroll-mt-28 bg-mist py-20 sm:py-24" id="quote-form">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-start lg:gap-20 lg:px-8">
           <div>
-            <p className="eyebrow text-gold-dark">Ready to start?</p>
+            <p className="eyebrow text-teal-dark">Ready to start?</p>
             <h2 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">Send the artwork you have. We will help define the file you need.</h2>
             <p className="mt-5 text-lg leading-8 text-slate">Include the intended size, material or application, deadline, and preferred format. Select Not sure yet if you would like a recommendation.</p>
             <div className="mt-8 border-y border-line py-6 text-sm text-slate">
-              <p><strong className="text-ink">Prefer to talk?</strong> Call <a className="font-bold text-gold-dark hover:text-ink" href="tel:+1800123456">+1 (800) 123456</a>.</p>
-              <p className="mt-3">You can also use the full <Link className="font-bold text-gold-dark hover:text-ink" href="/contact">Contact Us page</Link>.</p>
+              <p><strong className="text-ink">Prefer to talk?</strong> Call <a className="font-bold text-teal-dark hover:text-ink" href="tel:+1800123456">+1 (800) 123456</a>.</p>
+              <p className="mt-3">You can also use the full <Link className="font-bold text-teal-dark hover:text-ink" href="/contact">Contact Us page</Link>.</p>
             </div>
           </div>
           <QuoteForm idPrefix="home" />

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { SocialLinks } from "@/components/social-links";
 
 const navigation = [
   ["Home", "/"],
@@ -49,20 +50,23 @@ export function SiteHeader() {
   }, [mobileMenuOpen]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-canvas/95 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-line bg-mist">
       <div className="hidden border-b border-line/80 lg:block">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-2.5 text-xs">
           <p className="font-semibold uppercase tracking-[0.16em] text-slate">Professional embroidery digitizing & vector art</p>
-          <a className="font-semibold text-ink transition hover:text-gold-dark" href="tel:+1800123456">
-            Call our studio&nbsp;&nbsp; <span className="text-gold-dark">+1 (800) 123456</span>
-          </a>
+          <div className="flex items-center gap-4">
+            <SocialLinks />
+            <a className="font-semibold text-ink transition hover:text-teal-dark" href="tel:+1800123456">
+              Call our studio&nbsp;&nbsp; <span className="text-teal-dark">+1 (800) 123456</span>
+            </a>
+          </div>
         </div>
       </div>
       <div className="mx-auto flex h-[5.75rem] max-w-7xl items-center justify-between px-6 lg:h-[6.5rem] lg:px-8">
         <Brand />
         <nav className="hidden items-center gap-6 xl:flex" aria-label="Primary navigation">
           {navigation.map(([label, href]) => (
-            <Link className={`text-sm font-semibold transition hover:text-ink ${pathname === href ? "text-ink" : "text-slate"}`} href={href} aria-current={pathname === href ? "page" : undefined} key={href}>
+            <Link className={`text-sm font-semibold transition hover:text-teal-dark ${pathname === href ? "text-ink" : "text-slate"}`} href={href} aria-current={pathname === href ? "page" : undefined} key={href}>
               {label}
             </Link>
           ))}
@@ -75,7 +79,7 @@ export function SiteHeader() {
         <div className="relative xl:hidden">
           <button
             ref={menuButtonRef}
-            className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-line bg-white text-ink"
+            className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-line bg-white text-ink transition hover:border-teal/50"
             type="button"
             aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={mobileMenuOpen}
@@ -89,16 +93,19 @@ export function SiteHeader() {
             </span>
           </button>
           {mobileMenuOpen ? (
-            <div className="absolute right-0 top-14 w-[min(20rem,calc(100vw-2rem))] rounded-2xl border border-line bg-canvas p-3 shadow-2xl" id="mobile-navigation">
+            <div className="absolute right-0 top-14 w-[min(20rem,calc(100vw-2rem))] rounded-2xl border border-line bg-mist p-3 shadow-2xl" id="mobile-navigation">
               <nav className="flex flex-col" aria-label="Mobile navigation">
                 {navigation.map(([label, href]) => (
-                  <Link className={`rounded-xl px-4 py-3 text-sm font-semibold text-ink hover:bg-white ${pathname === href ? "bg-white" : ""}`} href={href} aria-current={pathname === href ? "page" : undefined} key={href} onClick={() => setMobileMenuOpen(false)}>
+                  <Link className={`rounded-xl px-4 py-3 text-sm font-semibold transition hover:bg-white ${pathname === href ? "bg-white text-teal-dark" : "text-ink"}`} href={href} aria-current={pathname === href ? "page" : undefined} key={href} onClick={() => setMobileMenuOpen(false)}>
                     {label}
                   </Link>
                 ))}
               </nav>
               <div className="mt-2 border-t border-line p-3">
-                <a className="block text-sm font-semibold text-ink" href="tel:+1800123456">+1 (800) 123456</a>
+                <div className="flex items-center justify-between gap-4">
+                  <a className="block text-sm font-semibold text-teal-dark" href="tel:+1800123456">+1 (800) 123456</a>
+                  <SocialLinks />
+                </div>
                 <Link className="button button-ink mt-4 w-full" href="/contact" onClick={() => setMobileMenuOpen(false)}>Get free quote</Link>
               </div>
             </div>

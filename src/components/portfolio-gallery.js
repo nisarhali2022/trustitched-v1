@@ -24,7 +24,7 @@ export function PortfolioGallery({ projects }) {
 
             return (
               <button
-                className={`rounded-full border px-5 py-2.5 text-sm font-bold transition-colors ${isActive ? "border-ink bg-ink text-white" : "border-line bg-white text-slate hover:border-gold hover:text-ink"}`}
+                className={`rounded-full border px-5 py-2.5 text-sm font-bold transition-colors ${isActive ? "border-ink bg-ink text-white" : "border-line bg-white text-slate hover:border-teal hover:text-teal-dark"}`}
                 type="button"
                 aria-pressed={isActive}
                 onClick={() => setActiveFilter(filter.value)}
@@ -43,7 +43,7 @@ export function PortfolioGallery({ projects }) {
       <div className="mt-10 grid gap-x-6 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
         {visibleProjects.map((project) => (
           <article className="group" key={project.id}>
-            <div className="relative aspect-[3/2] overflow-hidden rounded-3xl border border-line bg-mist shadow-[0_18px_50px_rgba(16,40,61,0.08)]">
+            <div className="relative aspect-[3/2] overflow-hidden rounded-3xl border border-line bg-mist shadow-[0_18px_50px_rgba(12,49,61,0.08)]">
               <Image
                 src={project.src}
                 alt={project.alt}
@@ -51,11 +51,11 @@ export function PortfolioGallery({ projects }) {
                 sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-[1.025]"
               />
-              <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-ink/88 px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-gold-light backdrop-blur">
+              <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-ink/88 px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-teal-light backdrop-blur">
                 Original studio sample
               </span>
             </div>
-            <p className="mt-5 text-xs font-bold uppercase tracking-[0.18em] text-gold-dark">{project.service}</p>
+            <p className="mt-5 text-xs font-bold uppercase tracking-[0.18em] text-teal-dark">{project.service}</p>
             <h3 className="mt-2 font-display text-2xl text-ink">{project.title}</h3>
             <p className="mt-2 text-sm leading-6 text-slate">{project.technique}</p>
           </article>

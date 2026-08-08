@@ -122,12 +122,12 @@ export default function VectorArtPage() {
           <nav className="flex items-center gap-2 text-xs font-semibold text-white/55" aria-label="Breadcrumb">
             <Link className="hover:text-white" href="/">Home</Link>
             <span aria-hidden="true">/</span>
-            <span className="text-gold-light">Vector Art</span>
+            <span className="text-teal-light">Vector Art</span>
           </nav>
 
           <div className="mt-9 grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-16">
             <div>
-              <p className="eyebrow text-gold-light">Manual redraws • clean vector paths</p>
+              <p className="eyebrow text-teal-light">Manual redraws • clean vector paths</p>
               <h1 className="mt-4 font-display text-5xl leading-[1.02] tracking-[-0.035em] sm:text-6xl">
                 Professional raster-to-vector conversion for real production.
               </h1>
@@ -136,11 +136,11 @@ export default function VectorArtPage() {
               </p>
               <ul className="mt-7 grid gap-3 text-sm font-semibold text-white/82 sm:grid-cols-2">
                 {["Redrawn manually", "Clean editable paths", "Major vector formats", "Minor revisions included"].map((item) => (
-                  <li className="flex items-center gap-3" key={item}><span className="text-gold-light" aria-hidden="true">✓</span>{item}</li>
+                  <li className="flex items-center gap-3" key={item}><span className="text-teal-light" aria-hidden="true">✓</span>{item}</li>
                 ))}
               </ul>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <Link className="button button-gold" href="#quote-form">Get a free quote <span aria-hidden="true">↓</span></Link>
+                <Link className="button button-teal" href="#quote-form">Get a free quote <span aria-hidden="true">↓</span></Link>
                 <Link className="button button-ghost" href="/portfolio">View vector work</Link>
               </div>
             </div>
@@ -156,7 +156,7 @@ export default function VectorArtPage() {
               />
               <div className="absolute inset-x-5 bottom-5 flex flex-col gap-2 rounded-xl border border-white/15 bg-ink/88 px-5 py-4 backdrop-blur sm:flex-row sm:items-center sm:justify-between">
                 <span className="text-sm font-bold">Rough source in. Scalable artwork out.</span>
-                <span className="text-xs text-gold-light">AI • EPS • SVG • PDF • CDR</span>
+                <span className="text-xs text-teal-light">AI • EPS • SVG • PDF • CDR</span>
               </div>
             </div>
           </div>
@@ -185,10 +185,10 @@ export default function VectorArtPage() {
               className="object-cover"
             />
             <span className="absolute left-4 top-4 rounded-full bg-ink px-4 py-2 text-xs font-bold uppercase tracking-wider text-white">Raster source</span>
-            <span className="absolute right-4 top-4 rounded-full bg-gold px-4 py-2 text-xs font-bold uppercase tracking-wider text-ink">Vector redraw</span>
+            <span className="absolute right-4 top-4 rounded-full bg-teal-action px-4 py-2 text-xs font-bold uppercase tracking-wider text-ink">Vector redraw</span>
           </div>
           <div>
-            <p className="eyebrow text-gold-dark">Vector art explained</p>
+            <p className="eyebrow text-teal-dark">Vector art explained</p>
             <h2 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">Sharp at business-card size. Sharp on a storefront.</h2>
             <p className="mt-5 text-lg leading-8 text-slate">
               Raster images are made from pixels, so enlarging a small file exposes blur and jagged edges. Vector artwork uses editable paths that remain smooth at virtually any output size.
@@ -212,7 +212,7 @@ export default function VectorArtPage() {
           <div className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
             {capabilities.map(([number, title, description]) => (
               <article className="bg-canvas p-7 sm:p-8" key={title}>
-                <span className="font-display text-2xl text-gold-dark">{number}</span>
+                <span className="font-display text-2xl text-teal-dark">{number}</span>
                 <h2 className="mt-8 text-lg font-bold text-ink">{title}</h2>
                 <p className="mt-3 leading-7 text-slate">{description}</p>
               </article>
@@ -224,7 +224,7 @@ export default function VectorArtPage() {
       <section className="bg-mist py-20 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20 lg:px-8">
           <div>
-            <p className="eyebrow text-gold-dark">Built for more than one use</p>
+            <p className="eyebrow text-teal-dark">Built for more than one use</p>
             <h2 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">One clean master file, many production possibilities.</h2>
             <p className="mt-5 text-lg leading-8 text-slate">
               Tell us where the artwork is going. That context helps us preserve the right detail, line weight, colors, and construction for the job.
@@ -232,7 +232,7 @@ export default function VectorArtPage() {
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {applications.map((item) => (
                 <li className="flex items-start gap-3 rounded-xl border border-line bg-white px-4 py-3 text-sm font-semibold text-ink" key={item}>
-                  <span className="text-gold-dark" aria-hidden="true">✓</span>{item}
+                  <span className="text-teal-dark" aria-hidden="true">✓</span>{item}
                 </li>
               ))}
             </ul>
@@ -275,7 +275,7 @@ export default function VectorArtPage() {
       <section className="bg-canvas py-20 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20 lg:px-8">
           <div>
-            <p className="eyebrow text-gold-dark">How it works</p>
+            <p className="eyebrow text-teal-dark">How it works</p>
             <h2 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">From rough source to clean vector in three steps.</h2>
             <p className="mt-5 text-lg leading-8 text-slate">A clear intended use helps us prepare the most practical artwork package from the start.</p>
             <Link className="button button-ink mt-8" href="#quote-form">Start your quote</Link>
@@ -283,7 +283,7 @@ export default function VectorArtPage() {
           <ol className="divide-y divide-line border-y border-line">
             {process.map(([number, title, description]) => (
               <li className="grid gap-4 py-7 sm:grid-cols-[4rem_1fr]" key={number}>
-                <span className="font-display text-3xl text-gold-dark">{number}</span>
+                <span className="font-display text-3xl text-teal-dark">{number}</span>
                 <div><h3 className="text-lg font-bold text-ink">{title}</h3><p className="mt-2 leading-7 text-slate">{description}</p></div>
               </li>
             ))}
@@ -301,13 +301,13 @@ export default function VectorArtPage() {
           />
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {prices.map((price) => (
-              <article className={`relative rounded-3xl border bg-white p-8 ${price.featured ? "border-gold shadow-xl" : "border-line"}`} key={price.label}>
-                {price.featured ? <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gold px-4 py-1 text-xs font-bold uppercase tracking-wider text-ink">Most common</span> : null}
-                <p className="eyebrow text-gold-dark">{price.label}</p>
+              <article className={`relative rounded-3xl border bg-white p-8 ${price.featured ? "border-teal shadow-xl" : "border-line"}`} key={price.label}>
+                {price.featured ? <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-teal-action px-4 py-1 text-xs font-bold uppercase tracking-wider text-ink">Most common</span> : null}
+                <p className="eyebrow text-teal-dark">{price.label}</p>
                 <h2 className="mt-4 font-display text-4xl text-ink">{price.price}</h2>
                 <p className="mt-4 min-h-14 leading-7 text-slate">{price.description}</p>
                 <ul className="mt-6 space-y-3 border-t border-line pt-6 text-sm text-slate">
-                  {price.features.map((feature) => <li className="flex gap-3" key={feature}><span className="text-gold-dark" aria-hidden="true">✓</span>{feature}</li>)}
+                  {price.features.map((feature) => <li className="flex gap-3" key={feature}><span className="text-teal-dark" aria-hidden="true">✓</span>{feature}</li>)}
                 </ul>
                 <Link className="button button-ink mt-8 w-full" href="#quote-form">Get my quote</Link>
               </article>
@@ -327,7 +327,7 @@ export default function VectorArtPage() {
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {qualityBenefits.map(([title, description]) => (
               <article className="rounded-2xl border border-line bg-canvas p-6" key={title}>
-                <span className="block h-1 w-12 rounded-full bg-gold" aria-hidden="true" />
+                <span className="block h-1 w-12 rounded-full bg-teal-action" aria-hidden="true" />
                 <h3 className="mt-6 font-bold text-ink">{title}</h3>
                 <p className="mt-3 text-sm leading-6 text-slate">{description}</p>
               </article>
@@ -339,14 +339,14 @@ export default function VectorArtPage() {
       <section className="bg-ink py-20 text-white sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow text-gold-light">Testimonial layout preview</p>
+            <p className="eyebrow text-teal-light">Testimonial layout preview</p>
             <h2 className="mt-3 font-display text-4xl leading-tight sm:text-5xl">Reserved for verified customer feedback.</h2>
             <p className="mt-5 text-lg leading-8 text-white/65">These cards intentionally contain no invented customers, ratings, or claims. Replace them with approved reviews before launch.</p>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {["Apparel decorator", "Sign and print studio", "Growing product brand"].map((customerType) => (
               <article className="rounded-2xl border border-white/15 bg-white/5 p-6" key={customerType}>
-                <span className="inline-flex rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-gold-light">Placeholder — do not publish</span>
+                <span className="inline-flex rounded-full border border-teal/40 bg-teal/10 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-teal-light">Placeholder — do not publish</span>
                 <h3 className="mt-6 font-display text-2xl">{customerType}</h3>
                 <p className="mt-4 leading-7 text-white/60">Replace this area with a verified quote, customer-approved attribution, and relevant project context.</p>
               </article>
@@ -357,7 +357,7 @@ export default function VectorArtPage() {
 
       <section className="border-y border-line bg-white py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <p className="eyebrow text-center text-gold-dark">Common delivery formats</p>
+          <p className="eyebrow text-center text-teal-dark">Common delivery formats</p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             {formats.map((format) => <span className="rounded-full border border-line bg-canvas px-5 py-2 text-sm font-bold text-ink" key={format}>{format}</span>)}
           </div>
@@ -368,17 +368,17 @@ export default function VectorArtPage() {
       <section className="bg-canvas py-20 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:gap-20 lg:px-8">
           <div>
-            <p className="eyebrow text-gold-dark">Built for real production</p>
+            <p className="eyebrow text-teal-dark">Built for real production</p>
             <h2 className="mt-3 font-display text-4xl leading-tight text-ink">A vector redraw should suit the job—not just look tidy on screen.</h2>
             <p className="mt-5 leading-8 text-slate">A screen-print graphic, engraved mark, vinyl-cut sign, and packaging illustration can require different decisions about line weight, small gaps, color count, overlapping shapes, and fine detail.</p>
             <p className="mt-5 leading-8 text-slate">We review your intended application before rebuilding the artwork, then check curves, corners, alignment, color construction, and file organization before exporting the final package.</p>
           </div>
           <div className="rounded-3xl border border-line bg-white p-7 sm:p-9">
-            <p className="eyebrow text-gold-dark">What to send</p>
+            <p className="eyebrow text-teal-dark">What to send</p>
             <h3 className="mt-3 font-display text-3xl text-ink">A useful brief keeps the redraw focused.</h3>
             <ul className="mt-7 divide-y divide-line text-sm leading-6 text-slate">
               {["The clearest source artwork available", "Where and how the artwork will be used", "Required finished size or scale", "Known brand or production colors", "Preferred software or output formats", "Deadline and any vendor requirements"].map((item) => (
-                <li className="flex items-center gap-3 py-3" key={item}><span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-canvas text-gold-dark" aria-hidden="true">✓</span>{item}</li>
+                <li className="flex items-center gap-3 py-3" key={item}><span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-canvas text-teal-dark" aria-hidden="true">✓</span>{item}</li>
               ))}
             </ul>
           </div>
@@ -397,7 +397,7 @@ export default function VectorArtPage() {
             {faqs.map(([question, answer]) => (
               <details className="group" key={question}>
                 <summary className="flex cursor-pointer items-center justify-between gap-6 py-5 font-bold text-ink">
-                  {question}<span className="text-xl font-normal text-gold-dark transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+                  {question}<span className="text-xl font-normal text-teal-dark transition-transform group-open:rotate-45" aria-hidden="true">+</span>
                 </summary>
                 <p className="max-w-3xl pb-6 pr-12 leading-7 text-slate">{answer}</p>
               </details>
@@ -409,12 +409,12 @@ export default function VectorArtPage() {
       <section className="scroll-mt-28 bg-mist py-20 sm:py-24" id="quote-form">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-start lg:gap-20 lg:px-8">
           <div>
-            <p className="eyebrow text-gold-dark">Ready to start?</p>
+            <p className="eyebrow text-teal-dark">Ready to start?</p>
             <h2 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">Send your artwork for a clear, no-pressure quote.</h2>
             <p className="mt-5 text-lg leading-8 text-slate">Include the intended use, preferred formats, deadline, and the best source file available. We will review the artwork and confirm the price before work begins.</p>
             <div className="mt-8 border-y border-line py-6 text-sm text-slate">
-              <p><strong className="text-ink">Prefer to talk?</strong> Call <a className="font-bold text-gold-dark hover:text-ink" href="tel:+1800123456">+1 (800) 123456</a>.</p>
-              <p className="mt-3">You can also use the full <Link className="font-bold text-gold-dark hover:text-ink" href="/contact">Contact Us page</Link>.</p>
+              <p><strong className="text-ink">Prefer to talk?</strong> Call <a className="font-bold text-teal-dark hover:text-ink" href="tel:+1800123456">+1 (800) 123456</a>.</p>
+              <p className="mt-3">You can also use the full <Link className="font-bold text-teal-dark hover:text-ink" href="/contact">Contact Us page</Link>.</p>
             </div>
           </div>
           <QuoteForm idPrefix="vector" defaultService="vector" />
