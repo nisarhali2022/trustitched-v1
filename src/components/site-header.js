@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -14,14 +15,16 @@ const navigation = [
 
 function Brand() {
   return (
-    <Link className="group inline-flex items-center gap-3" href="/" aria-label="Trustitched home">
-      <span className="grid h-10 w-10 place-items-center rounded-full border border-gold/50 bg-ink font-display text-lg text-gold-light transition group-hover:border-gold">
-        T
-      </span>
-      <span>
-        <strong className="block font-display text-[1.35rem] leading-none tracking-tight text-ink">Trustitched</strong>
-        <span className="mt-1 block text-[0.58rem] font-bold uppercase tracking-[0.2em] text-gold-dark">Digitizing studio</span>
-      </span>
+    <Link className="inline-flex shrink-0 items-center" href="/" aria-label="Trustitched home">
+      <Image
+        alt="Trustitched"
+        className="h-auto w-28 lg:w-36"
+        height={1043}
+        loading="eager"
+        sizes="(min-width: 1024px) 144px, 112px"
+        src="/images/brand/trustitched-logo.png"
+        width={1600}
+      />
     </Link>
   );
 }
@@ -55,7 +58,7 @@ export function SiteHeader() {
           </a>
         </div>
       </div>
-      <div className="mx-auto flex h-[4.75rem] max-w-7xl items-center justify-between px-6 lg:px-8">
+      <div className="mx-auto flex h-[5.75rem] max-w-7xl items-center justify-between px-6 lg:h-[6.5rem] lg:px-8">
         <Brand />
         <nav className="hidden items-center gap-6 xl:flex" aria-label="Primary navigation">
           {navigation.map(([label, href]) => (

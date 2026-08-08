@@ -4,6 +4,12 @@ export const siteConfig = {
   locale: "en_US",
   language: "en",
   description: "Professional embroidery digitizing and vector art services prepared for dependable production.",
+  logo: {
+    url: "/images/brand/trustitched-icon.png",
+    width: 262,
+    height: 262,
+    alt: "Trustitched needle and thread monogram",
+  },
   socialImage: {
     url: "/images/social/trustitched-social-card.png",
     width: 1200,
@@ -58,6 +64,12 @@ export const siteStructuredData = {
       url: siteConfig.url,
       description: siteConfig.description,
       image: absoluteUrl(siteConfig.socialImage.url),
+      logo: {
+        "@type": "ImageObject",
+        url: absoluteUrl(siteConfig.logo.url),
+        width: siteConfig.logo.width,
+        height: siteConfig.logo.height,
+      },
     },
     {
       "@type": "WebSite",

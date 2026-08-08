@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const links = [
@@ -14,7 +15,16 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
         <div className="grid gap-10 border-b border-white/10 pb-12 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
           <div>
-            <Link className="font-display text-3xl text-white" href="/">Trustitched</Link>
+            <Link className="inline-flex rounded-2xl bg-canvas p-3" href="/" aria-label="Trustitched home">
+              <Image
+                alt="Trustitched"
+                className="h-auto w-40"
+                height={1043}
+                sizes="160px"
+                src="/images/brand/trustitched-logo.png"
+                width={1600}
+              />
+            </Link>
             <p className="mt-4 max-w-sm leading-7 text-white/60">
               Production-minded embroidery digitizing and vector artwork for decorators, print shops, and growing brands.
             </p>
