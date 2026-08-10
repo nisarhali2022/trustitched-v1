@@ -102,7 +102,7 @@ export function SiteHeader() {
                 ))}
               </nav>
               <div className="mt-2 border-t border-line p-3">
-                <div className="flex items-center justify-between gap-4">
+                <div className="flex flex-col items-start gap-3">
                   <a className="block text-sm font-semibold text-teal-dark" href="tel:+17579068220">+1 757-906-8220</a>
                   <SocialLinks />
                 </div>

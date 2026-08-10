@@ -142,7 +142,7 @@ The form currently uses a `type="button"` action and intentionally does not send
 
 ## Social media links
 
-Facebook, Instagram, and Pinterest buttons appear in the desktop header, mobile navigation, and footer. Their URLs and brand colors are centralized in `src/components/social-links.js`.
+Facebook, Instagram, Pinterest, and WhatsApp buttons appear in the desktop header, mobile navigation, and footer. Their URLs and brand colors are centralized in `src/components/social-links.js`.
 
 The current URLs point to the public platform homepages and are temporary:
 
@@ -151,6 +151,8 @@ The current URLs point to the public platform homepages and are temporary:
 - `https://www.pinterest.com/`
 
 Replace these three values with verified Trustitched profile URLs before launch. The temporary URLs are intentionally excluded from Organization structured data.
+
+WhatsApp opens a direct conversation with the studio through `https://wa.me/17579068220` and is also excluded from Organization structured data.
 
 ## SEO and structured data
 

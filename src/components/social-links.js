@@ -17,6 +17,13 @@ const socialProfiles = [
     href: "https://www.pinterest.com/",
     color: "border-[#E60023] bg-[#E60023] text-white",
   },
+  {
+    name: "WhatsApp",
+    icon: "whatsapp",
+    href: "https://wa.me/17579068220",
+    color: "border-[#25D366] bg-[#25D366] text-white",
+    label: "Chat with Trustitched on WhatsApp",
+  },
 ];
 
 function SocialIcon({ name }) {
@@ -34,6 +41,14 @@ function SocialIcon({ name }) {
         <rect height="17" rx="4.5" stroke="currentColor" strokeWidth="2" width="17" x="3.5" y="3.5" />
         <circle cx="12" cy="12" r="3.75" stroke="currentColor" strokeWidth="2" />
         <circle cx="17.4" cy="6.7" fill="currentColor" r="1" />
+      </svg>
+    );
+  }
+
+  if (name === "whatsapp") {
+    return (
+      <svg aria-hidden="true" className="h-4 w-4" viewBox="0 0 24 24">
+        <path d="M12.04 2a9.84 9.84 0 0 0-8.42 14.94L2.05 22l5.18-1.52A9.92 9.92 0 1 0 12.04 2Zm0 17.86a7.83 7.83 0 0 1-4-1.1l-.29-.17-3.07.9.91-2.99-.19-.31a7.82 7.82 0 1 1 6.64 3.67Zm4.29-5.87c-.24-.12-1.39-.69-1.6-.77-.22-.08-.38-.12-.54.12-.16.24-.62.77-.76.93-.14.16-.28.18-.52.06-.24-.12-1-.37-1.91-1.18-.71-.63-1.18-1.4-1.32-1.64-.14-.24-.01-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.1.16 1.52.1.46-.07 1.39-.57 1.59-1.12.2-.55.2-1.02.14-1.12-.06-.1-.22-.16-.46-.28Z" fill="currentColor" />
       </svg>
     );
   }
@@ -61,9 +76,9 @@ export function SocialLinks({ className = "", variant = "header" }) {
   const styles = variants[variant] ?? variants.header;
 
   return (
-    <div className={`flex items-center gap-2 ${className}`} role="group" aria-label="Social media profiles">
+    <div className={`flex items-center gap-2 ${className}`} role="group" aria-label="Social media and messaging links">
       {socialProfiles.map((profile) => {
-        const label = `Open ${profile.name} homepage (temporary link)`;
+        const label = profile.label ?? `Open ${profile.name} homepage (temporary link)`;
         return (
           <a
             aria-label={label}
