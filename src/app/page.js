@@ -298,7 +298,7 @@ export default function Home() {
             <h2 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">Send the artwork you have. We will help define the file you need.</h2>
             <p className="mt-5 text-lg leading-8 text-slate">Include the intended size, material or application, deadline, and preferred format. Select Not sure yet if you would like a recommendation.</p>
             <div className="mt-8 border-y border-line py-6 text-sm text-slate">
-              <p><strong className="text-ink">Prefer to talk?</strong> Call <a className="font-bold text-teal-dark hover:text-ink" href="tel:+1800123456">+1 (800) 123456</a>.</p>
+              <p><strong className="text-ink">Prefer to talk?</strong> Call <a className="font-bold text-teal-dark hover:text-ink" href="tel:+17579068220">+1 757-906-8220</a>.</p>
               <p className="mt-3">You can also use the full <Link className="font-bold text-teal-dark hover:text-ink" href="/contact">Contact Us page</Link>.</p>
             </div>
           </div>

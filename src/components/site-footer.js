@@ -40,7 +40,7 @@ export function SiteFooter() {
           </div>
           <div>
             <p className="eyebrow text-teal-light">Talk to the studio</p>
-            <a className="mt-5 block font-display text-2xl text-white hover:text-teal-light" href="tel:+1800123456">+1 (800) 123456</a>
+            <a className="mt-5 block font-display text-2xl text-white hover:text-teal-light" href="tel:+17579068220">+1 757-906-8220</a>
             <Link className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-teal-light hover:text-white" href="/contact">
               Request a quote <span aria-hidden="true">→</span>
             </Link>

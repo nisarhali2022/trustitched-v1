@@ -19,12 +19,12 @@ function Brand() {
     <Link className="inline-flex shrink-0 items-center" href="/" aria-label="Trustitched home">
       <Image
         alt="Trustitched"
-        className="h-auto w-28 lg:w-36"
-        height={1043}
+        className="h-auto w-44 sm:w-52 lg:w-60"
+        height={60}
         loading="eager"
-        sizes="(min-width: 1024px) 144px, 112px"
-        src="/images/brand/trustitched-logo.png"
-        width={1600}
+        sizes="(min-width: 1024px) 240px, (min-width: 640px) 208px, 176px"
+        src="/images/brand/trustiched_logo.png"
+        width={336}
       />
     </Link>
   );
@@ -56,13 +56,13 @@ export function SiteHeader() {
           <p className="font-semibold uppercase tracking-[0.16em] text-slate">Professional embroidery digitizing & vector art</p>
           <div className="flex items-center gap-4">
             <SocialLinks />
-            <a className="font-semibold text-ink transition hover:text-teal-dark" href="tel:+1800123456">
-              Call our studio&nbsp;&nbsp; <span className="text-teal-dark">+1 (800) 123456</span>
+            <a className="font-semibold text-ink transition hover:text-teal-dark" href="tel:+17579068220">
+              Call our studio&nbsp;&nbsp; <span className="text-teal-dark">+1 757-906-8220</span>
             </a>
           </div>
         </div>
       </div>
-      <div className="mx-auto flex h-[5.75rem] max-w-7xl items-center justify-between px-6 lg:h-[6.5rem] lg:px-8">
+      <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between px-6 lg:h-20 lg:px-8">
         <Brand />
         <nav className="hidden items-center gap-6 xl:flex" aria-label="Primary navigation">
           {navigation.map(([label, href]) => (
@@ -103,7 +103,7 @@ export function SiteHeader() {
               </nav>
               <div className="mt-2 border-t border-line p-3">
                 <div className="flex items-center justify-between gap-4">
-                  <a className="block text-sm font-semibold text-teal-dark" href="tel:+1800123456">+1 (800) 123456</a>
+                  <a className="block text-sm font-semibold text-teal-dark" href="tel:+17579068220">+1 757-906-8220</a>
                   <SocialLinks />
                 </div>
                 <Link className="button button-ink mt-4 w-full" href="/contact" onClick={() => setMobileMenuOpen(false)}>Get free quote</Link>
