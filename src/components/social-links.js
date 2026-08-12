@@ -1,3 +1,5 @@
+export const whatsappHref = "https://wa.me/17579068220";
+
 const socialProfiles = [
   {
     name: "Facebook",
@@ -20,11 +22,19 @@ const socialProfiles = [
   {
     name: "WhatsApp",
     icon: "whatsapp",
-    href: "https://wa.me/17579068220",
+    href: whatsappHref,
     color: "border-[#25D366] bg-[#25D366] text-white",
     label: "Chat with Trustitched on WhatsApp",
   },
 ];
+
+export function WhatsAppIcon({ className = "h-4 w-4" }) {
+  return (
+    <svg aria-hidden="true" className={className} viewBox="0 0 24 24">
+      <path d="M12.04 2a9.84 9.84 0 0 0-8.42 14.94L2.05 22l5.18-1.52A9.92 9.92 0 1 0 12.04 2Zm0 17.86a7.83 7.83 0 0 1-4-1.1l-.29-.17-3.07.9.91-2.99-.19-.31a7.82 7.82 0 1 1 6.64 3.67Zm4.29-5.87c-.24-.12-1.39-.69-1.6-.77-.22-.08-.38-.12-.54.12-.16.24-.62.77-.76.93-.14.16-.28.18-.52.06-.24-.12-1-.37-1.91-1.18-.71-.63-1.18-1.4-1.32-1.64-.14-.24-.01-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.1.16 1.52.1.46-.07 1.39-.57 1.59-1.12.2-.55.2-1.02.14-1.12-.06-.1-.22-.16-.46-.28Z" fill="currentColor" />
+    </svg>
+  );
+}
 
 function SocialIcon({ name }) {
   if (name === "facebook") {
@@ -46,11 +56,7 @@ function SocialIcon({ name }) {
   }
 
   if (name === "whatsapp") {
-    return (
-      <svg aria-hidden="true" className="h-4 w-4" viewBox="0 0 24 24">
-        <path d="M12.04 2a9.84 9.84 0 0 0-8.42 14.94L2.05 22l5.18-1.52A9.92 9.92 0 1 0 12.04 2Zm0 17.86a7.83 7.83 0 0 1-4-1.1l-.29-.17-3.07.9.91-2.99-.19-.31a7.82 7.82 0 1 1 6.64 3.67Zm4.29-5.87c-.24-.12-1.39-.69-1.6-.77-.22-.08-.38-.12-.54.12-.16.24-.62.77-.76.93-.14.16-.28.18-.52.06-.24-.12-1-.37-1.91-1.18-.71-.63-1.18-1.4-1.32-1.64-.14-.24-.01-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.1.16 1.52.1.46-.07 1.39-.57 1.59-1.12.2-.55.2-1.02.14-1.12-.06-.1-.22-.16-.46-.28Z" fill="currentColor" />
-      </svg>
-    );
+    return <WhatsAppIcon />;
   }
 
   return (
@@ -94,5 +100,22 @@ export function SocialLinks({ className = "", variant = "header" }) {
         );
       })}
     </div>
+  );
+}
+
+export function FloatingWhatsAppLink() {
+  const label = "Chat with Trustitched on WhatsApp";
+
+  return (
+    <a
+      aria-label={label}
+      className="fixed bottom-4 right-4 z-40 inline-flex h-14 w-14 items-center justify-center rounded-full border-2 border-white/90 bg-[#25D366] text-white shadow-[0_10px_30px_rgba(12,49,61,0.35)] transition duration-200 hover:-translate-y-1 hover:brightness-105 focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-teal-dark sm:bottom-6 sm:right-6 sm:h-16 sm:w-16"
+      href={whatsappHref}
+      rel="noopener noreferrer"
+      target="_blank"
+      title={label}
+    >
+      <WhatsAppIcon className="h-7 w-7 sm:h-8 sm:w-8" />
+    </a>
   );
 }

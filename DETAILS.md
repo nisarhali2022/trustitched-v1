@@ -152,7 +152,7 @@ The current URLs point to the public platform homepages and are temporary:
 
 Replace these three values with verified Trustitched profile URLs before launch. The temporary URLs are intentionally excluded from Organization structured data.
 
-WhatsApp opens a direct conversation with the studio through `https://wa.me/17579068220` and is also excluded from Organization structured data.
+WhatsApp opens a direct conversation with the studio through `https://wa.me/17579068220`. In addition to the shared social rows, a green circular WhatsApp icon stays fixed at the bottom-right on mobile and desktop while visitors scroll. WhatsApp remains excluded from Organization structured data.
 
 ## SEO and structured data
 

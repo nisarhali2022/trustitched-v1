@@ -2,6 +2,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { StructuredData } from "@/components/structured-data";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { FloatingWhatsAppLink } from "@/components/social-links";
 import { siteConfig, siteStructuredData } from "@/lib/site";
 import "./globals.css";
 
@@ -57,6 +58,7 @@ export default function RootLayout({ children }) {
           <main className="flex-1" id="main-content" tabIndex={-1}>{children}</main>
           <SiteFooter />
         </div>
+        <FloatingWhatsAppLink />
       </body>
       {process.env.NODE_ENV === "production" && googleAnalyticsId ? (
         <GoogleAnalytics gaId={googleAnalyticsId} />
