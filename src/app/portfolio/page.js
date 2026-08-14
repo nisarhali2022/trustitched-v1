@@ -8,11 +8,11 @@ import { createPageMetadata } from "@/lib/site";
 
 const portfolioImages = {
   embroideryQuality: {
-    src: "/images/portfolio/quality-embroidery.png",
+    src: "/images/portfolio/quality-embroidery.webp",
     alt: "Close-up of a navy cap demonstrating clean gold and ivory embroidery detail",
   },
   vectorQuality: {
-    src: "/images/portfolio/quality-vector.png",
+    src: "/images/portfolio/quality-vector.webp",
     alt: "Original hummingbird emblem comparing pixelated raster artwork with a clean vector redraw",
   },
 };

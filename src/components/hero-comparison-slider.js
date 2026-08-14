@@ -3,7 +3,14 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export function HeroComparisonSlider({ before, after }) {
+export function HeroComparisonSlider({
+  before,
+  after,
+  beforeLabel = "Vector artwork",
+  afterLabel = "Finished embroidery",
+  ariaLabel = "Compare vector artwork with finished embroidery",
+  caption = "Drag the comparison slider to reveal the vector artwork and its finished embroidered version.",
+}) {
   const [position, setPosition] = useState(50);
 
   function handleKeyDown(event) {
@@ -58,10 +65,10 @@ export function HeroComparisonSlider({ before, after }) {
 
       <div className="pointer-events-none absolute inset-x-4 top-4 z-20 flex items-center justify-between gap-4 text-[0.68rem] font-bold uppercase tracking-[0.14em] sm:inset-x-5 sm:top-5 sm:text-xs">
         <span className="rounded-full border border-ink/10 bg-canvas/92 px-3 py-2 text-ink shadow-lg backdrop-blur">
-          Vector artwork
+          {beforeLabel}
         </span>
         <span className="rounded-full border border-white/15 bg-ink/88 px-3 py-2 text-white shadow-lg backdrop-blur">
-          Finished embroidery
+          {afterLabel}
         </span>
       </div>
 
@@ -78,8 +85,8 @@ export function HeroComparisonSlider({ before, after }) {
       </div>
 
       <input
-        aria-label="Compare vector artwork with finished embroidery"
-        aria-valuetext={`${position}% vector artwork visible`}
+        aria-label={ariaLabel}
+        aria-valuetext={`${position}% ${beforeLabel.toLowerCase()} visible`}
         className="absolute inset-0 z-30 h-full w-full cursor-col-resize touch-none opacity-0"
         max="100"
         min="0"
@@ -90,9 +97,7 @@ export function HeroComparisonSlider({ before, after }) {
         value={position}
       />
 
-      <figcaption className="sr-only">
-        Drag the comparison slider to reveal the vector artwork and its finished embroidered version.
-      </figcaption>
+      <figcaption className="sr-only">{caption}</figcaption>
     </figure>
   );
 }

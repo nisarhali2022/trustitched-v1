@@ -1,25 +1,30 @@
 import Image from "next/image";
 import Link from "next/link";
+import { HeroComparisonSlider } from "@/components/hero-comparison-slider";
 import { QuoteForm } from "@/components/quote-form";
 import { SectionHeading } from "@/components/section-heading";
 import { StructuredData } from "@/components/structured-data";
 import { createPageMetadata, createServiceStructuredData } from "@/lib/site";
 
 const vectorImages = {
-  hero: {
-    src: "/images/vector/hero-workspace.png",
-    alt: "Design workspace showing an original fox emblem being rebuilt with precise vector paths",
+  heroRaster: {
+    src: "/images/vector/hero-raster-parrot.webp",
+    alt: "Raster photograph of a blue-and-gold macaw used as the source for vector conversion",
+  },
+  heroVector: {
+    src: "/images/vector/hero-vector-parrot.webp",
+    alt: "Clean vector illustration recreated from the blue-and-gold macaw source image",
   },
   comparison: {
-    src: "/images/vector/raster-vector-comparison.png",
+    src: "/images/vector/raster-vector-comparison.webp",
     alt: "The same original hummingbird emblem shown as a pixelated raster image and a clean vector redraw",
   },
   applications: {
-    src: "/images/vector/production-mockups.png",
+    src: "/images/vector/production-mockups.webp",
     alt: "An original fox emblem applied consistently to apparel, stickers, signage, packaging, and an engraved tag",
   },
   showcase: {
-    src: "/images/vector/portfolio-mosaic.png",
+    src: "/images/vector/portfolio-mosaic.webp",
     alt: "Nine original vector artwork examples including badges, mascots, icons, and product graphics",
   },
 };
@@ -145,20 +150,14 @@ export default function VectorArtPage() {
               </div>
             </div>
 
-            <div className="relative min-h-[22rem] overflow-hidden rounded-[1.75rem] border border-white/15 shadow-2xl sm:min-h-[28rem]">
-              <Image
-                src={vectorImages.hero.src}
-                alt={vectorImages.hero.alt}
-                fill
-                preload
-                sizes="(max-width: 1024px) 100vw, 52vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-x-5 bottom-5 flex flex-col gap-2 rounded-xl border border-white/15 bg-ink/88 px-5 py-4 backdrop-blur sm:flex-row sm:items-center sm:justify-between">
-                <span className="text-sm font-bold">Rough source in. Scalable artwork out.</span>
-                <span className="text-xs text-teal-light">AI • EPS • SVG • PDF • CDR</span>
-              </div>
-            </div>
+            <HeroComparisonSlider
+              before={vectorImages.heroRaster}
+              after={vectorImages.heroVector}
+              beforeLabel="Raster image"
+              afterLabel="Vector image"
+              ariaLabel="Compare raster source image with vector image"
+              caption="Drag the comparison slider to compare the raster macaw source with its clean vector recreation."
+            />
           </div>
         </div>
       </section>

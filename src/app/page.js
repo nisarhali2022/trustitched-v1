@@ -7,27 +7,27 @@ import { createPageMetadata } from "@/lib/site";
 
 const homeImages = {
   heroBefore: {
-    src: "/images/home/hero-vector-before.png",
+    src: "/images/home/hero-vector-before.webp",
     alt: "A complete ornamental owl crest constructed as clean vector artwork",
   },
   heroAfter: {
-    src: "/images/home/hero-embroidery-after.png",
+    src: "/images/home/hero-embroidery-after.webp",
     alt: "The matching ornamental owl crest rendered as detailed commercial embroidery on navy fabric",
   },
   embroideryService: {
-    src: "/images/home/service-embroidery.png",
+    src: "/images/home/service-embroidery.webp",
     alt: "Multi-needle embroidery machine stitching a detailed crest in a professional studio",
   },
   vectorService: {
-    src: "/images/home/service-vector.png",
+    src: "/images/home/service-vector.webp",
     alt: "Design workspace showing an original fox emblem being rebuilt with precise vector paths",
   },
   embroideryShowcase: {
-    src: "/images/home/showcase-embroidery.png",
+    src: "/images/home/showcase-embroidery.webp",
     alt: "Nine original embroidery samples demonstrating badges, portraits, monograms, and garment applications",
   },
   vectorShowcase: {
-    src: "/images/home/showcase-vector.png",
+    src: "/images/home/showcase-vector.webp",
     alt: "Nine original vector examples demonstrating badges, mascots, icons, and product graphics",
   },
 };

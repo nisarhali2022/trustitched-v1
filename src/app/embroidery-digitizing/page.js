@@ -7,15 +7,15 @@ import { createPageMetadata, createServiceStructuredData } from "@/lib/site";
 
 const embroideryImages = {
   hero: {
-    src: "/images/embroidery/hero-studio.png",
+    src: "/images/embroidery/hero-studio.webp",
     alt: "Multi-needle embroidery machine stitching a detailed crest in a professional studio",
   },
   showcase: {
-    src: "/images/embroidery/gallery-mosaic.png",
+    src: "/images/embroidery/gallery-mosaic.webp",
     alt: "Nine original embroidery samples including patches, a cap design, monogram, animal portrait, and club emblems",
   },
   quality: {
-    src: "/images/embroidery/cap-detail.png",
+    src: "/images/embroidery/cap-detail.webp",
     alt: "Close-up of a navy cap with a crisp gold and ivory embroidered T monogram",
   },
 };

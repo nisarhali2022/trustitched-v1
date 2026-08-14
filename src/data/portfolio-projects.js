@@ -5,7 +5,7 @@ export const portfolioProjects = [
     category: "embroidery",
     service: "Embroidery digitizing",
     technique: "Cap digitizing · satin and fill stitch",
-    src: "/images/portfolio/embroidery-heritage-cap.png",
+    src: "/images/portfolio/embroidery-heritage-cap.webp",
     alt: "Original gold, ivory, teal, and coral heritage crest embroidered on a deep navy cap",
   },
   {
@@ -14,7 +14,7 @@ export const portfolioProjects = [
     category: "vector",
     service: "Vector art",
     technique: "Mascot redraw · clean scalable paths",
-    src: "/images/portfolio/vector-fox-mascot.png",
+    src: "/images/portfolio/vector-fox-mascot.webp",
     alt: "Original geometric fox mascot built from clean gold, ivory, teal, and coral vector shapes",
   },
   {
@@ -23,7 +23,7 @@ export const portfolioProjects = [
     category: "embroidery",
     service: "Embroidery digitizing",
     technique: "Left chest · compact detail",
-    src: "/images/portfolio/embroidery-left-chest.png",
+    src: "/images/portfolio/embroidery-left-chest.webp",
     alt: "Original mountain and pine badge embroidered on the left chest of a charcoal polo",
   },
   {
@@ -32,7 +32,7 @@ export const portfolioProjects = [
     category: "vector",
     service: "Vector art",
     technique: "Badge artwork · color variations",
-    src: "/images/portfolio/vector-coastal-badge.png",
+    src: "/images/portfolio/vector-coastal-badge.webp",
     alt: "Original lighthouse and wave vector badge shown with two simplified color variations",
   },
   {
@@ -41,7 +41,7 @@ export const portfolioProjects = [
     category: "embroidery",
     service: "Embroidery digitizing",
     technique: "Patch digitizing · merrowed edge",
-    src: "/images/portfolio/embroidery-maritime-patch.png",
+    src: "/images/portfolio/embroidery-maritime-patch.webp",
     alt: "Original circular lighthouse patch with stitched waves, compass details, and a navy edge",
   },
   {
@@ -50,7 +50,7 @@ export const portfolioProjects = [
     category: "vector",
     service: "Vector art",
     technique: "Screen print · separated spot colors",
-    src: "/images/portfolio/vector-screen-print.png",
+    src: "/images/portfolio/vector-screen-print.webp",
     alt: "Original vector crane flying across a coral sun and stylized waves on a navy print proof",
   },
   {
@@ -59,7 +59,7 @@ export const portfolioProjects = [
     category: "embroidery",
     service: "Embroidery digitizing",
     technique: "Jacket back · large-format sequencing",
-    src: "/images/portfolio/embroidery-owl-jacket.png",
+    src: "/images/portfolio/embroidery-owl-jacket.webp",
     alt: "Original geometric owl with outstretched wings embroidered across a navy jacket back",
   },
   {
@@ -68,7 +68,7 @@ export const portfolioProjects = [
     category: "vector",
     service: "Vector art",
     technique: "Line art · engraving-friendly detail",
-    src: "/images/portfolio/vector-line-art.png",
+    src: "/images/portfolio/vector-line-art.webp",
     alt: "Original vintage field camera rendered as precise vector line art with botanical details",
   },
   {
@@ -77,7 +77,7 @@ export const portfolioProjects = [
     category: "embroidery",
     service: "Embroidery digitizing",
     technique: "Small lettering · fine satin stitch",
-    src: "/images/portfolio/embroidery-small-monogram.png",
+    src: "/images/portfolio/embroidery-small-monogram.webp",
     alt: "Original decorative T monogram embroidered in navy, gold, and teal on an ivory towel",
   },
   {
@@ -86,7 +86,7 @@ export const portfolioProjects = [
     category: "vector",
     service: "Vector art",
     technique: "Brand production · packaging artwork",
-    src: "/images/portfolio/vector-packaging-mark.png",
+    src: "/images/portfolio/vector-packaging-mark.webp",
     alt: "Original botanical vector emblem shown as flat artwork and applied to premium navy packaging",
   },
   {
@@ -95,7 +95,7 @@ export const portfolioProjects = [
     category: "embroidery",
     service: "Embroidery digitizing",
     technique: "3D puff · raised foam embroidery",
-    src: "/images/portfolio/embroidery-3d-puff.png",
+    src: "/images/portfolio/embroidery-3d-puff.webp",
     alt: "Original raised ivory and gold geometric 3D puff emblem embroidered on a teal cap",
   },
   {
@@ -104,7 +104,7 @@ export const portfolioProjects = [
     category: "vector",
     service: "Vector art",
     technique: "Signage artwork · simplified construction",
-    src: "/images/portfolio/vector-signage-emblem.png",
+    src: "/images/portfolio/vector-signage-emblem.webp",
     alt: "Original geometric owl vector emblem applied to a navy exterior sign panel",
   },
 ];

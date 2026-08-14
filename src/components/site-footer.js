@@ -22,7 +22,7 @@ export function SiteFooter() {
                 className="h-auto w-40"
                 height={1043}
                 sizes="160px"
-                src="/images/brand/trustitched-logo.png"
+                src="/images/brand/trustitched-logo.webp"
                 width={1600}
               />
             </Link>

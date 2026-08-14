@@ -23,7 +23,7 @@ function Brand() {
         height={60}
         loading="eager"
         sizes="(min-width: 1024px) 240px, (min-width: 640px) 208px, 176px"
-        src="/images/brand/trustiched_logo.png"
+        src="/images/brand/trustiched_logo.webp"
         width={336}
       />
     </Link>

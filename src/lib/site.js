@@ -5,7 +5,7 @@ export const siteConfig = {
   language: "en",
   description: "Professional embroidery digitizing and vector art services prepared for dependable production.",
   logo: {
-    url: "/images/brand/trustitched-icon.png",
+    url: "/images/brand/trustitched-icon.webp",
     width: 262,
     height: 262,
     alt: "Trustitched needle and thread monogram",
