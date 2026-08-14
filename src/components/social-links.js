@@ -4,14 +4,16 @@ const socialProfiles = [
   {
     name: "Facebook",
     icon: "facebook",
-    href: "https://www.facebook.com/",
+    href: "https://www.facebook.com/profile.php?id=61593277766069",
     color: "border-[#1877F2] bg-[#1877F2] text-white",
+    label: "Visit Trustitched on Facebook",
   },
   {
     name: "Instagram",
     icon: "instagram",
-    href: "https://www.instagram.com/",
+    href: "https://www.instagram.com/trustitched/reels/?hl=en",
     color: "border-transparent bg-[linear-gradient(135deg,#833AB4_0%,#FD1D1D_50%,#FCAF45_100%)] text-white",
+    label: "Visit Trustitched on Instagram",
   },
   {
     name: "Pinterest",

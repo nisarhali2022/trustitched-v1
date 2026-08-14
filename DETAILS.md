@@ -146,8 +146,8 @@ Facebook, Instagram, Pinterest, and WhatsApp buttons appear in the desktop heade
 
 The current URLs point to the public platform homepages and are temporary:
 
-- `https://www.facebook.com/`
-- `https://www.instagram.com/`
+- Facebook: `https://www.facebook.com/profile.php?id=61593277766069`
+- Instagram: `https://www.instagram.com/trustitched/reels/?hl=en`
 - `https://www.pinterest.com/`
 
 Replace these three values with verified Trustitched profile URLs before launch. The temporary URLs are intentionally excluded from Organization structured data.
