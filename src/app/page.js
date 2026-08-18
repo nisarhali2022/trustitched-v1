@@ -94,7 +94,7 @@ const faqs = [
   ["How quickly will I receive my files?", "Most standard projects are prepared within 12–24 hours after the artwork, intended use, output format, and deadline are confirmed. Complex or urgent projects may follow a different schedule."],
   ["What artwork can I send?", "You can send JPG, JPEG, PNG, PDF, AI, EPS, SVG, CDR, PSD, TIFF, ZIP, scans, or clear photographs. Send the best source available and include any known sizes, colors, or production requirements."],
   ["Are revisions included?", "Reasonable minor revisions are included when they stay within the confirmed brief. Major changes to the artwork, size, placement, application, or technique may require a revised quote."],
-  ["Does the quote form upload and send files yet?", "Not yet. The current form is presentation-ready but still needs to be connected to a form or email service before launch. It clearly identifies this limitation beside the request button."],
+  ["Can I send artwork with the quote form?", "Yes. The form emails your project details and one optional JPG, PNG, PDF, AI, EPS, SVG, CDR, PSD, TIFF, or ZIP file to the studio. Keep the attachment at 3 MB or smaller."],
 ];
 
 export const metadata = createPageMetadata({

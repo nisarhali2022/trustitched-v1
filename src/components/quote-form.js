@@ -1,3 +1,10 @@
+"use client";
+
+import { useActionState, useEffect, useRef } from "react";
+import { submitQuoteRequest } from "@/app/actions";
+
+const initialState = { status: "idle", message: "" };
+
 function FormLabel({ htmlFor, children, optional = false }) {
   return (
     <label className="mb-2 block text-sm font-bold text-ink" htmlFor={htmlFor}>
@@ -9,6 +16,15 @@ function FormLabel({ htmlFor, children, optional = false }) {
 export function QuoteForm({ idPrefix = "quote", defaultService = "" }) {
   const fieldId = (name) => `${idPrefix}-${name}`;
   const noteId = `${idPrefix}-form-note`;
+  const statusId = `${idPrefix}-form-status`;
+  const formRef = useRef(null);
+  const [state, formAction, pending] = useActionState(submitQuoteRequest, initialState);
+
+  useEffect(() => {
+    if (state.status === "success") {
+      formRef.current?.reset();
+    }
+  }, [state.status]);
 
   return (
     <div className="rounded-3xl border border-line bg-white p-6 shadow-[0_20px_60px_rgba(12,49,61,0.08)] sm:p-9">
@@ -20,7 +36,12 @@ export function QuoteForm({ idPrefix = "quote", defaultService = "" }) {
         <p className="text-xs text-slate">Fields marked * are required</p>
       </div>
 
-      <form className="mt-7" aria-describedby={noteId}>
+      <form ref={formRef} action={formAction} className="mt-7" aria-describedby={`${noteId} ${statusId}`}>
+        <input name="source" type="hidden" value={idPrefix} />
+        <div className="hidden" aria-hidden="true">
+          <label htmlFor={fieldId("website")}>Website</label>
+          <input id={fieldId("website")} name="website" type="text" autoComplete="off" tabIndex={-1} />
+        </div>
         <div className="grid gap-6 sm:grid-cols-2">
           <div>
             <FormLabel htmlFor={fieldId("name")}>Name *</FormLabel>
@@ -50,14 +71,25 @@ export function QuoteForm({ idPrefix = "quote", defaultService = "" }) {
           </div>
           <div className="sm:col-span-2">
             <FormLabel htmlFor={fieldId("artwork")} optional>Artwork file</FormLabel>
-            <input className="form-field file:mr-4 file:rounded-full file:border-0 file:bg-canvas file:px-4 file:py-2 file:text-sm file:font-bold file:text-ink" id={fieldId("artwork")} name="artwork" type="file" accept=".jpg,.jpeg,.png,.pdf,.ai,.eps,.svg,.cdr,.zip" />
-            <p className="mt-2 text-xs leading-5 text-slate">Accepted examples: JPG, PNG, PDF, AI, EPS, SVG, CDR, or ZIP.</p>
+            <input className="form-field file:mr-4 file:rounded-full file:border-0 file:bg-canvas file:px-4 file:py-2 file:text-sm file:font-bold file:text-ink" id={fieldId("artwork")} name="artwork" type="file" accept=".jpg,.jpeg,.png,.pdf,.ai,.eps,.svg,.cdr,.psd,.tif,.tiff,.zip" />
+            <p className="mt-2 text-xs leading-5 text-slate">Accepted: JPG, PNG, PDF, AI, EPS, SVG, CDR, PSD, TIFF, or ZIP. Maximum 3 MB.</p>
           </div>
         </div>
 
         <div className="mt-8 flex flex-col gap-4 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-sm text-xs leading-5 text-slate" id={noteId}>This form does not send or upload data yet. Connect a form service before launch.</p>
-          <button className="button button-ink shrink-0" type="button">Request free quote <span aria-hidden="true">→</span></button>
+          <div className="max-w-md">
+            <p className="text-xs leading-5 text-slate" id={noteId}>Your details and optional artwork will be emailed to the Trustitched studio for review.</p>
+            <p
+              className={`mt-2 text-sm font-bold ${state.status === "error" ? "text-red-700" : "text-teal-dark"}`}
+              id={statusId}
+              role={state.status === "error" ? "alert" : "status"}
+            >
+              {state.message}
+            </p>
+          </div>
+          <button className="button button-ink shrink-0 disabled:cursor-not-allowed disabled:opacity-60" type="submit" disabled={pending}>
+            {pending ? "Sending request…" : "Request free quote"} <span aria-hidden="true">→</span>
+          </button>
         </div>
       </form>
     </div>

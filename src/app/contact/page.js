@@ -14,7 +14,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact the studio"
         title="Tell us what you’re making."
-        description="Share your artwork and production details for a free quote. This starter form is ready to connect to your preferred email or form service."
+        description="Share your artwork and production details for a free quote. Your request will be sent directly to the Trustitched studio for review."
         showQuote={false}
       />
 

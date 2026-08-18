@@ -1,6 +1,6 @@
 # Trustitched project details
 
-Last updated: August 9, 2026
+Last updated: August 18, 2026
 
 ## Project overview
 
@@ -8,7 +8,7 @@ Trustitched is a responsive marketing website for professional embroidery digiti
 
 Production domain: `https://trustitched.com`
 
-The current build is a presentation-ready frontend. It does not contain a database, authentication, payments, an API, or a working quote-form submission and file-upload backend.
+The website includes a server-side quote form connected to Cloudflare Email Service. It does not contain a database, authentication, or payments.
 
 ## Technology
 
@@ -18,6 +18,7 @@ The current build is a presentation-ready frontend. It does not contain a databa
 | React | 19.2.4 |
 | Tailwind CSS | 4.x |
 | Analytics integration | `@next/third-parties` 16.2.12 |
+| Quote delivery | Next.js Server Action and Cloudflare Email Service REST API |
 | Source language | JavaScript and JSX |
 | Body typography | Segoe UI with Arial and Helvetica fallbacks |
 | Display typography | Georgia with Times New Roman fallback |
@@ -35,7 +36,7 @@ The current build is a presentation-ready frontend. It does not contain a databa
 | `/robots.txt` | Search-engine crawling directives |
 | `/sitemap.xml` | Sitemap for the five primary public pages |
 
-All page routes are statically rendered. Client-side interaction is limited to the responsive navigation, portfolio filters, and homepage comparison slider.
+All page routes are statically rendered. Client-side interaction is limited to the responsive navigation, portfolio filters, homepage comparison slider, and quote-form submission feedback.
 
 ## Main project structure
 
@@ -48,13 +49,14 @@ src/
     portfolio/page.js               Portfolio page
     contact/page.js                 Contact page
     layout.js                       Global layout and metadata
+    actions.js                      Quote-form validation and email delivery
     globals.css                     Theme and shared styles
     robots.js                       robots.txt generator
     sitemap.js                      sitemap.xml generator
   components/
     hero-comparison-slider.js       Homepage before/after slider
     portfolio-gallery.js            Portfolio filters and cards
-    quote-form.js                   Reusable presentation-only form
+    quote-form.js                   Reusable connected quote form
     site-header.js                  Shared responsive navigation
     site-footer.js                  Shared footer
     social-links.js                 Central social buttons and URLs
@@ -138,7 +140,16 @@ Current fields:
 - Project details
 - Optional artwork file
 
-The form currently uses a `type="button"` action and intentionally does not send or upload data. Before launch, connect it to an approved form service, email provider, server action, or API endpoint and add server-side validation, spam protection, upload limits, error handling, and success feedback.
+The form submits through `src/app/actions.js`, validates every field on the server, uses a hidden honeypot field for basic spam filtering, and sends the request through Cloudflare Email Service. The visitor's address is assigned as the email reply-to address. Optional artwork is attached to the studio notification and must be 3 MB or smaller. Supported extensions are JPG, PNG, PDF, AI, EPS, SVG, CDR, PSD, TIFF, and ZIP.
+
+The following server-only environment variables are required locally and in the Vercel Production environment:
+
+- `CLOUDFLARE_ACCOUNT_ID`
+- `CLOUDFLARE_EMAIL_API_TOKEN`
+- `CONTACT_EMAIL_FROM`
+- `CONTACT_EMAIL_TO`
+
+`.env.example` documents the required variable names without containing secrets. The Cloudflare token must have Email Sending permission, and the sender domain must be available in Cloudflare Email Service.
 
 ## Social media links
 
@@ -224,7 +235,7 @@ Also verify the five page routes at desktop, tablet, and mobile widths; test nav
 
 ## Before-launch checklist
 
-- Connect and test the quote form and artwork upload.
+- Add the four contact-form environment variables to Vercel Production and complete one live delivery test.
 - Replace the temporary phone number if necessary.
 - Replace the temporary social-platform homepage URLs with verified profiles.
 - Replace generated portfolio studio samples with approved client work when available.
