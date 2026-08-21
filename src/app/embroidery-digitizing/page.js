@@ -8,7 +8,7 @@ import { createPageMetadata, createServiceStructuredData } from "@/lib/site";
 const embroideryImages = {
   hero: {
     src: "/images/embroidery/hero-studio.webp",
-    alt: "Multi-needle embroidery machine stitching a detailed crest in a professional studio",
+    alt: "Multi-needle embroidery machine stitching a large championship emblem",
   },
   showcase: {
     src: "/images/embroidery/gallery-mosaic.webp",
