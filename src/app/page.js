@@ -33,8 +33,8 @@ const homeImages = {
 };
 
 const metrics = [
-  ["12+ years", "Hands-on experience"],
-  ["85,000+", "Files delivered"],
+  ["8+ years", "Hands-on experience"],
+  ["25,000+", "Files delivered"],
   ["12–24 hr", "Standard turnaround"],
   ["99.8%", "Approval rate"],
 ];
@@ -63,13 +63,13 @@ const services = [
 const pricing = [
   {
     service: "Embroidery digitizing",
-    price: "$15",
+    price: "$10",
     description: "A typical starting point for straightforward logos and standard placements.",
     href: "/embroidery-digitizing",
   },
   {
     service: "Vector art conversion",
-    price: "$15",
+    price: "$10",
     description: "A typical starting point for clean, low-complexity raster-to-vector redraws.",
     href: "/vector-art",
   },
@@ -90,7 +90,7 @@ const qualityBenefits = [
 
 const faqs = [
   ["Which service do I need?", "Choose embroidery digitizing when you need a machine-readable stitch file. Choose vector art when you need scalable editable artwork for printing, cutting, engraving, signage, or design use. Select both or Not sure in the quote form if you would like us to recommend the best path."],
-  ["How much does a typical project cost?", "Many straightforward homepage projects start around $15, but this is general guidance rather than a guaranteed minimum. Final pricing depends on artwork complexity, size, source quality, placement, technique, required formats, revisions, and turnaround. The service pages provide more detailed examples."],
+  ["How much does a typical project cost?", "Many straightforward homepage projects start around $10, but this is general guidance rather than a guaranteed minimum. Final pricing depends on artwork complexity, size, source quality, placement, technique, required formats, revisions, and turnaround. The service pages provide more detailed examples."],
   ["How quickly will I receive my files?", "Most standard projects are prepared within 12–24 hours after the artwork, intended use, output format, and deadline are confirmed. Complex or urgent projects may follow a different schedule."],
   ["What artwork can I send?", "You can send JPG, JPEG, PNG, PDF, AI, EPS, SVG, CDR, PSD, TIFF, ZIP, scans, or clear photographs. Send the best source available and include any known sizes, colors, or production requirements."],
   ["Are revisions included?", "Reasonable minor revisions are included when they stay within the confirmed brief. Major changes to the artwork, size, placement, application, or technique may require a revised quote."],
@@ -154,7 +154,7 @@ export default function Home() {
           <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-center lg:gap-20">
             <div>
               <p className="eyebrow text-teal-dark">Typical project pricing</p>
-              <h2 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">Straightforward production files often start around $15.</h2>
+              <h2 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">Straightforward production files often start around $10.</h2>
               <p className="mt-5 text-lg leading-8 text-slate">This is general homepage guidance, not a guaranteed minimum. We review the source and confirm the exact price before work begins.</p>
               <p className="mt-5 leading-7 text-slate">Complexity, finished size, source quality, stitch technique, required formats, revisions, and turnaround can all affect the final quote.</p>
               <Link className="button button-teal mt-8" href="#quote-form">Request exact pricing</Link>

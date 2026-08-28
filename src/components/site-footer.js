@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SocialLinks } from "@/components/social-links";
+import { siteConfig } from "@/lib/site";
 
 const links = [
   ["Home", "/"],
@@ -41,6 +42,9 @@ export function SiteFooter() {
           <div>
             <p className="eyebrow text-teal-light">Talk to the studio</p>
             <a className="mt-5 block font-display text-2xl text-white hover:text-teal-light" href="tel:+17579068220">+1 757-906-8220</a>
+            <a className="mt-3 block w-fit text-sm font-semibold text-white/70 transition hover:text-teal-light" href={`mailto:${siteConfig.contactEmail}`}>
+              {siteConfig.contactEmail}
+            </a>
             <Link className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-teal-light hover:text-white" href="/contact">
               Request a quote <span aria-hidden="true">→</span>
             </Link>

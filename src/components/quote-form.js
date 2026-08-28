@@ -52,8 +52,8 @@ export function QuoteForm({ idPrefix = "quote", defaultService = "" }) {
             <input className="form-field" id={fieldId("email")} name="email" type="email" autoComplete="email" placeholder="you@company.com" required />
           </div>
           <div>
-            <FormLabel htmlFor={fieldId("phone")} optional>Phone</FormLabel>
-            <input className="form-field" id={fieldId("phone")} name="phone" type="tel" autoComplete="tel" placeholder="Your phone number" />
+            <FormLabel htmlFor={fieldId("phone")}>Phone *</FormLabel>
+            <input className="form-field" id={fieldId("phone")} name="phone" type="tel" autoComplete="tel" placeholder="Your phone number" required />
           </div>
           <div>
             <FormLabel htmlFor={fieldId("service")}>Service *</FormLabel>

@@ -21,8 +21,8 @@ const embroideryImages = {
 };
 
 const metrics = [
-  ["12+ years", "Hands-on experience"],
-  ["85,000+", "Files delivered"],
+  ["8+ years", "Hands-on experience"],
+  ["25,000+", "Files delivered"],
   ["12–24 hr", "Standard turnaround"],
   ["99.8%", "Approval rate"],
 ];
@@ -39,13 +39,13 @@ const services = [
 const prices = [
   {
     label: "Small designs",
-    price: "$10–25",
+    price: "$10–15",
     description: "Simple left-chest marks, names, and compact artwork.",
     features: ["Typically up to 4 inches", "Simple to moderate detail", "Standard placements"],
   },
   {
     label: "Medium designs",
-    price: "$25–50",
+    price: "$15–25",
     description: "Detailed logos, cap designs, and medium jacket artwork.",
     features: ["Typically 4–6 inches", "More colors and details", "Complex stitch direction"],
     featured: true,

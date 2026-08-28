@@ -30,8 +30,8 @@ const vectorImages = {
 };
 
 const metrics = [
-  ["12+ years", "Hands-on experience"],
-  ["85,000+", "Files delivered"],
+  ["8+ years", "Hands-on experience"],
+  ["25,000+", "Files delivered"],
   ["12–24 hr", "Standard turnaround"],
   ["99.8%", "Approval rate"],
 ];

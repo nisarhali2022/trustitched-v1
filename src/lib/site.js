@@ -3,6 +3,7 @@ export const siteConfig = {
   url: "https://trustitched.com",
   locale: "en_US",
   language: "en",
+  contactEmail: "contact@trustitched.com",
   description: "Professional embroidery digitizing and vector art services prepared for dependable production.",
   logo: {
     url: "/images/brand/trustitched-icon.webp",

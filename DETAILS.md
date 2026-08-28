@@ -135,12 +135,12 @@ Current fields:
 
 - Name
 - Email
-- Optional phone
+- Phone
 - Service type
 - Project details
 - Optional artwork file
 
-The form submits through `src/app/actions.js`, validates every field on the server, uses a hidden honeypot field for basic spam filtering, and sends the request through Cloudflare Email Service. The visitor's address is assigned as the email reply-to address. Optional artwork is attached to the studio notification and must be 3 MB or smaller. Supported extensions are JPG, PNG, PDF, AI, EPS, SVG, CDR, PSD, TIFF, and ZIP.
+The form submits through `src/app/actions.js`, requires a phone number, validates every field on the server, uses a hidden honeypot field for basic spam filtering, and sends the request through Cloudflare Email Service. The visitor's address is assigned as the email reply-to address. Optional artwork is attached to the studio notification and must be 3 MB or smaller. Supported extensions are JPG, PNG, PDF, AI, EPS, SVG, CDR, PSD, TIFF, and ZIP.
 
 The following server-only environment variables are required locally and in the Vercel Production environment:
 

@@ -99,6 +99,9 @@ export async function submitQuoteRequest(_previousState, formData) {
   if (email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return validationError("Enter a valid email address.");
   }
+  if (!phone) {
+    return validationError("Enter a phone number.");
+  }
   if (phone.length > 50) {
     return validationError("The phone number is too long.");
   }
@@ -136,7 +139,7 @@ export async function submitQuoteRequest(_previousState, formData) {
   const serviceLabel = services[service];
   const sourceLabel = sources[source] ?? "Website";
   const subjectName = name.replace(/[\r\n]+/g, " ").slice(0, 80);
-  const phoneText = phone || "Not supplied";
+  const phoneText = phone;
   const text = [
     "New Trustitched quote request",
     "",

@@ -1,6 +1,6 @@
 import { PageHero } from "@/components/page-hero";
 import { QuoteForm } from "@/components/quote-form";
-import { createPageMetadata } from "@/lib/site";
+import { createPageMetadata, siteConfig } from "@/lib/site";
 
 export const metadata = createPageMetadata({
   title: "Contact Us",
@@ -29,6 +29,12 @@ export default function ContactPage() {
               <div className="py-5">
                 <p className="text-xs font-bold uppercase tracking-[0.16em] text-teal-dark">Call our studio</p>
                 <a className="mt-2 block font-display text-2xl text-ink hover:text-teal-dark" href="tel:+17579068220">+1 757-906-8220</a>
+              </div>
+              <div className="py-5">
+                <p className="text-xs font-bold uppercase tracking-[0.16em] text-teal-dark">Email our studio</p>
+                <a className="mt-2 block w-fit text-lg font-semibold text-ink transition hover:text-teal-dark" href={`mailto:${siteConfig.contactEmail}`}>
+                  {siteConfig.contactEmail}
+                </a>
               </div>
               <div className="py-5">
                 <p className="text-xs font-bold uppercase tracking-[0.16em] text-teal-dark">Typical turnaround</p>
