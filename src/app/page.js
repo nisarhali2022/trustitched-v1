@@ -33,7 +33,7 @@ const homeImages = {
 };
 
 const metrics = [
-  ["8+ years", "Hands-on experience"],
+  ["12+ years", "Hands-on experience"],
   ["25,000+", "Files delivered"],
   ["12–24 hr", "Standard turnaround"],
   ["99.8%", "Approval rate"],
