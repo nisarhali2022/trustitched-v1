@@ -97,16 +97,26 @@ Active brand files:
 
 The three `trustitched-logo-sample-*` files are retained as unused design samples.
 
-## Homepage comparison slider
+## Homepage comparison sliders
 
 The homepage hero compares two aligned 4:3 images:
 
-- `public/images/home/hero-vector-before.png`
-- `public/images/home/hero-embroidery-after.png`
+- `public/images/home/hero-vector-before.webp`
+- `public/images/home/hero-embroidery-after.webp`
 
-The slider begins at 50 percent and uses a native range control. It supports mouse dragging, touch, arrow keys, Home, and End. The image paths and alt text are centralized in the `homeImages` object near the top of `src/app/page.js`.
+The Embroidery Digitizing service card compares two aligned 891 x 762 images:
 
-To replace the slider artwork without editing code, overwrite both files with aligned images using the same filenames and approximately the same 4:3 aspect ratio. Both images must use the same canvas size and subject position for a clean comparison. The previous `hero-dual-service.png` remains available but is unused.
+- `public/images/home/service-embroidery-vector.webp`
+- `public/images/home/service-embroidery.webp`
+
+The Vector Art Conversion service card compares two aligned 891 x 762 images:
+
+- `public/images/home/service-vector-before.webp`
+- `public/images/home/service-vector-after.webp`
+
+All three sliders begin at 50 percent and use native range controls. They support mouse dragging, touch, arrow keys, Home, and End. The image paths and alt text are centralized in the `homeImages` object near the top of `src/app/page.js`.
+
+To replace slider artwork without editing code, overwrite its before-and-after pair using the same filenames. Each pair must use the same canvas size, aspect ratio, and subject position for a clean comparison. Use approximately 4:3 for the hero pair and 891:762 for the service-card pair. The previous `hero-dual-service.png` remains available but is unused.
 
 ## Image replacement
 

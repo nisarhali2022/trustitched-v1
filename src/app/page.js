@@ -14,13 +14,21 @@ const homeImages = {
     src: "/images/home/hero-embroidery-after.webp",
     alt: "The matching ornamental owl crest rendered as detailed commercial embroidery on navy fabric",
   },
-  embroideryService: {
-    src: "/images/home/service-embroidery.webp",
-    alt: "Multi-needle embroidery machine stitching a detailed crest in a professional studio",
+  embroideryServiceBefore: {
+    src: "/images/home/service-embroidery-vector.webp",
+    alt: "Clean vector artwork for a cougar youth basketball crest",
   },
-  vectorService: {
-    src: "/images/home/service-vector.webp",
-    alt: "Design workspace showing an original fox emblem being rebuilt with precise vector paths",
+  embroideryServiceAfter: {
+    src: "/images/home/service-embroidery.webp",
+    alt: "The matching cougar youth basketball crest rendered as detailed embroidery",
+  },
+  vectorServiceBefore: {
+    src: "/images/home/service-vector-before.webp",
+    alt: "Grayscale source illustration of a seated fox prepared for vector conversion",
+  },
+  vectorServiceAfter: {
+    src: "/images/home/service-vector-after.webp",
+    alt: "The matching seated fox completed as clean full-color vector artwork",
   },
   embroideryShowcase: {
     src: "/images/home/showcase-embroidery.webp",
@@ -47,7 +55,14 @@ const services = [
     features: ["Caps, polos, jackets, and patches", "Small lettering, appliqué, and 3D puff", "DST, PES, EXP, EMB, and more"],
     href: "/embroidery-digitizing",
     cta: "Explore digitizing",
-    image: homeImages.embroideryService,
+    comparison: {
+      before: homeImages.embroideryServiceBefore,
+      after: homeImages.embroideryServiceAfter,
+      beforeLabel: "Vector Artwork",
+      afterLabel: "Finished Embroidery",
+      ariaLabel: "Compare the vector basketball crest with the finished embroidered crest",
+      caption: "Drag the comparison slider to compare the vector basketball crest with its finished embroidered version.",
+    },
   },
   {
     eyebrow: "Scalable master artwork",
@@ -56,7 +71,14 @@ const services = [
     features: ["Logo redraws and manual vector tracing", "Screen print, vinyl, and engraving artwork", "AI, EPS, SVG, PDF, CDR, and previews"],
     href: "/vector-art",
     cta: "Explore vector art",
-    image: homeImages.vectorService,
+    comparison: {
+      before: homeImages.vectorServiceBefore,
+      after: homeImages.vectorServiceAfter,
+      beforeLabel: "Source Artwork",
+      afterLabel: "Finished Vector",
+      ariaLabel: "Compare the grayscale fox source artwork with the finished color vector artwork",
+      caption: "Drag the comparison slider to compare the grayscale fox source artwork with its finished color vector version.",
+    },
   },
 ];
 
@@ -185,8 +207,18 @@ export default function Home() {
           <div className="mt-12 space-y-8">
             {services.map((service, index) => (
               <article className="grid overflow-hidden rounded-3xl border border-line bg-canvas lg:grid-cols-2" key={service.title}>
-                <div className={`relative min-h-[22rem] ${index % 2 === 1 ? "lg:order-2" : ""}`}>
-                  <Image src={service.image.src} alt={service.image.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+                <div className={index % 2 === 1 ? "lg:order-2" : ""}>
+                  <HeroComparisonSlider
+                    after={service.comparison.after}
+                    afterLabel={service.comparison.afterLabel}
+                    ariaLabel={service.comparison.ariaLabel}
+                    before={service.comparison.before}
+                    beforeLabel={service.comparison.beforeLabel}
+                    caption={service.comparison.caption}
+                    preloadImages={false}
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    variant="service"
+                  />
                 </div>
                 <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-12">
                   <p className="eyebrow text-teal-dark">{service.eyebrow}</p>

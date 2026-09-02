@@ -10,8 +10,12 @@ export function HeroComparisonSlider({
   afterLabel = "Finished embroidery",
   ariaLabel = "Compare vector artwork with finished embroidery",
   caption = "Drag the comparison slider to reveal the vector artwork and its finished embroidered version.",
+  variant = "hero",
+  preloadImages = true,
+  sizes = "(max-width: 1024px) 100vw, 52vw",
 }) {
   const [position, setPosition] = useState(50);
+  const isService = variant === "service";
 
   function handleKeyDown(event) {
     if (event.key === "Home") {
@@ -39,13 +43,17 @@ export function HeroComparisonSlider({
   }
 
   return (
-    <figure className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] border border-white/15 bg-ink shadow-2xl focus-within:ring-4 focus-within:ring-teal-light/70 focus-within:ring-offset-4 focus-within:ring-offset-ink">
+    <figure
+      className={isService
+        ? "relative aspect-[891/762] overflow-hidden bg-white focus-within:ring-4 focus-within:ring-inset focus-within:ring-teal/60"
+        : "relative aspect-[4/3] overflow-hidden rounded-[1.75rem] border border-white/15 bg-ink shadow-2xl focus-within:ring-4 focus-within:ring-teal-light/70 focus-within:ring-offset-4 focus-within:ring-offset-ink"}
+    >
       <Image
         alt={after.alt}
         className="object-cover"
         fill
-        preload
-        sizes="(max-width: 1024px) 100vw, 52vw"
+        preload={preloadImages}
+        sizes={sizes}
         src={after.src}
       />
 
@@ -57,8 +65,8 @@ export function HeroComparisonSlider({
           alt={before.alt}
           className="object-cover"
           fill
-          preload
-          sizes="(max-width: 1024px) 100vw, 52vw"
+          preload={preloadImages}
+          sizes={sizes}
           src={before.src}
         />
       </div>
