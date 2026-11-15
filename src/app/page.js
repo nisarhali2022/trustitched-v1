@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { HeroComparisonSlider } from "@/components/hero-comparison-slider";
-import { QuoteForm } from "@/components/quote-form";
+import { FaqSection } from "@/components/faq-section";
+import { MetricsStrip } from "@/components/metrics-strip";
+import { QuoteSection } from "@/components/quote-section";
 import { SectionHeading } from "@/components/section-heading";
 import { createPageMetadata } from "@/lib/site";
 
@@ -40,12 +42,6 @@ const homeImages = {
   },
 };
 
-const metrics = [
-  ["12+ years", "Hands-on experience"],
-  ["25,000+", "Files delivered"],
-  ["12–24 hr", "Standard turnaround"],
-  ["99.8%", "Approval rate"],
-];
 
 const services = [
   {
@@ -97,7 +93,7 @@ const pricing = [
   },
 ];
 
-const process = [
+const steps = [
   ["01", "Send your artwork", "Share the clearest source available together with the intended size, material, application, deadline, and required format."],
   ["02", "We build the production file", "A specialist manually plans the stitch paths or vector curves and checks the work around its real production use."],
   ["03", "Review, download, and produce", "Receive the requested files and practical previews, with reasonable minor revisions available within the approved brief."],
@@ -160,16 +156,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-b border-line bg-white" aria-label="Trustitched performance metrics">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 px-6 lg:grid-cols-4 lg:px-8">
-          {metrics.map(([value, label]) => (
-            <div className="border-line px-3 py-8 text-center even:border-l lg:border-l lg:first:border-l-0" key={label}>
-              <strong className="block font-display text-3xl text-ink sm:text-4xl">{value}</strong>
-              <span className="mt-2 block text-sm text-slate">{label}</span>
-            </div>
-          ))}
-        </div>
-      </section>
+      <MetricsStrip />
 
       <section className="border-y border-line bg-mist py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -222,7 +209,7 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-12">
                   <p className="eyebrow text-teal-dark">{service.eyebrow}</p>
-                  <h2 className="mt-3 font-display text-4xl leading-tight text-ink">{service.title}</h2>
+                  <h3 className="mt-3 font-display text-4xl leading-tight text-ink">{service.title}</h3>
                   <p className="mt-5 text-lg leading-8 text-slate">{service.description}</p>
                   <ul className="mt-6 space-y-3 text-sm text-slate">
                     {service.features.map((feature) => <li className="flex gap-3" key={feature}><span className="text-teal-dark" aria-hidden="true">✓</span>{feature}</li>)}
@@ -244,7 +231,7 @@ export default function Home() {
             <Link className="button button-ink mt-8" href="#quote-form">Start your project</Link>
           </div>
           <ol className="divide-y divide-line border-y border-line">
-            {process.map(([number, title, description]) => (
+            {steps.map(([number, title, description]) => (
               <li className="grid gap-4 py-7 sm:grid-cols-[4rem_1fr]" key={number}>
                 <span className="font-display text-3xl text-teal-dark">{number}</span>
                 <div><h3 className="text-lg font-bold text-ink">{title}</h3><p className="mt-2 leading-7 text-slate">{description}</p></div>
@@ -302,41 +289,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-canvas py-20 sm:py-24">
-        <div className="mx-auto max-w-4xl px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="Frequently asked questions"
-            title="Helpful answers before you request a quote."
-            description="If your project has an unusual material, application, source file, or deadline, include it in the request and we will review it directly."
-            align="center"
-          />
-          <div className="mt-12 divide-y divide-line border-y border-line">
-            {faqs.map(([question, answer]) => (
-              <details className="group" key={question}>
-                <summary className="flex cursor-pointer items-center justify-between gap-6 py-5 font-bold text-ink">
-                  {question}<span className="text-xl font-normal text-teal-dark transition-transform group-open:rotate-45" aria-hidden="true">+</span>
-                </summary>
-                <p className="max-w-3xl pb-6 pr-12 leading-7 text-slate">{answer}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FaqSection
+        className="bg-canvas"
+        faqs={faqs}
+        title="Helpful answers before you request a quote."
+        description="If your project has an unusual material, application, source file, or deadline, include it in the request and we will review it directly."
+      />
 
-      <section className="scroll-mt-28 bg-mist py-20 sm:py-24" id="quote-form">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-start lg:gap-20 lg:px-8">
-          <div>
-            <p className="eyebrow text-teal-dark">Ready to start?</p>
-            <h2 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">Send the artwork you have. We will help define the file you need.</h2>
-            <p className="mt-5 text-lg leading-8 text-slate">Include the intended size, material or application, deadline, and preferred format. Select Not sure yet if you would like a recommendation.</p>
-            <div className="mt-8 border-y border-line py-6 text-sm text-slate">
-              <p><strong className="text-ink">Prefer to talk?</strong> Call <a className="font-bold text-teal-dark hover:text-ink" href="tel:+17579068220">+1 757-906-8220</a>.</p>
-              <p className="mt-3">You can also use the full <Link className="font-bold text-teal-dark hover:text-ink" href="/contact">Contact Us page</Link>.</p>
-            </div>
-          </div>
-          <QuoteForm idPrefix="home" />
-        </div>
-      </section>
+      <QuoteSection
+        title="Send the artwork you have. We will help define the file you need."
+        description="Include the intended size, material or application, deadline, and preferred format. Select Not sure yet if you would like a recommendation."
+        idPrefix="home"
+      />
     </>
   );
 }

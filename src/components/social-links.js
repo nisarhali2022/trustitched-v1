@@ -1,5 +1,8 @@
-export const whatsappHref = "https://wa.me/17579068220";
+import { siteConfig } from "@/lib/site";
 
+const { whatsappHref } = siteConfig;
+
+// A profile without an href is hidden until its real URL is added.
 const socialProfiles = [
   {
     name: "Facebook",
@@ -18,8 +21,9 @@ const socialProfiles = [
   {
     name: "Pinterest",
     icon: "pinterest",
-    href: "https://www.pinterest.com/",
+    href: null, // TODO: add the Trustitched Pinterest profile URL
     color: "border-[#E60023] bg-[#E60023] text-white",
+    label: "Visit Trustitched on Pinterest",
   },
   {
     name: "WhatsApp",
@@ -85,8 +89,8 @@ export function SocialLinks({ className = "", variant = "header" }) {
 
   return (
     <div className={`flex items-center gap-2 ${className}`} role="group" aria-label="Social media and messaging links">
-      {socialProfiles.map((profile) => {
-        const label = profile.label ?? `Open ${profile.name} homepage (temporary link)`;
+      {socialProfiles.filter((profile) => profile.href).map((profile) => {
+        const { label } = profile;
         return (
           <a
             aria-label={label}

@@ -1,9 +1,10 @@
 "use client";
 
-import { useActionState, useEffect, useRef } from "react";
+import { startTransition, useActionState, useEffect, useRef, useState } from "react";
 import { submitQuoteRequest } from "@/app/actions";
 
 const initialState = { status: "idle", message: "" };
+const MAX_ARTWORK_BYTES = 3 * 1024 * 1024;
 
 function FormLabel({ htmlFor, children, optional = false }) {
   return (
@@ -20,11 +21,32 @@ export function QuoteForm({ idPrefix = "quote", defaultService = "" }) {
   const formRef = useRef(null);
   const [state, formAction, pending] = useActionState(submitQuoteRequest, initialState);
 
+  const [clientError, setClientError] = useState("");
+
   useEffect(() => {
     if (state.status === "success") {
       formRef.current?.reset();
     }
-  }, [state.status]);
+  }, [state]);
+
+  // Submitting through onSubmit (rather than the form's action prop) stops React
+  // from clearing every field when the server sends back a validation error.
+  function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const artwork = formData.get("artwork");
+
+    // Checked here too, because files above the server's body limit never reach the action.
+    if (artwork && typeof artwork !== "string" && artwork.size > MAX_ARTWORK_BYTES) {
+      setClientError("Artwork files must be 3 MB or smaller. Choose a smaller file, or send it by email after we reply.");
+      return;
+    }
+
+    setClientError("");
+    startTransition(() => formAction(formData));
+  }
+
+  const status = clientError ? { status: "error", message: clientError } : state;
 
   return (
     <div className="rounded-3xl border border-line bg-white p-6 shadow-[0_20px_60px_rgba(12,49,61,0.08)] sm:p-9">
@@ -36,7 +58,7 @@ export function QuoteForm({ idPrefix = "quote", defaultService = "" }) {
         <p className="text-xs text-slate">Fields marked * are required</p>
       </div>
 
-      <form ref={formRef} action={formAction} className="mt-7" aria-describedby={`${noteId} ${statusId}`}>
+      <form ref={formRef} onSubmit={handleSubmit} className="mt-7" aria-describedby={`${noteId} ${statusId}`}>
         <input name="source" type="hidden" value={idPrefix} />
         <div className="hidden" aria-hidden="true">
           <label htmlFor={fieldId("website")}>Website</label>
@@ -80,11 +102,11 @@ export function QuoteForm({ idPrefix = "quote", defaultService = "" }) {
           <div className="max-w-md">
             <p className="text-xs leading-5 text-slate" id={noteId}>Your details and optional artwork will be emailed to the Trustitched studio for review.</p>
             <p
-              className={`mt-2 text-sm font-bold ${state.status === "error" ? "text-red-700" : "text-teal-dark"}`}
+              className={`mt-2 text-sm font-bold ${status.status === "error" ? "text-red-700" : "text-teal-dark"}`}
               id={statusId}
-              role={state.status === "error" ? "alert" : "status"}
+              role={status.status === "error" ? "alert" : "status"}
             >
-              {state.message}
+              {status.message}
             </p>
           </div>
           <button className="button button-ink shrink-0 disabled:cursor-not-allowed disabled:opacity-60" type="submit" disabled={pending}>

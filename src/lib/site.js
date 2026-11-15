@@ -4,6 +4,18 @@ export const siteConfig = {
   locale: "en_US",
   language: "en",
   contactEmail: "contact@trustitched.com",
+  phone: {
+    display: "+1 757-906-8220",
+    href: "tel:+17579068220",
+  },
+  whatsappHref: "https://wa.me/17579068220",
+  navigation: [
+    { label: "Home", href: "/" },
+    { label: "Embroidery Digitizing", href: "/embroidery-digitizing" },
+    { label: "Vector Art", href: "/vector-art" },
+    { label: "Portfolio", href: "/portfolio" },
+    { label: "Contact Us", href: "/contact" },
+  ],
   description: "Professional embroidery digitizing and vector art services prepared for dependable production.",
   logo: {
     url: "/images/brand/trustitched-icon.webp",

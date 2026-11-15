@@ -3,15 +3,10 @@ import Link from "next/link";
 import { SocialLinks } from "@/components/social-links";
 import { siteConfig } from "@/lib/site";
 
-const links = [
-  ["Home", "/"],
-  ["Embroidery Digitizing", "/embroidery-digitizing"],
-  ["Vector Art", "/vector-art"],
-  ["Portfolio", "/portfolio"],
-  ["Contact Us", "/contact"],
-];
-
 export function SiteFooter() {
+  // Pages are pre-rendered, so this is the year of the latest build/deploy.
+  const year = new Date().getFullYear();
+
   return (
     <footer className="bg-ink text-white">
       <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
@@ -34,14 +29,14 @@ export function SiteFooter() {
           <div>
             <p className="eyebrow text-teal-light">Navigate</p>
             <nav className="mt-5 flex flex-col gap-3" aria-label="Footer navigation">
-              {links.map(([label, href]) => (
+              {siteConfig.navigation.map(({ label, href }) => (
                 <Link className="w-fit text-sm text-white/65 transition hover:text-white" href={href} key={href}>{label}</Link>
               ))}
             </nav>
           </div>
           <div>
             <p className="eyebrow text-teal-light">Talk to the studio</p>
-            <a className="mt-5 block font-display text-2xl text-white hover:text-teal-light" href="tel:+17579068220">+1 757-906-8220</a>
+            <a className="mt-5 block font-display text-2xl text-white hover:text-teal-light" href={siteConfig.phone.href}>{siteConfig.phone.display}</a>
             <a className="mt-3 block w-fit text-sm font-semibold text-white/70 transition hover:text-teal-light" href={`mailto:${siteConfig.contactEmail}`}>
               {siteConfig.contactEmail}
             </a>
@@ -52,7 +47,7 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="flex flex-col gap-2 pt-6 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 Trustitched. All rights reserved.</p>
+          <p>© {year} {siteConfig.name}. All rights reserved.</p>
           <p>Professional embroidery digitizing & vector art.</p>
         </div>
       </div>

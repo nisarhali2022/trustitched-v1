@@ -17,31 +17,6 @@ export function HeroComparisonSlider({
   const [position, setPosition] = useState(50);
   const isService = variant === "service";
 
-  function handleKeyDown(event) {
-    if (event.key === "Home") {
-      event.preventDefault();
-      setPosition(0);
-      return;
-    }
-
-    if (event.key === "End") {
-      event.preventDefault();
-      setPosition(100);
-      return;
-    }
-
-    if (event.key === "ArrowLeft" || event.key === "ArrowDown") {
-      event.preventDefault();
-      setPosition((current) => Math.max(0, current - 1));
-      return;
-    }
-
-    if (event.key === "ArrowRight" || event.key === "ArrowUp") {
-      event.preventDefault();
-      setPosition((current) => Math.min(100, current + 1));
-    }
-  }
-
   return (
     <figure
       className={isService
@@ -95,11 +70,10 @@ export function HeroComparisonSlider({
       <input
         aria-label={ariaLabel}
         aria-valuetext={`${position}% ${beforeLabel.toLowerCase()} visible`}
-        className="absolute inset-0 z-30 h-full w-full cursor-col-resize touch-none opacity-0"
+        className="absolute inset-0 z-30 h-full w-full cursor-col-resize touch-pan-y opacity-0"
         max="100"
         min="0"
         onChange={(event) => setPosition(Number(event.target.value))}
-        onKeyDown={handleKeyDown}
         step="1"
         type="range"
         value={position}

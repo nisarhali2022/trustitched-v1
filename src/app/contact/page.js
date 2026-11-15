@@ -28,7 +28,7 @@ export default function ContactPage() {
             <div className="mt-9 divide-y divide-line border-y border-line">
               <div className="py-5">
                 <p className="text-xs font-bold uppercase tracking-[0.16em] text-teal-dark">Call our studio</p>
-                <a className="mt-2 block font-display text-2xl text-ink hover:text-teal-dark" href="tel:+17579068220">+1 757-906-8220</a>
+                <a className="mt-2 block font-display text-2xl text-ink hover:text-teal-dark" href={siteConfig.phone.href}>{siteConfig.phone.display}</a>
               </div>
               <div className="py-5">
                 <p className="text-xs font-bold uppercase tracking-[0.16em] text-teal-dark">Email our studio</p>

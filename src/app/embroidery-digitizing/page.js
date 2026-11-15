@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { QuoteForm } from "@/components/quote-form";
+import { FaqSection } from "@/components/faq-section";
+import { MetricsStrip } from "@/components/metrics-strip";
+import { QuoteSection } from "@/components/quote-section";
 import { SectionHeading } from "@/components/section-heading";
 import { StructuredData } from "@/components/structured-data";
 import { createPageMetadata, createServiceStructuredData } from "@/lib/site";
@@ -20,12 +22,6 @@ const embroideryImages = {
   },
 };
 
-const metrics = [
-  ["12+  years", "Hands-on experience"],
-  ["25,000+", "Files delivered"],
-  ["12–24 hr", "Standard turnaround"],
-  ["99.8%", "Approval rate"],
-];
 
 const services = [
   ["01", "Left chest & polos", "Balanced density, crisp lettering, and efficient paths for uniforms and branded apparel."],
@@ -58,7 +54,7 @@ const prices = [
   },
 ];
 
-const process = [
+const steps = [
   ["01", "Send your artwork", "Share a JPG, PNG, PDF, AI, EPS, SVG, or CDR file with the finished size, fabric, and placement."],
   ["02", "We digitize by hand", "A specialist plans underlay, stitch direction, density, sequencing, trims, and pull compensation around your production needs."],
   ["03", "Receive a ready-to-run file", "We quality-check the design and deliver your requested machine format with a clear run-sheet preview."],
@@ -148,16 +144,7 @@ export default function EmbroideryDigitizingPage() {
         </div>
       </section>
 
-      <section className="border-b border-line bg-white">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 px-6 lg:grid-cols-4 lg:px-8">
-          {metrics.map(([value, label]) => (
-            <div className="border-line px-3 py-8 text-center even:border-l lg:border-l lg:first:border-l-0" key={label}>
-              <strong className="block font-display text-3xl text-ink sm:text-4xl">{value}</strong>
-              <span className="mt-2 block text-sm text-slate">{label}</span>
-            </div>
-          ))}
-        </div>
-      </section>
+      <MetricsStrip />
 
       <section className="bg-canvas py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -211,8 +198,8 @@ export default function EmbroideryDigitizingPage() {
             {prices.map((price) => (
               <article className={`relative rounded-3xl border bg-white p-8 ${price.featured ? "border-teal shadow-xl" : "border-line"}`} key={price.label}>
                 {price.featured ? <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-teal-action px-4 py-1 text-xs font-bold uppercase tracking-wider text-ink">Most popular</span> : null}
-                <p className="eyebrow text-teal-dark">{price.label}</p>
-                <h2 className="mt-4 font-display text-4xl text-ink">{price.price}</h2>
+                <h3 className="eyebrow text-teal-dark">{price.label}</h3>
+                <p className="mt-4 font-display text-4xl text-ink">{price.price}</p>
                 <p className="mt-4 min-h-14 leading-7 text-slate">{price.description}</p>
                 <ul className="mt-6 space-y-3 border-t border-line pt-6 text-sm text-slate">
                   {price.features.map((feature) => <li className="flex gap-3" key={feature}><span className="text-teal-dark" aria-hidden="true">✓</span>{feature}</li>)}
@@ -233,7 +220,7 @@ export default function EmbroideryDigitizingPage() {
             <Link className="button button-ink mt-8" href="#quote-form">Start your quote</Link>
           </div>
           <ol className="divide-y divide-line border-y border-line">
-            {process.map(([number, title, description]) => (
+            {steps.map(([number, title, description]) => (
               <li className="grid gap-4 py-7 sm:grid-cols-[4rem_1fr]" key={number}>
                 <span className="font-display text-3xl text-teal-dark">{number}</span>
                 <div><h3 className="text-lg font-bold text-ink">{title}</h3><p className="mt-2 leading-7 text-slate">{description}</p></div>
@@ -300,41 +287,19 @@ export default function EmbroideryDigitizingPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20 sm:py-24">
-        <div className="mx-auto max-w-4xl px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="Frequently asked questions"
-            title="Helpful answers before you order."
-            description="If your project has an unusual material, placement, or deadline, include it in the quote request and we will review it directly."
-            align="center"
-          />
-          <div className="mt-12 divide-y divide-line border-y border-line">
-            {faqs.map(([question, answer]) => (
-              <details className="group" key={question}>
-                <summary className="flex cursor-pointer items-center justify-between gap-6 py-5 font-bold text-ink">
-                  {question}<span className="text-xl font-normal text-teal-dark transition-transform group-open:rotate-45" aria-hidden="true">+</span>
-                </summary>
-                <p className="max-w-3xl pb-6 pr-12 leading-7 text-slate">{answer}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FaqSection
+        className="bg-white"
+        faqs={faqs}
+        title="Helpful answers before you order."
+        description="If your project has an unusual material, placement, or deadline, include it in the quote request and we will review it directly."
+      />
 
-      <section className="scroll-mt-28 bg-mist py-20 sm:py-24" id="quote-form">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-start lg:gap-20 lg:px-8">
-          <div>
-            <p className="eyebrow text-teal-dark">Ready to start?</p>
-            <h2 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">Send your artwork for a clear, no-pressure quote.</h2>
-            <p className="mt-5 text-lg leading-8 text-slate">Include the finished size, fabric, placement, and output format. We will review the artwork and confirm the price before production begins.</p>
-            <div className="mt-8 border-y border-line py-6 text-sm text-slate">
-              <p><strong className="text-ink">Prefer to talk?</strong> Call <a className="font-bold text-teal-dark hover:text-ink" href="tel:+17579068220">+1 757-906-8220</a>.</p>
-              <p className="mt-3">You can also use the full <Link className="font-bold text-teal-dark hover:text-ink" href="/contact">Contact Us page</Link>.</p>
-            </div>
-          </div>
-          <QuoteForm idPrefix="embroidery" defaultService="digitizing" />
-        </div>
-      </section>
+      <QuoteSection
+        title="Send your artwork for a clear, no-pressure quote."
+        description="Include the finished size, fabric, placement, and output format. We will review the artwork and confirm the price before production begins."
+        idPrefix="embroidery"
+        defaultService="digitizing"
+      />
     </>
   );
 }
