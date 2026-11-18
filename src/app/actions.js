@@ -7,6 +7,10 @@ const MAX_ARTWORK_BYTES = 3 * 1024 * 1024;
 
 const services = {
   digitizing: "Embroidery digitizing",
+  puff: "3D puff digitizing",
+  applique: "Appliqué digitizing",
+  patch: "Patch digitizing",
+  patches: "Custom embroidered patches",
   vector: "Vector art",
   both: "Embroidery digitizing and vector art",
   unsure: "Service recommendation",
@@ -17,6 +21,12 @@ const sources = {
   contact: "Contact page",
   embroidery: "Embroidery Digitizing page",
   vector: "Vector Art page",
+  services: "Services page",
+  "embroidery-digitizing": "Embroidery Digitizing page",
+  "custom-patches": "Custom Embroidered Patches page",
+  "vector-art": "Vector Art Conversion page",
+  pricing: "Pricing page",
+  about: "About page",
 };
 
 const artworkTypes = {

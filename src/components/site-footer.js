@@ -29,8 +29,17 @@ export function SiteFooter() {
           <div>
             <p className="eyebrow text-teal-light">Navigate</p>
             <nav className="mt-5 flex flex-col gap-3" aria-label="Footer navigation">
-              {siteConfig.navigation.map(({ label, href }) => (
-                <Link className="w-fit text-sm text-white/65 transition hover:text-white" href={href} key={href}>{label}</Link>
+              {siteConfig.navigation.map(({ label, href, children }) => (
+                <div className="flex flex-col gap-2.5" key={label}>
+                  {href ? (
+                    <Link className="w-fit text-sm text-white/65 transition hover:text-white" href={href}>{label}</Link>
+                  ) : (
+                    <p className="text-sm text-white/65">{label}</p>
+                  )}
+                  {children?.map((child) => (
+                    <Link className="ml-3 w-fit border-l border-white/20 pl-3 text-sm text-white/65 transition hover:text-white" href={child.href} key={child.href}>{child.label}</Link>
+                  ))}
+                </div>
               ))}
             </nav>
           </div>

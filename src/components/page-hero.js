@@ -1,9 +1,10 @@
 import Link from "next/link";
+import { HeroBackdrop } from "@/components/hero-backdrop";
 
 export function PageHero({ eyebrow, title, description, showQuote = true }) {
   return (
     <section className="relative overflow-hidden bg-ink text-white">
-      <div className="page-hero-pattern absolute inset-0" aria-hidden="true" />
+      <HeroBackdrop />
       <div className="relative mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
         <p className="eyebrow text-teal-light">{eyebrow}</p>
         <h1 className="mt-4 max-w-4xl font-display text-5xl leading-[1.02] tracking-[-0.035em] sm:text-6xl">{title}</h1>

@@ -12,6 +12,253 @@
   --mist: #edf5f3;
 }
 
+[data-theme="christmas"] {
+  /* Matches the Christmas reference: black-green, red, gold */
+  --ink: #06241a;
+  --teal: #b3122b;
+  --teal-dark: #e8c77f;
+  --teal-light: #e8c77f;
+  --teal-action: #d4af6a;
+  --slate: #a9b3ad;
+  --line: rgba(212, 175, 106, 0.22);
+  --canvas: #0a0f0c;
+  --mist: #06140f;
+  --dm-text: #f4f1ea;
+  --dm-accent: #d4af6a;
+  --dm-section: #08110d;
+  --dm-card: linear-gradient(180deg, #14201b, #0d1512);
+  --dm-body: radial-gradient(ellipse at 12% 0, rgba(11, 58, 42, 0.4), transparent 52%), radial-gradient(ellipse at 92% 45%, rgba(179, 18, 43, 0.13), transparent 50%), #0a0a0a;
+  --dm-btn: linear-gradient(135deg, #e0213f, #b3122b);
+  --dm-btn-text: #ffffff;
+  --dm-glow: rgba(224, 33, 63, 0.35);
+  --dm-band: radial-gradient(ellipse at center, rgba(179, 18, 43, 0.4), transparent 65%), #06241a;
+  --dm-shimmer: linear-gradient(100deg, #b88a3e, #f6e3a8 35%, #d4af6a 55%, #f6e3a8 80%, #b88a3e);
+}
+
+[data-theme="black-friday"] {
+  /* Black and gold, glossy */
+  --ink: #0b0b0c;
+  --teal: #c9a227;
+  --teal-dark: #f2c94c;
+  --teal-light: #f2c94c;
+  --teal-action: #f2c94c;
+  --slate: #b0aca2;
+  --line: rgba(242, 201, 76, 0.22);
+  --canvas: #0a0a0a;
+  --mist: #070707;
+  --dm-text: #f6f2e6;
+  --dm-accent: #f2c94c;
+  --dm-section: #101010;
+  --dm-card: linear-gradient(180deg, #1a1a1a, #0e0e0e);
+  --dm-body: radial-gradient(ellipse at 15% 0, rgba(242, 201, 76, 0.1), transparent 50%), radial-gradient(ellipse at 90% 50%, rgba(201, 162, 39, 0.08), transparent 50%), #060606;
+  --dm-btn: linear-gradient(135deg, #f6e3a8, #f2c94c 45%, #b8860b);
+  --dm-btn-text: #0b0b0c;
+  --dm-glow: rgba(242, 201, 76, 0.35);
+  --dm-band: radial-gradient(ellipse at center, rgba(242, 201, 76, 0.18), transparent 65%), #0b0b0c;
+  --dm-shimmer: linear-gradient(100deg, #b8860b, #fff1b8 35%, #f2c94c 55%, #fff1b8 80%, #b8860b);
+}
+
+[data-theme="halloween"] {
+  /* Orange, black, purple */
+  --ink: #1f1235;
+  --teal: #ea580c;
+  --teal-dark: #fb923c;
+  --teal-light: #fb923c;
+  --teal-action: #f97316;
+  --slate: #b3a8c2;
+  --line: rgba(251, 146, 60, 0.22);
+  --canvas: #0e0818;
+  --mist: #0a0612;
+  --dm-text: #f6efe6;
+  --dm-accent: #fb923c;
+  --dm-section: #130b20;
+  --dm-card: linear-gradient(180deg, #22163a, #140c22);
+  --dm-body: radial-gradient(ellipse at 12% 0, rgba(124, 58, 237, 0.22), transparent 52%), radial-gradient(ellipse at 92% 45%, rgba(249, 115, 22, 0.12), transparent 50%), #0a0612;
+  --dm-btn: linear-gradient(135deg, #fdba74, #f97316 50%, #c2410c);
+  --dm-btn-text: #1f1235;
+  --dm-glow: rgba(249, 115, 22, 0.35);
+  --dm-band: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.35), transparent 65%), #1f1235;
+  --dm-shimmer: linear-gradient(100deg, #c2410c, #ffd7a8 35%, #fb923c 55%, #ffd7a8 80%, #c2410c);
+}
+
+[data-theme="thanksgiving"] {
+  --ink: #3b1f0e;
+  --teal: #c2671b;
+  --teal-dark: #9a3a12;
+  --teal-light: #f6b26b;
+  --teal-action: #e8902a;
+  --slate: #6b5b4d;
+  --line: #eadcc6;
+  --canvas: #faf4ea;
+  --mist: #f3e9d8;
+}
+
+[data-theme="new-year"] {
+  /* Black, silver, gold */
+  --ink: #0d0d10;
+  --teal: #a9a9b4;
+  --teal-dark: #e6c66a;
+  --teal-light: #e6c66a;
+  --teal-action: #d9b45a;
+  --slate: #b4b4be;
+  --line: rgba(230, 198, 106, 0.22);
+  --canvas: #0b0b0e;
+  --mist: #08080a;
+  --dm-text: #f5f3ee;
+  --dm-accent: #e6c66a;
+  --dm-section: #111116;
+  --dm-card: linear-gradient(180deg, #1b1b22, #101015);
+  --dm-body: radial-gradient(ellipse at 12% 0, rgba(192, 192, 200, 0.12), transparent 52%), radial-gradient(ellipse at 92% 45%, rgba(230, 198, 106, 0.1), transparent 50%), #08080a;
+  --dm-btn: linear-gradient(135deg, #f6e3a8, #d9b45a 50%, #8e8e99);
+  --dm-btn-text: #0d0d10;
+  --dm-glow: rgba(230, 198, 106, 0.35);
+  --dm-band: radial-gradient(ellipse at center, rgba(192, 192, 200, 0.2), transparent 65%), #0d0d10;
+  --dm-shimmer: linear-gradient(100deg, #8e8e99, #ffffff 30%, #e6c66a 55%, #f6e3a8 80%, #8e8e99);
+}
+
+/* Valentine's Day: red, pink, white */
+[data-theme="valentines"] {
+  --ink: #7a0f26;
+  --teal: #e05a7e;
+  --teal-dark: #b0143a;
+  --teal-light: #ffb3c6;
+  --teal-action: #f48aa8;
+  --slate: #6b5560;
+  --line: #f3d6de;
+  --canvas: #fff7f9;
+  --mist: #fdebf0;
+}
+
+/* Spring: green, pastels */
+[data-theme="spring"] {
+  --ink: #1f4d3a;
+  --teal: #7cc4a0;
+  --teal-dark: #2f7d57;
+  --teal-light: #f9cfe0;
+  --teal-action: #f6e7a1;
+  --slate: #5a6b62;
+  --line: #dcebe1;
+  --canvas: #f6fbf6;
+  --mist: #ecf6ee;
+}
+
+/* St. Patrick's Day: green, gold, white */
+[data-theme="st-patricks"] {
+  --ink: #0f4d2e;
+  --teal: #2e9e5b;
+  --teal-dark: #1b7a43;
+  --teal-light: #e8c768;
+  --teal-action: #f2d16b;
+  --slate: #56665c;
+  --line: #d7e8dc;
+  --canvas: #f5faf5;
+  --mist: #e9f3ea;
+}
+
+/* Mother's Day: plum, pink, cream */
+[data-theme="mothers-day"] {
+  --ink: #5b2a4a;
+  --teal: #d97aa6;
+  --teal-dark: #a8346d;
+  --teal-light: #f6c1d9;
+  --teal-action: #f6c1d9;
+  --slate: #6b5866;
+  --line: #f0dbe6;
+  --canvas: #fff8fb;
+  --mist: #f8ecf3;
+}
+
+/* Father's Day: navy, tan */
+[data-theme="fathers-day"] {
+  --ink: #1b2a41;
+  --teal: #8a6e4b;
+  --teal-dark: #6b4f2a;
+  --teal-light: #d9c3a0;
+  --teal-action: #d9c3a0;
+  --slate: #5a6270;
+  --line: #dfe3ea;
+  --canvas: #f6f7f9;
+  --mist: #eceff4;
+}
+
+/* 4th of July: red, white, blue */
+[data-theme="july-4th"] {
+  --ink: #13284f;
+  --teal: #c8102e;
+  --teal-dark: #b0102a;
+  --teal-light: #ff9aa8;
+  --teal-action: #e9eef9;
+  --slate: #59627a;
+  --line: #dde3f0;
+  --canvas: #f7f9fd;
+  --mist: #edf1f9;
+}
+
+/* Back to School: navy, school-bus yellow, apple red */
+[data-theme="back-to-school"] {
+  --ink: #1d3557;
+  --teal: #e63946;
+  --teal-dark: #c1121f;
+  --teal-light: #ffd166;
+  --teal-action: #ffd166;
+  --slate: #5b6472;
+  --line: #e3e7ee;
+  --canvas: #fbfaf3;
+  --mist: #f3f1e4;
+}
+
+/* Big Game: field green, pigskin brown, tan */
+[data-theme="big-game"] {
+  --ink: #14361f;
+  --teal: #7a4a24;
+  --teal-dark: #6b3e1c;
+  --teal-light: #f2e3c6;
+  --teal-action: #f2e3c6;
+  --slate: #55625a;
+  --line: #dce6de;
+  --canvas: #f5f8f4;
+  --mist: #e9efe8;
+}
+
+/* Basketball: black, orange */
+[data-theme="basketball"] {
+  --ink: #161616;
+  --teal: #e46b1f;
+  --teal-dark: #b8500f;
+  --teal-light: #ff9a4d;
+  --teal-action: #ff8a3d;
+  --slate: #5a5a5a;
+  --line: #e6e0d8;
+  --canvas: #faf7f3;
+  --mist: #f2ece4;
+}
+
+/* Baseball: navy, red, cream */
+[data-theme="baseball"] {
+  --ink: #0e2240;
+  --teal: #c8102e;
+  --teal-dark: #b0102a;
+  --teal-light: #f4e9d0;
+  --teal-action: #f4e9d0;
+  --slate: #5b6270;
+  --line: #e4ddd0;
+  --canvas: #fbf8f1;
+  --mist: #f2ecdf;
+}
+
+/* Football Season: green, gold */
+[data-theme="football-season"] {
+  --ink: #1e3a24;
+  --teal: #c58b2a;
+  --teal-dark: #8a5b10;
+  --teal-light: #f2c94c;
+  --teal-action: #f2c94c;
+  --slate: #59625a;
+  --line: #dfe4d9;
+  --canvas: #f7f8f2;
+  --mist: #ecefe4;
+}
+
 @theme inline {
   --color-ink: var(--ink);
   --color-canvas: var(--canvas);
@@ -104,7 +351,7 @@ textarea {
 }
 
 .button-ink:hover {
-  background: #164b59;
+  background: color-mix(in srgb, var(--ink) 80%, white);
 }
 
 .button-ghost {
@@ -149,10 +396,508 @@ details > summary::-webkit-details-marker {
   display: none;
 }
 
+.seasonal-particle {
+  animation-name: seasonal-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: 0.85;
+}
+
+@keyframes seasonal-fall {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(var(--drift), 55vh, 0) rotate(180deg); }
+  100% { transform: translate3d(0, 110vh, 0) rotate(360deg); }
+}
+
+/* ───────── Seasonal hero scene (src/components/hero-scene.js) ───────── */
+
+.scene-sky {
+  background:
+    radial-gradient(ellipse at 78% 18%, color-mix(in srgb, var(--teal) 30%, transparent), transparent 55%),
+    linear-gradient(180deg, color-mix(in srgb, var(--ink) 45%, black) 0%, var(--ink) 78%);
+}
+
+.scene-glow {
+  width: 60%;
+  height: 42%;
+  top: -8%;
+  filter: blur(48px);
+  opacity: 0.3;
+  animation: scene-aurora 18s ease-in-out infinite alternate;
+}
+.scene-glow-a { left: -8%; background: linear-gradient(90deg, var(--glow-a, var(--teal-action)), transparent); }
+.scene-glow-b { right: -10%; background: linear-gradient(90deg, transparent, var(--glow-b, var(--teal))); animation-delay: -7s; }
+.scene-sky-custom { background: var(--scene-sky); }
+@keyframes scene-aurora { to { transform: translate(7%, 12%) scale(1.15); opacity: 0.18; } }
+
+.scene-stars {
+  background-image:
+    radial-gradient(1.6px 1.6px at 8% 14%, #fff, transparent), radial-gradient(1.2px 1.2px at 17% 32%, #fff, transparent),
+    radial-gradient(1.8px 1.8px at 29% 9%, #fff, transparent), radial-gradient(1.2px 1.2px at 38% 26%, #fff, transparent),
+    radial-gradient(1.6px 1.6px at 47% 12%, #fff, transparent), radial-gradient(1.2px 1.2px at 58% 34%, #fff, transparent),
+    radial-gradient(1.8px 1.8px at 66% 8%, #fff, transparent), radial-gradient(1.2px 1.2px at 74% 22%, #fff, transparent),
+    radial-gradient(1.6px 1.6px at 83% 12%, #fff, transparent), radial-gradient(1.2px 1.2px at 91% 30%, #fff, transparent),
+    radial-gradient(1.4px 1.4px at 96% 7%, #fff, transparent), radial-gradient(1.2px 1.2px at 4% 44%, #fff, transparent);
+  animation: scene-twinkle 4s ease-in-out infinite;
+}
+.scene-stars-b { transform: translate(3.5%, 6%) scale(1.1); animation-delay: -2s; opacity: 0.7; }
+@keyframes scene-twinkle { 50% { opacity: 0.35; } }
+
+.scene-moon {
+  top: 5%;
+  right: 6%;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fffbe8, #e9dcae 70%);
+  box-shadow: 0 0 70px 22px rgba(255, 244, 200, 0.2);
+}
+@media (min-width: 1024px) {
+  /* Desktop: in the gap between the headline column and the slider */
+  .scene-moon { top: 8%; right: auto; left: 44%; width: 78px; height: 78px; }
+}
+.scene-moon-harvest { background: radial-gradient(circle at 35% 35%, #ffe2b0, #f39a3c 72%); box-shadow: 0 0 80px 26px rgba(251, 146, 60, 0.28); }
+
+.scene-bokeh span {
+  position: absolute;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--teal-light) 70%, transparent);
+  filter: blur(8px);
+  opacity: 0.45;
+  animation: scene-bokeh 9s ease-in-out infinite alternate;
+}
+@keyframes scene-bokeh { to { transform: translate(14px, -24px); opacity: 0.18; } }
+
+.scene-flyer {
+  top: 9%;
+  left: 0;
+  animation: scene-fly 28s linear infinite;
+  will-change: transform;
+}
+.scene-flyer-sleigh { width: 320px; }
+.scene-flyer-witch { width: 170px; top: 6%; animation-duration: 22s; }
+@keyframes scene-fly {
+  from { transform: translate(-360px, 30px); }
+  to { transform: translate(calc(100vw + 60px), -40px); }
+}
+.scene-bob { display: block; animation: scene-bob 2.2s ease-in-out infinite; }
+@keyframes scene-bob { 50% { transform: translateY(-7px) rotate(-2deg); } }
+.scene-blink { animation: scene-blink 1.2s ease-in-out infinite; }
+@keyframes scene-blink { 50% { opacity: 0.4; } }
+
+.scene-balloon {
+  bottom: -110px;
+  width: 46px;
+  animation: scene-rise 16s linear infinite;
+}
+@keyframes scene-rise {
+  from { transform: translate(0, 0); }
+  50% { transform: translate(18px, -45vh); }
+  to { transform: translate(-6px, calc(-100% - 110vh)); }
+}
+
+.scene-firework { width: 0; height: 0; }
+.scene-firework span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 46px;
+  margin-left: -1px;
+  transform-origin: 50% 0;
+}
+.scene-firework span::after {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 14px;
+  border-radius: 2px;
+  background: currentColor;
+  box-shadow: 0 0 6px currentColor;
+  animation: scene-burst 3.4s ease-out infinite;
+  animation-delay: inherit;
+}
+@keyframes scene-burst {
+  0%, 8% { transform: translateY(0) scaleY(0.2); opacity: 0; }
+  12% { opacity: 1; }
+  45% { transform: translateY(38px) scaleY(1); opacity: 0.9; }
+  70%, 100% { transform: translateY(52px) scaleY(0.3); opacity: 0; }
+}
+
+.scene-hanger {
+  transform-origin: top center;
+  animation: scene-swing 5s ease-in-out infinite;
+}
+@keyframes scene-swing { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } }
+
+/* Height follows the width (viewBox 1440×170 → 11.81vw) so wide screens never crop the roofs and tree tops. */
+.scene-ground { width: 100%; height: max(7.5rem, 11.81vw); }
+@media (min-width: 1024px) { .scene-ground { height: max(10rem, 11.81vw); } }
+.scene-window { animation: scene-window 6s ease-in-out infinite; }
+@keyframes scene-window { 50% { opacity: 0.7; } }
+
+/* Hero content clears the ground silhouette */
+section:has(> .hero-backdrop[data-ground]) > :last-child { padding-bottom: max(8.5rem, calc(11.81vw + 1rem)); }
+@media (min-width: 1024px) { section:has(> .hero-backdrop[data-ground]) > :last-child { padding-bottom: max(11rem, calc(11.81vw + 1rem)); } }
+
+@media (max-width: 639px) {
+  .scene-flyer-sleigh { width: 200px; }
+  .scene-flyer-witch { width: 120px; }
+  .scene-moon { width: 44px; height: 44px; }
+}
+
+/* ───────── Seasonal header (src/components/header-garland.js) ───────── */
+
+html:not([data-theme="normal"]) .site-header { border-bottom: 2px solid var(--teal-action); }
+
+.header-garland { height: 30px; overflow: hidden; }
+.header-garland-row {
+  display: flex;
+  justify-content: space-around;
+  border-top: 2px solid color-mix(in srgb, var(--ink) 70%, transparent);
+}
+.header-garland-lights i {
+  position: relative;
+  width: 9px;
+  height: 13px;
+  margin-top: 6px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: var(--garland-color);
+  box-shadow: 0 0 10px var(--garland-color);
+  animation: garland-twinkle 2.4s ease-in-out infinite;
+}
+.header-garland-lights i::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 2.5px;
+  width: 4px;
+  height: 6px;
+  border-radius: 1px;
+  background: color-mix(in srgb, var(--ink) 80%, black);
+}
+@keyframes garland-twinkle { 50% { opacity: 0.35; } }
+
+.header-garland-bunting i {
+  width: 18px;
+  height: 20px;
+  background: var(--garland-color);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
+  transform-origin: top center;
+  animation: garland-flutter 3s ease-in-out infinite;
+}
+@keyframes garland-flutter { 50% { transform: rotate(4deg) scaleY(0.92); } }
+
+/* Scroll progress bar along the top (event themes, supporting browsers only) */
+.scroll-progress { display: none; }
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    display: block;
+    position: fixed;
+    inset: 0 0 auto;
+    height: 3px;
+    z-index: 70;
+    transform-origin: left;
+    background: linear-gradient(90deg, var(--teal), var(--teal-action));
+    box-shadow: 0 0 8px color-mix(in srgb, var(--teal-action) 60%, transparent);
+    animation: scroll-progress linear both;
+    animation-timeline: scroll(root);
+  }
+}
+@keyframes scroll-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* ───────── Dark "night" skin: html[data-mode="dark"] (Christmas, Black Friday, Halloween, New Year) ─────────
+   Page layout stays the same; only surfaces, text and accents change.
+   These rules are unlayered, so they win over Tailwind utility classes. */
+
+html[data-mode="dark"] { color-scheme: dark; }
+html[data-mode="dark"] body {
+  background: var(--dm-body);
+  background-attachment: fixed;
+  color: var(--dm-text);
+}
+html[data-mode="dark"] ::selection { background: var(--teal); color: #fff; }
+
+/* Surfaces */
+html[data-mode="dark"] section.bg-white { background: var(--dm-section); }
+html[data-mode="dark"] .bg-white:not(section, .dev-theme-bar *) {
+  background: var(--dm-card);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+html[data-mode="dark"] [class*="hover:bg-white"]:not(.dev-theme-bar *):hover { background: rgba(255, 255, 255, 0.06); }
+html[data-mode="dark"] section.bg-teal-action {
+  background: var(--dm-band);
+  border-block: 1px solid var(--line);
+}
+
+/* Text */
+html[data-mode="dark"] .text-ink:not(:where(.dev-theme-bar *)) { color: var(--dm-text); }
+html[data-mode="dark"] [class*="hover:text-ink"]:hover { color: var(--dm-accent); }
+html[data-mode="dark"] [class*="focus:text-ink"]:focus { color: #0a0a0a; }
+html[data-mode="dark"] .bg-teal-action:not(section) { color: var(--ink); }
+html[data-mode="dark"] .text-red-700 { color: #ff8a9b; }
+
+/* Header: dark bar, light logo */
+html[data-mode="dark"] .site-header { background: color-mix(in srgb, var(--mist) 97%, transparent); }
+html[data-mode="dark"] .site-header .nav-dropdown { background: var(--mist); border-color: rgba(255, 255, 255, 0.12); }
+html[data-mode="dark"] img[src*="trustitched-logo"] {
+  filter: brightness(0) invert(88%) sepia(30%) saturate(520%) hue-rotate(354deg) brightness(102%);
+}
+
+/* Forms */
+html[data-mode="dark"] .form-field {
+  background: rgba(0, 0, 0, 0.55);
+  border-color: color-mix(in srgb, var(--dm-accent) 35%, transparent);
+  color: var(--dm-text);
+}
+html[data-mode="dark"] .form-field:focus { border-color: var(--dm-accent); box-shadow: 0 0 0 2px var(--dm-accent); }
+html[data-mode="dark"] .form-field::placeholder { color: #7d8781; }
+html[data-mode="dark"] .form-field::file-selector-button { background: rgba(255, 255, 255, 0.08); color: var(--dm-text); }
+
+/* Buttons: theme gradient + glow (outline buttons in accent) */
+html[data-mode="dark"] .button:not(.button-ghost) {
+  background: var(--dm-btn);
+  color: var(--dm-btn-text);
+  box-shadow: 0 8px 26px var(--dm-glow);
+}
+html[data-mode="dark"] .button:not(.button-ghost):hover { box-shadow: 0 12px 34px var(--dm-glow); }
+html[data-mode="dark"] .button-ghost { border-color: var(--dm-accent); color: var(--dm-accent); }
+
+/* Section dividers and heading ornament, as in the reference */
+html[data-mode="dark"] main > section { position: relative; }
+html[data-mode="dark"] main > section + section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(1076px, 90%);
+  transform: translateX(-50%);
+  border-top: 2px dashed color-mix(in srgb, var(--dm-accent) 16%, transparent);
+  pointer-events: none;
+}
+html[data-mode="dark"] main > section.bg-teal-action::before { display: none; }
+html[data-mode="dark"] .items-center.text-center > h2::after {
+  content: "✦";
+  display: block;
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--dm-accent);
+  opacity: 0.8;
+}
+
+/* Cards lift and glow on hover */
+html[data-mode="dark"] main .bg-white:not(section).rounded-3xl,
+html[data-mode="dark"] main article.rounded-2xl {
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+html[data-mode="dark"] main .bg-white:not(section).rounded-3xl:hover,
+html[data-mode="dark"] main article.rounded-2xl:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--dm-accent) 60%, transparent);
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.55), 0 0 40px color-mix(in srgb, var(--dm-glow) 50%, transparent);
+}
+
+/* ───────── Glossy finish for every event theme (light and dark) ───────── */
+
+html:not([data-theme="normal"]) .button { position: relative; overflow: hidden; }
+html:not([data-theme="normal"]) .button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -70%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s;
+  pointer-events: none;
+}
+html:not([data-theme="normal"]) .button:hover::after { left: 130%; }
+html:not([data-theme="normal"]) .button:hover { transform: translateY(-3px); }
+
+html[data-mode="light"]:not([data-theme="normal"]) .button-teal {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--teal-action) 65%, white), var(--teal-action) 45%, color-mix(in srgb, var(--teal-action) 82%, black));
+  box-shadow: 0 10px 26px color-mix(in srgb, var(--teal-action) 45%, transparent), inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+html[data-mode="light"]:not([data-theme="normal"]) .button-ink {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--ink) 72%, white), var(--ink) 55%);
+  box-shadow: 0 10px 26px color-mix(in srgb, var(--ink) 35%, transparent), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+html[data-mode="light"]:not([data-theme="normal"]) main .bg-white.rounded-3xl,
+html[data-mode="light"]:not([data-theme="normal"]) main article.rounded-3xl {
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.9), color-mix(in srgb, var(--mist) 55%, white));
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+html[data-mode="light"]:not([data-theme="normal"]) main .bg-white.rounded-3xl:hover,
+html[data-mode="light"]:not([data-theme="normal"]) main article.rounded-3xl:hover {
+  transform: translateY(-5px);
+  border-color: color-mix(in srgb, var(--teal) 55%, transparent);
+  box-shadow: 0 22px 46px color-mix(in srgb, var(--ink) 16%, transparent), 0 0 0 1px color-mix(in srgb, var(--teal-action) 35%, transparent);
+}
+
+/* Glossy promo bar: soft moving sheen */
+html:not([data-theme="normal"]) .promo-banner {
+  background-image: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, 0.28) 50%, transparent 70%);
+  background-size: 250% 100%;
+  animation: promo-sheen 7s linear infinite;
+}
+@keyframes promo-sheen { from { background-position: 150% 0; } to { background-position: -150% 0; } }
+
+/* Shimmering accent words in the home headline */
+html:not([data-theme="normal"]) .hero-accent {
+  background: var(--dm-shimmer, linear-gradient(100deg, var(--teal-light), #ffffff 35%, var(--teal-action) 55%, #ffffff 80%, var(--teal-light)));
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: accent-shimmer 6s linear infinite;
+}
+@keyframes accent-shimmer { to { background-position: -220% 0; } }
+
+/* Keep small footer text readable on coloured theme footers */
+html:not([data-theme="normal"]) footer .text-white\/40 { color: rgba(255, 255, 255, 0.62); }
+
+/* ───────── Christmas extras (exact reference look) ───────── */
+
+html[data-theme="christmas"] .promo-banner.bg-teal-action {
+  background-color: #b3122b;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+}
+html[data-theme="christmas"] .promo-banner a,
+html[data-theme="christmas"] .promo-banner strong { color: #ffe6a8; }
+html[data-theme="christmas"] .site-header { border-bottom-color: rgba(212, 175, 106, 0.35); }
+html[data-theme="christmas"] .scroll-progress { background: linear-gradient(90deg, #e0213f, #d4af6a); box-shadow: 0 0 10px rgba(224, 33, 63, 0.6); }
+html[data-theme="christmas"] { scrollbar-color: #6e5424 #050505; }
+html[data-theme="christmas"] footer { background: #050505; }
+
+/* Santa's sleigh with a golden light trail */
+.scene-flyer-santa { width: 460px; top: 13%; animation-duration: 26s; }
+.scene-flyer-santa::before {
+  content: "";
+  position: absolute;
+  right: 97%;
+  top: 48%;
+  width: 240px;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(270deg, rgba(255, 226, 150, 0.9), transparent);
+  box-shadow: 0 10px 0 rgba(255, 226, 150, 0.35), 0 -10px 0 rgba(255, 226, 150, 0.25);
+}
+@media (max-width: 760px) {
+  .scene-flyer-santa { width: 270px; top: 8%; }
+  .scene-flyer-santa::before { width: 130px; }
+}
+
+/* ───────── Home page (reference layout) ───────── */
+
+/* Outline button for light and dark sections */
+.button-outline {
+  border: 1px solid var(--teal-dark);
+  color: var(--teal-dark);
+  background: transparent;
+}
+.button-outline:hover { background: var(--teal-dark); color: #fff; }
+html[data-mode="dark"] .button-outline { border-color: var(--dm-accent); color: var(--dm-accent); }
+html[data-mode="dark"] .button-outline:not(.button-ghost) { background: transparent; box-shadow: none; color: var(--dm-accent); }
+html[data-mode="dark"] .button-outline:hover { background: var(--dm-accent); color: #0a0a0a; }
+
+/* Christmas: red "Most Popular" badge as in the reference */
+html[data-theme="christmas"] .plan-popular.bg-teal-action { background: #b3122b; color: #ffffff; }
+
+/* Hero quote card: dark glass with a dashed "stitch" border inside */
+.hero-quote-card {
+  background: linear-gradient(160deg, rgba(0, 0, 0, 0.65), color-mix(in srgb, var(--ink) 70%, transparent));
+}
+.hero-quote-card::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px dashed color-mix(in srgb, var(--teal-light) 40%, transparent);
+  border-radius: 17px;
+  pointer-events: none;
+}
+
+/* Scrolling services strip */
+.home-marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: home-marquee 34s linear infinite;
+}
+.home-marquee-track span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--teal-light);
+  margin: 0 26px;
+}
+.home-marquee-track span::after { content: "✦"; margin-left: 52px; color: var(--teal); }
+html[data-theme="christmas"] .home-marquee-track span::after { content: "❄"; color: #e0213f; }
+@keyframes home-marquee { to { transform: translateX(-50%); } }
+
+/* Thanksgiving week band */
+.thanksgiving-week {
+  background:
+    radial-gradient(ellipse at 82% 50%, rgba(232, 114, 26, 0.3), transparent 55%),
+    radial-gradient(ellipse at 8% 15%, rgba(122, 53, 16, 0.4), transparent 55%),
+    linear-gradient(100deg, #1a0d05, #2a1406 50%, #140a04);
+  border-block: 1px solid rgba(232, 114, 26, 0.4);
+}
+
+/* Black Friday band */
+.black-friday-strip { background: linear-gradient(100deg, #000, #1a0509 50%, #000); }
+
+/* Final order section glow */
+.home-order {
+  background:
+    radial-gradient(ellipse at center, color-mix(in srgb, var(--teal) 35%, transparent), transparent 65%),
+    var(--ink);
+  border-block: 1px solid var(--line);
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .seasonal-effect { display: none; }
+  .hero-scene *, .header-garland * { animation: none !important; }
+  .scene-flyer, .scene-balloon { display: none; }
+  .promo-banner, .hero-accent, .home-marquee-track { animation: none !important; }
   html { scroll-behavior: auto; }
   *, *::before, *::after {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Header "Services" dropdown: opens on mouse hover (plain :hover, so it also works on
+   touch-screen laptops that report no hover support) and on keyboard focus. */
+.nav-menu-panel {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 150ms ease, visibility 150ms ease;
+}
+.nav-menu:hover .nav-menu-panel,
+.nav-menu:focus-within .nav-menu-panel {
+  visibility: visible;
+  opacity: 1;
+}
+.nav-menu:hover .nav-menu-caret,
+.nav-menu:focus-within .nav-menu-caret { transform: rotate(180deg); }
+
+/* Dropdown items: highlight the name as soon as the mouse (or keyboard focus) reaches it. */
+.nav-menu-item {
+  position: relative;
+  transition: background-color 150ms ease, color 150ms ease, padding-left 150ms ease;
+}
+.nav-menu-item:hover,
+.nav-menu-item:focus-visible,
+.nav-menu-item.is-current {
+  background: var(--teal-action);
+  color: var(--ink);
+  padding-left: 1.4rem;
+}
+html[data-mode="dark"] .nav-menu-item:hover,
+html[data-mode="dark"] .nav-menu-item:focus-visible,
+html[data-mode="dark"] .nav-menu-item.is-current { color: var(--ink); }

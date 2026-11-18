@@ -104,10 +104,8 @@ The homepage hero compares two aligned 4:3 images:
 - `public/images/home/hero-vector-before.webp`
 - `public/images/home/hero-embroidery-after.webp`
 
-The Embroidery Digitizing service card compares two aligned 891 x 762 images:
-
-- `public/images/home/service-embroidery-vector.webp`
-- `public/images/home/service-embroidery.webp`
+The Embroidery Digitizing service card currently shows a single photo, `public/images/portfolio/embroidery-heritage-cap.webp`.
+To bring back a slider there, add two aligned 891 x 762 images (vector + embroidery) and set `comparison` instead of `image` on that card in `src/app/page.js`.
 
 The Vector Art Conversion service card compares two aligned 891 x 762 images:
 
@@ -167,7 +165,7 @@ Facebook, Instagram, Pinterest, and WhatsApp buttons appear in the desktop heade
 
 The current URLs point to the public platform homepages and are temporary:
 
-- Facebook: `https://www.facebook.com/profile.php?id=61593277766069`
+- Facebook: `https://www.facebook.com/profile.php?id=61592558164198`
 - Instagram: `https://www.instagram.com/trustitched/reels/?hl=en`
 - `https://www.pinterest.com/`
 

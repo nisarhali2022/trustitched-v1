@@ -1,22 +1,29 @@
 import { siteConfig } from "@/lib/site";
 
-const { whatsappHref } = siteConfig;
+const { whatsappHref, social } = siteConfig;
 
 // A profile without an href is hidden until its real URL is added.
 const socialProfiles = [
   {
     name: "Facebook",
     icon: "facebook",
-    href: "https://www.facebook.com/profile.php?id=61593277766069",
+    href: social.facebook,
     color: "border-[#1877F2] bg-[#1877F2] text-white",
     label: "Visit Trustitched on Facebook",
   },
   {
     name: "Instagram",
     icon: "instagram",
-    href: "https://www.instagram.com/trustitched/reels/?hl=en",
+    href: social.instagram,
     color: "border-transparent bg-[linear-gradient(135deg,#833AB4_0%,#FD1D1D_50%,#FCAF45_100%)] text-white",
     label: "Visit Trustitched on Instagram",
+  },
+  {
+    name: "Etsy",
+    icon: "etsy",
+    href: social.etsy,
+    color: "border-[#F1641E] bg-[#F1641E] text-white",
+    label: "Shop TruStitched on Etsy",
   },
   {
     name: "Pinterest",
@@ -63,6 +70,15 @@ function SocialIcon({ name }) {
 
   if (name === "whatsapp") {
     return <WhatsAppIcon />;
+  }
+
+  if (name === "etsy") {
+    // Serif "E" monogram in the style of the Etsy mark
+    return (
+      <svg aria-hidden="true" className="h-4 w-4" viewBox="0 0 24 24">
+        <path d="M6 3.5h11.2l.3 4.4h-1.2c-.5-1.9-1.2-2.8-3.4-2.8H10v6h2.4c1.6 0 2-.6 2.3-2h1.1v5.6h-1.1c-.3-1.5-.7-2.1-2.3-2.1H10v5.6c0 1.2.6 1.6 2 1.6h1.7c2.4 0 3.2-1 4-3.4h1.1L18.4 20.5H6v-1.1c1.4-.2 1.7-.5 1.7-1.6V6.2c0-1.1-.3-1.4-1.7-1.6Z" fill="currentColor" />
+      </svg>
+    );
   }
 
   return (

@@ -1,306 +1,427 @@
 import Image from "next/image";
 import Link from "next/link";
+import { HeroBackdrop } from "@/components/hero-backdrop";
 import { HeroComparisonSlider } from "@/components/hero-comparison-slider";
-import { FaqSection } from "@/components/faq-section";
-import { MetricsStrip } from "@/components/metrics-strip";
-import { QuoteSection } from "@/components/quote-section";
-import { SectionHeading } from "@/components/section-heading";
+import { ServiceIcon, VectorArt } from "@/components/home-art";
+import { QuoteForm } from "@/components/quote-form";
+import { SeasonalCollection } from "@/components/seasonal-collection";
+import { StructuredData } from "@/components/structured-data";
+import {
+  homeFaqs,
+  homeImages,
+  marqueeItems,
+  recentWork,
+  reviews,
+  services,
+  steps,
+  stitchOn,
+  whyItems,
+} from "@/data/home-content";
+import { getHeroSlide } from "@/data/hero-slides";
+import { servicePages } from "@/data/services-content";
 import { createPageMetadata } from "@/lib/site";
-
-const homeImages = {
-  heroBefore: {
-    src: "/images/home/hero-vector-before.webp",
-    alt: "A complete ornamental owl crest constructed as clean vector artwork",
-  },
-  heroAfter: {
-    src: "/images/home/hero-embroidery-after.webp",
-    alt: "The matching ornamental owl crest rendered as detailed commercial embroidery on navy fabric",
-  },
-  embroideryServiceBefore: {
-    src: "/images/home/service-embroidery-vector.webp",
-    alt: "Clean vector artwork for a cougar youth basketball crest",
-  },
-  embroideryServiceAfter: {
-    src: "/images/home/service-embroidery.webp",
-    alt: "The matching cougar youth basketball crest rendered as detailed embroidery",
-  },
-  vectorServiceBefore: {
-    src: "/images/home/service-vector-before.webp",
-    alt: "Grayscale source illustration of a seated fox prepared for vector conversion",
-  },
-  vectorServiceAfter: {
-    src: "/images/home/service-vector-after.webp",
-    alt: "The matching seated fox completed as clean full-color vector artwork",
-  },
-  embroideryShowcase: {
-    src: "/images/home/showcase-embroidery.webp",
-    alt: "Nine original embroidery samples demonstrating badges, portraits, monograms, and garment applications",
-  },
-  vectorShowcase: {
-    src: "/images/home/showcase-vector.webp",
-    alt: "Nine original vector examples demonstrating badges, mascots, icons, and product graphics",
-  },
-};
-
-
-const services = [
-  {
-    eyebrow: "Thread-ready files",
-    title: "Embroidery Digitizing",
-    description: "Production-minded stitch files prepared around the finished size, fabric, placement, and machine format—not a generic preset.",
-    features: ["Caps, polos, jackets, and patches", "Small lettering, appliqué, and 3D puff", "DST, PES, EXP, EMB, and more"],
-    href: "/embroidery-digitizing",
-    cta: "Explore digitizing",
-    comparison: {
-      before: homeImages.embroideryServiceBefore,
-      after: homeImages.embroideryServiceAfter,
-      beforeLabel: "Vector Artwork",
-      afterLabel: "Finished Embroidery",
-      ariaLabel: "Compare the vector basketball crest with the finished embroidered crest",
-      caption: "Drag the comparison slider to compare the vector basketball crest with its finished embroidered version.",
-    },
-  },
-  {
-    eyebrow: "Scalable master artwork",
-    title: "Vector Art Conversion",
-    description: "Clean, manually redrawn vector artwork that stays sharp for printing, signage, cutting, engraving, packaging, and future edits.",
-    features: ["Logo redraws and manual vector tracing", "Screen print, vinyl, and engraving artwork", "AI, EPS, SVG, PDF, CDR, and previews"],
-    href: "/vector-art",
-    cta: "Explore vector art",
-    comparison: {
-      before: homeImages.vectorServiceBefore,
-      after: homeImages.vectorServiceAfter,
-      beforeLabel: "Source Artwork",
-      afterLabel: "Finished Vector",
-      ariaLabel: "Compare the grayscale fox source artwork with the finished color vector artwork",
-      caption: "Drag the comparison slider to compare the grayscale fox source artwork with its finished color vector version.",
-    },
-  },
-];
-
-const pricing = [
-  {
-    service: "Embroidery digitizing",
-    price: "$10",
-    description: "A typical starting point for straightforward logos and standard placements.",
-    href: "/embroidery-digitizing",
-  },
-  {
-    service: "Vector art conversion",
-    price: "$10",
-    description: "A typical starting point for clean, low-complexity raster-to-vector redraws.",
-    href: "/vector-art",
-  },
-];
-
-const steps = [
-  ["01", "Send your artwork", "Share the clearest source available together with the intended size, material, application, deadline, and required format."],
-  ["02", "We build the production file", "A specialist manually plans the stitch paths or vector curves and checks the work around its real production use."],
-  ["03", "Review, download, and produce", "Receive the requested files and practical previews, with reasonable minor revisions available within the approved brief."],
-];
-
-const qualityBenefits = [
-  ["Built manually", "Digitizing paths and vector curves are shaped by specialists instead of accepted from one-click automatic tracing."],
-  ["Production-aware", "Files are prepared around fabric, placement, scale, printing, cutting, engraving, or the other output you actually need."],
-  ["Checked before delivery", "We review small details, color order, trims, path construction, formats, and practical file organization."],
-  ["Clear revision support", "Reasonable minor revisions are included when they stay within the original artwork, size, and production brief."],
-];
-
-const faqs = [
-  ["Which service do I need?", "Choose embroidery digitizing when you need a machine-readable stitch file. Choose vector art when you need scalable editable artwork for printing, cutting, engraving, signage, or design use. Select both or Not sure in the quote form if you would like us to recommend the best path."],
-  ["How much does a typical project cost?", "Many straightforward homepage projects start around $10, but this is general guidance rather than a guaranteed minimum. Final pricing depends on artwork complexity, size, source quality, placement, technique, required formats, revisions, and turnaround. The service pages provide more detailed examples."],
-  ["How quickly will I receive my files?", "Most standard projects are prepared within 12–24 hours after the artwork, intended use, output format, and deadline are confirmed. Complex or urgent projects may follow a different schedule."],
-  ["What artwork can I send?", "You can send JPG, JPEG, PNG, PDF, AI, EPS, SVG, CDR, PSD, TIFF, ZIP, scans, or clear photographs. Send the best source available and include any known sizes, colors, or production requirements."],
-  ["Are revisions included?", "Reasonable minor revisions are included when they stay within the confirmed brief. Major changes to the artwork, size, placement, application, or technique may require a revised quote."],
-  ["Can I send artwork with the quote form?", "Yes. The form emails your project details and one optional JPG, PNG, PDF, AI, EPS, SVG, CDR, PSD, TIFF, or ZIP file to the studio. Keep the attachment at 3 MB or smaller."],
-];
+import { getCurrentTheme } from "@/themes";
 
 export const metadata = createPageMetadata({
   title: "Embroidery Digitizing & Vector Art",
-  description: "Manual embroidery digitizing and vector art conversion prepared for reliable apparel, print, signage, cutting, engraving, and brand production.",
+  description: "Professional embroidery digitizing for caps, left chest, full back, 3D puff and appliqué, custom embroidered patches, and vector art conversion, with clear per-design, per-patch and per-file pricing.",
   path: "/",
   absoluteTitle: true,
 });
 
-export default function Home() {
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: homeFaqs.map(([question, answer]) => ({
+    "@type": "Question",
+    name: question,
+    acceptedAnswer: { "@type": "Answer", text: answer },
+  })),
+};
+
+// ── Small building blocks ───────────────────────────────────
+
+function Heading({ eyebrow, title, lead, dark = false }) {
+  return (
+    <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
+      <p className={`eyebrow ${dark ? "text-teal-light" : "text-teal-dark"}`}>{eyebrow}</p>
+      <h2 className={`mt-3 font-display text-4xl leading-tight tracking-[-0.01em] sm:text-[2.9rem] ${dark ? "text-white" : "text-ink"}`}>{title}</h2>
+      {lead ? <p className={`mt-4 max-w-xl text-lg leading-8 ${dark ? "text-white/70" : "text-slate"}`}>{lead}</p> : null}
+    </div>
+  );
+}
+
+function Chips({ items, tone = "light" }) {
+  return (
+    <div className="mt-5 flex flex-wrap gap-3">
+      {items.map((item) => (
+        <span className={`rounded-full border px-4 py-2 text-[0.8rem] font-semibold ${tone === "light" ? "border-teal-light/45 text-teal-light" : "border-white/30 text-white"}`} key={item}>
+          {item}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+// ── Sections ───────────────────────────────────────────────
+
+function Hero({ theme, slide }) {
+  return (
+    <section className="relative overflow-hidden bg-ink text-white" id="top">
+      <HeroBackdrop />
+      <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14 lg:px-8 lg:py-24">
+        <div>
+          {theme.badge ? (
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-teal-light/60 bg-teal-light/15 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-teal-light">
+              <svg aria-hidden="true" className="h-3.5 w-3.5" viewBox="0 0 24 24"><path d="M12 2C7 6 5 10 7 15c1 2.5 3 4.5 5 7 2-2.5 4-4.5 5-7 2-5 0-9-5-13z" fill="currentColor" /></svg>
+              {theme.badge}
+            </span>
+          ) : null}
+          <p className="eyebrow text-teal-light">Premium Embroidery Digitizing</p>
+          <h1 className="mt-4 max-w-3xl font-display text-5xl leading-[1.02] tracking-[-0.035em] sm:text-6xl">
+            Professional Embroidery Digitizing &amp; Vector Art, <span className="hero-accent">Built for Production.</span>
+          </h1>
+          <p className="mt-6 max-w-xl text-lg leading-8 text-white/80">
+            Professional digitizing for caps, left chest, full back, 3D puff and appliqué, plus custom embroidered patches and vector art — crafted by experts, delivered fast to embroiderers around the world.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Link className="button button-teal" href="#order">Get Your Design Digitized</Link>
+            <Link className="button button-ghost" href="#work">View Our Work</Link>
+          </div>
+          <div className="mt-9 flex flex-wrap gap-7 text-[0.82rem] text-white/65">
+            {[["Worldwide", "clients served"], ["Fast", "turnaround"], ["Sew-out", "tested quality"]].map(([big, small]) => (
+              <div key={big}><b className="block font-display text-2xl text-teal-light">{big}</b>{small}</div>
+            ))}
+          </div>
+          <div className="mt-8 flex items-center gap-3.5">
+            {[homeImages.bCap, homeImages.amenCap, homeImages.duck].map((image) => (
+              <span className="relative block h-[62px] w-[62px] shrink-0 overflow-hidden rounded-full border-4 border-[#c9a46a] bg-black shadow-[0_0_0_2px_#6e5424,0_10px_24px_rgba(0,0,0,0.55)] transition-transform hover:-translate-y-1 hover:-rotate-3 sm:h-[78px] sm:w-[78px]" key={image.src}>
+                {/* Small ready-made thumbnail, served as-is and loaded right away (above the fold) */}
+                <Image alt={image.alt} className="h-full w-full object-cover" height={160} loading="eager" src={image.thumb} unoptimized width={160} />
+              </span>
+            ))}
+            <span className="ml-1.5 hidden text-xs font-semibold uppercase tracking-[0.18em] text-white/65 sm:inline">Recent stitches</span>
+          </div>
+        </div>
+
+        {/* Vector → embroidery slider; images change per season (src/data/hero-slides.js) */}
+        <HeroComparisonSlider
+          after={slide.after}
+          afterLabel={slide.afterLabel}
+          ariaLabel={slide.ariaLabel}
+          before={slide.before}
+          beforeLabel={slide.beforeLabel}
+          caption={slide.caption}
+          key={slide.before.src}
+        />
+      </div>
+    </section>
+  );
+}
+
+function Marquee() {
+  const items = [...marqueeItems, ...marqueeItems];
+  return (
+    <div aria-label="Our services" className="home-marquee overflow-hidden border-y border-teal-light/25 bg-black py-4">
+      <div className="home-marquee-track">
+        {items.map((item, index) => (
+          <span aria-hidden={index >= marqueeItems.length ? "true" : undefined} key={`${item}-${index}`}>{item}</span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ThanksgivingWeek() {
+  return (
+    <section className="thanksgiving-week relative overflow-hidden py-20 text-white">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 lg:grid-cols-[1.15fr_0.85fr] lg:px-8">
+        <div>
+          <p className="eyebrow text-[#ffb96b]">Thanksgiving Week</p>
+          <h2 className="mt-3 font-display text-4xl leading-tight sm:text-5xl">Thankful for every stitch and <em className="italic text-[#ffb96b]">every client</em>.</h2>
+          <p className="mt-5 max-w-xl text-lg leading-8 text-white/80">This Thanksgiving week we say thank you. Send your design and get a file that sews out beautifully.</p>
+          <div className="mb-7 mt-6 flex flex-wrap gap-3">
+            {["Clean stitches", "Fast turnaround", "Friendly support", "Holiday orders, ready early"].map((chip) => (
+              <span className="rounded-full border border-[#e8721a]/55 bg-[#e8721a]/10 px-4 py-2 text-sm font-semibold text-[#ffcf99]" key={chip}>{chip}</span>
+            ))}
+          </div>
+          <Link className="button button-teal" href="#order">Send Us Your Design</Link>
+        </div>
+        <div className="relative mx-auto aspect-square w-full max-w-[420px] drop-shadow-[0_18px_30px_rgba(0,0,0,0.55)]">
+          <Image alt={homeImages.thanksgiving.alt} className="scene-bob object-contain" fill sizes="420px" src={homeImages.thanksgiving.src} />
+        </div>
+      </div>
+      <div className="mx-auto mt-14 max-w-7xl px-6 lg:px-8">
+        <p className="eyebrow text-center text-[#ffb96b]">Thanksgiving Collection</p>
+        <div className="mt-6 grid gap-6 sm:grid-cols-3">
+          {[[homeImages.giveThanks, "Give Thanks"], [homeImages.thankful, "Thankful · Grateful · Blessed"], [homeImages.gobble, "Gobble Till You Wobble"]].map(([image, caption]) => (
+            <figure className="rounded-[22px] border border-[#e8721a]/50 bg-[radial-gradient(circle_at_50%_35%,#fff7e6,#f0dfbb_75%)] p-4 text-center shadow-[0_16px_36px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:-translate-y-2 hover:-rotate-1" key={caption}>
+              <div className="relative aspect-square"><Image alt={image.alt} className="object-contain" fill sizes="(max-width: 640px) 100vw, 33vw" src={image.src} /></div>
+              <figcaption className="mt-2.5 text-xs font-bold uppercase tracking-[0.16em] text-[#7a3510]">{caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+        <p className="mt-5 text-center text-sm text-white/60">Seasonal design concepts. Ask us to digitize your own holiday designs.</p>
+      </div>
+    </section>
+  );
+}
+
+function BlackFridayStrip() {
+  return (
+    <section className="black-friday-strip border-y border-teal-light/25 py-16 text-white">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-8 px-6 lg:px-8">
+        <div>
+          <p className="eyebrow text-teal-light">Black Friday Week</p>
+          <h2 className="mt-3 font-display text-4xl leading-tight sm:text-5xl">Get your stitches ready for <span className="text-teal-light">Black Friday</span>.</h2>
+          <Chips items={["Free quote", "Free minor edits", "Rush options", "Fast turnaround"]} />
+        </div>
+        <Link className="button button-teal" href="#order">Get Started Now</Link>
+      </div>
+    </section>
+  );
+}
+
+function Services() {
+  return (
+    <section className="bg-canvas py-20 sm:py-24" id="services">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <Heading eyebrow="Our Services" lead="Stitch files that run clean on your machine, finished patches made from your design, and vector art ready for production." title="Digitizing, patches and vector art" />
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => (
+            <Link className="group relative block overflow-hidden rounded-[20px] border border-line bg-white transition duration-300 hover:-translate-y-2" href={service.href} key={service.n}>
+              <div className="relative h-[196px] overflow-hidden bg-black">
+                {service.image ? (
+                  <Image alt={service.image.alt} className="object-cover transition-transform duration-700 group-hover:scale-[1.08]" fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px" src={service.image.src} style={{ objectPosition: service.imagePosition ?? "50% 40%" }} />
+                ) : <VectorArt />}
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(0,0,0,0.45)_100%)]" />
+                <span className="absolute left-3.5 top-3.5 z-10 rounded-full border border-teal-light/50 bg-black/60 px-3 py-1 text-xs font-bold tracking-[0.12em] text-teal-light">{service.n}</span>
+              </div>
+              <div className="relative z-10 px-6 pb-7">
+                <span className="-mt-6 mb-4 grid h-12 w-12 place-items-center rounded-xl border border-teal-light/40 bg-ink text-teal-light shadow-[0_8px_22px_rgba(0,0,0,0.5)]">
+                  <ServiceIcon name={service.icon} />
+                </span>
+                <h3 className="font-display text-xl text-ink">{service.title}</h3>
+                <p className="mb-3 mt-1 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-teal-dark">{service.meta}</p>
+                <p className="leading-7 text-slate">{service.text}</p>
+                <span className="mt-4 inline-block text-sm font-semibold text-teal-dark">Learn more <span className="inline-block transition-transform group-hover:translate-x-1.5" aria-hidden="true">→</span></span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Starting prices come from the Pricing page data, so they always match it.
+function PricingPreview() {
+  return (
+    <section className="bg-white py-20 sm:py-24" id="pricing">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <Heading eyebrow="Simple Pricing" lead="Flat prices by design, patch or file. We confirm the exact price before work begins." title="Clear prices, no surprises" />
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
+          {servicePages.map((service) => (
+            <div className="flex flex-col rounded-[20px] border border-line bg-white p-7 text-center" key={service.id}>
+              <h3 className="font-display text-2xl text-ink">{service.title}</h3>
+              <p className="mt-4 font-display text-3xl font-bold text-teal-dark">{service.price.replace(/ per \w+$/, "")}</p>
+              <p className="mt-1 text-sm text-slate">{service.price.match(/per \w+$/)?.[0]}</p>
+              <div className="mt-6 flex flex-1 flex-col justify-end gap-2.5">
+                <Link className="button button-ink w-full" href={service.path}>View service <span aria-hidden="true">→</span></Link>
+                <Link className="button button-outline w-full" href={service.href}>See all prices</Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Why() {
+  return (
+    <section className="relative overflow-hidden bg-ink py-20 text-white sm:py-24" id="why">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <Heading dark eyebrow="Why Choose Trustitched?" title="Craft you can trust, thread after thread." />
+        <div className="mt-11 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          {whyItems.map(([title, text]) => (
+            <div className="rounded-b-2xl border-t-2 border-teal-light bg-white/[0.04] px-5 py-6" key={title}>
+              <h3 className="text-[1.05rem] font-bold">{title}</h3>
+              <p className="mt-1.5 text-sm leading-6 text-white/65">{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function RecentWork() {
+  return (
+    <section className="bg-canvas py-20 sm:py-24" id="work">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <Heading eyebrow="Recent Work" lead="A taste of the caps, puff and appliqué files our clients run every week." title="Stitched to perfection" />
+        <div className="mt-12 grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4">
+          {recentWork.map(([image, caption]) => (
+            <figure className="group relative aspect-square overflow-hidden rounded-[18px] border border-teal-light/30 bg-black transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_18px_40px_rgba(0,0,0,0.45)]" key={image.src}>
+              <Image alt={image.alt} className="object-cover transition-transform duration-500 group-hover:scale-[1.06]" fill sizes="(max-width: 1024px) 50vw, 300px" src={image.src} />
+              <figcaption className="absolute inset-x-0 bottom-0 bg-[linear-gradient(transparent,rgba(0,0,0,0.85))] px-3.5 pb-3 pt-8 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-teal-light">{caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+        <div className="mt-10 text-center"><Link className="button button-outline" href="/portfolio">View Full Portfolio</Link></div>
+      </div>
+    </section>
+  );
+}
+
+function StitchOn() {
+  return (
+    <section className="bg-white py-20 sm:py-24" id="stitch-on">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <Heading eyebrow="What We Stitch On" lead="One digitizer for everything your machine runs. Pick your product and we build the file to suit the fabric." title="From caps to hoodies to gifts" />
+        <div className="mt-11 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+          {stitchOn.map(([image, title, text]) => (
+            <Link className="group block rounded-[20px] border border-line bg-white px-3.5 pb-6 pt-3.5 text-center transition duration-300 hover:-translate-y-2" href="/portfolio" key={title}>
+              <span className="relative mx-auto mb-4 mt-1.5 block aspect-square max-w-[170px] overflow-hidden rounded-full border-[5px] border-[#c9a46a] bg-black shadow-[0_0_0_2px_#6e5424,0_10px_24px_rgba(0,0,0,0.35)]">
+                <Image alt={image.alt} className="object-cover transition-transform duration-500 group-hover:scale-110" fill sizes="170px" src={image.src} />
+              </span>
+              <h3 className="text-base font-bold text-ink">{title}</h3>
+              <p className="mt-1 text-[0.82rem] leading-5 text-slate">{text}</p>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Difference() {
+  return (
+    <section className="bg-ink py-20 text-white sm:py-24" id="difference">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <Heading dark eyebrow="The Digitizing Difference" lead="Drag the slider to see flat artwork turn into a rich, thread-ready embroidered design." title="From flat artwork to real stitches" />
+        <div className="mx-auto mt-11 max-w-xl">
+          <HeroComparisonSlider
+            after={homeImages.heroAfter}
+            afterLabel="Digitized & stitched"
+            ariaLabel="Compare the original macaw artwork with the digitized and stitched version"
+            before={homeImages.heroBefore}
+            beforeLabel="Original artwork"
+            caption="Drag the slider to compare the original macaw artwork with its digitized, stitched version."
+            preloadImages={false}
+            sizes="(max-width: 640px) 100vw, 576px"
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function HowItWorks() {
+  return (
+    <section className="bg-canvas py-20 sm:py-24" id="how">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <Heading eyebrow="How It Works" title="From artwork to sew-out in four steps" />
+        <ol className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {steps.map(([title, text], index) => (
+            <li className="px-2 text-center" key={title}>
+              <span className="mx-auto mb-4 grid h-[60px] w-[60px] place-items-center rounded-full border border-teal-dark bg-[radial-gradient(circle,color-mix(in_srgb,var(--teal-light)_18%,transparent),transparent_70%)] font-display text-2xl font-bold text-teal-dark">{index + 1}</span>
+              <h3 className="text-lg font-bold text-ink">{title}</h3>
+              <p className="mt-1.5 text-sm leading-6 text-slate">{text}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+function Reviews() {
+  if (!reviews.length) return null; // shown only once real reviews are added
+
+  return (
+    <section className="bg-white py-20 sm:py-24" id="reviews">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <Heading eyebrow="Testimonials" lead="Real sew-outs, real results. See what our clients stitched with our files." title="Loved by embroiderers" />
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {reviews.map((review) => (
+            <article className="flex flex-col overflow-hidden rounded-[20px] border border-line bg-white" key={review.name + review.text}>
+              <div className="relative aspect-[4/3] bg-black">
+                <Image alt={review.photo.alt} className="object-cover" fill sizes="(max-width: 768px) 100vw, 400px" src={review.photo.src} />
+                <span className="absolute bottom-3.5 left-3.5 rounded-full border border-teal-light/50 bg-black/75 px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-teal-light">{review.chip}</span>
+              </div>
+              <div className="flex flex-1 flex-col px-6 pb-6 pt-5">
+                <p className="tracking-[3px] text-teal-dark" aria-label="5 out of 5 stars">★★★★★</p>
+                <p className="mb-5 mt-3 flex-1 italic leading-7 text-ink">“{review.text}”</p>
+                <p className="border-t border-line pt-4 text-sm"><b className="block text-ink">{review.name}</b><span className="text-slate">{review.order}</span></p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Faq() {
+  return (
+    <section className="bg-white py-20 sm:py-24" id="faq">
+      <StructuredData data={faqStructuredData} />
+      <div className="mx-auto max-w-3xl px-6 lg:px-8">
+        <Heading eyebrow="Good to Know" title="Quick answers" />
+        <div className="mt-11">
+          {homeFaqs.map(([question, answer]) => (
+            <details className="group border-b border-line px-1 py-5" key={question}>
+              <summary className="flex cursor-pointer items-center justify-between gap-4 text-[1.05rem] font-semibold text-ink">
+                {question}<span className="text-2xl font-normal leading-none text-teal-dark transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+              </summary>
+              <p className="mt-3 leading-7 text-slate">{answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Order({ theme }) {
+  return (
+    <section className="home-order relative scroll-mt-28 overflow-hidden bg-ink py-20 text-white sm:py-24" id="order">
+      <div className="relative mx-auto max-w-3xl px-6 lg:px-8" id="quote-form">
+        <Heading dark eyebrow={theme.holiday ? "Holiday Orders" : "Free Quote"} lead="Send us your design today. Get a quote fast and a file that stitches beautifully." title="Send your design for a free quote" />
+        <div className="mt-10">
+          <QuoteForm idPrefix="home" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ── Page ───────────────────────────────────────────────────
+
+export default async function Home() {
+  const theme = await getCurrentTheme();
+  const slide = getHeroSlide(theme.id);
+
   return (
     <>
-      <section className="relative overflow-hidden bg-ink text-white">
-        <div className="page-hero-pattern absolute inset-0" aria-hidden="true" />
-        <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-16 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-16 lg:px-8 lg:py-20">
-          <div>
-            <p className="eyebrow text-teal-light">Manual craft • production-ready files</p>
-            <h1 className="mt-4 max-w-3xl font-display text-5xl leading-[1.02] tracking-[-0.035em] sm:text-6xl">
-              Professional Embroidery Digitizing &amp; Vector Art, Built for Production.
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70">
-              Turn logos, scans, sketches, and rough graphics into dependable embroidery stitch files and clean, scalable vector artwork.
-            </p>
-            <ul className="mt-7 grid gap-3 text-sm font-semibold text-white/82 sm:grid-cols-2">
-              {["Digitized and redrawn manually", "12–24 hour standard turnaround", "Major embroidery and vector formats", "Reasonable minor revisions included"].map((item) => (
-                <li className="flex items-center gap-3" key={item}><span className="text-teal-light" aria-hidden="true">✓</span>{item}</li>
-              ))}
-            </ul>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link className="button button-teal" href="#quote-form">Get a free quote <span aria-hidden="true">↓</span></Link>
-              <Link className="button button-ghost" href="/portfolio">View our work</Link>
-            </div>
-            <div className="mt-7 flex flex-wrap gap-x-7 gap-y-3 text-xs font-semibold text-white/70">
-              <span className="flex items-center gap-2"><b className="text-teal-light" aria-hidden="true">✓</b> No credit card required</span>
-              <span className="flex items-center gap-2"><b className="text-teal-light" aria-hidden="true">✓</b> Clear price before production</span>
-              <span className="flex items-center gap-2"><b className="text-teal-light" aria-hidden="true">✓</b> Direct studio support</span>
-            </div>
-          </div>
-
-          <HeroComparisonSlider before={homeImages.heroBefore} after={homeImages.heroAfter} />
-        </div>
-      </section>
-
-      <MetricsStrip />
-
-      <section className="border-y border-line bg-mist py-20 sm:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-center lg:gap-20">
-            <div>
-              <p className="eyebrow text-teal-dark">Typical project pricing</p>
-              <h2 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">Straightforward production files often start around $10.</h2>
-              <p className="mt-5 text-lg leading-8 text-slate">This is general homepage guidance, not a guaranteed minimum. We review the source and confirm the exact price before work begins.</p>
-              <p className="mt-5 leading-7 text-slate">Complexity, finished size, source quality, stitch technique, required formats, revisions, and turnaround can all affect the final quote.</p>
-              <Link className="button button-teal mt-8" href="#quote-form">Request exact pricing</Link>
-            </div>
-            <div className="grid gap-5 sm:grid-cols-2">
-              {pricing.map((item) => (
-                <article className="rounded-3xl border border-teal/35 bg-white p-7 shadow-[0_18px_50px_rgba(12,49,61,0.10)]" key={item.service}>
-                  <p className="eyebrow text-teal-dark">{item.service}</p>
-                  <p className="mt-5 text-sm font-semibold uppercase tracking-wider text-slate">Typical projects from</p>
-                  <strong className="mt-1 block font-display text-5xl text-teal-dark">{item.price}</strong>
-                  <p className="mt-4 leading-7 text-slate">{item.description}</p>
-                  <Link className="mt-7 inline-flex items-center gap-2 font-bold text-teal-dark hover:text-ink" href={item.href}>View detailed pricing <span aria-hidden="true">→</span></Link>
-                </article>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-20 sm:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="Services we provide"
-            title="Two specialties, one production-minded studio."
-            description="Choose a focused service or send the artwork once and let us help determine which deliverables your production workflow needs."
-            align="center"
-          />
-          <div className="mt-12 space-y-8">
-            {services.map((service, index) => (
-              <article className="grid overflow-hidden rounded-3xl border border-line bg-canvas lg:grid-cols-2" key={service.title}>
-                <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                  <HeroComparisonSlider
-                    after={service.comparison.after}
-                    afterLabel={service.comparison.afterLabel}
-                    ariaLabel={service.comparison.ariaLabel}
-                    before={service.comparison.before}
-                    beforeLabel={service.comparison.beforeLabel}
-                    caption={service.comparison.caption}
-                    preloadImages={false}
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    variant="service"
-                  />
-                </div>
-                <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-12">
-                  <p className="eyebrow text-teal-dark">{service.eyebrow}</p>
-                  <h3 className="mt-3 font-display text-4xl leading-tight text-ink">{service.title}</h3>
-                  <p className="mt-5 text-lg leading-8 text-slate">{service.description}</p>
-                  <ul className="mt-6 space-y-3 text-sm text-slate">
-                    {service.features.map((feature) => <li className="flex gap-3" key={feature}><span className="text-teal-dark" aria-hidden="true">✓</span>{feature}</li>)}
-                  </ul>
-                  <div className="mt-8"><Link className="button button-ink" href={service.href}>{service.cta}</Link></div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-mist py-20 sm:py-24">
-        <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20 lg:px-8">
-          <div>
-            <p className="eyebrow text-teal-dark">How it works</p>
-            <h2 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">From source artwork to production in three clear steps.</h2>
-            <p className="mt-5 text-lg leading-8 text-slate">A useful brief helps us prepare the right file efficiently and reduces production guesswork.</p>
-            <Link className="button button-ink mt-8" href="#quote-form">Start your project</Link>
-          </div>
-          <ol className="divide-y divide-line border-y border-line">
-            {steps.map(([number, title, description]) => (
-              <li className="grid gap-4 py-7 sm:grid-cols-[4rem_1fr]" key={number}>
-                <span className="font-display text-3xl text-teal-dark">{number}</span>
-                <div><h3 className="text-lg font-bold text-ink">{title}</h3><p className="mt-2 leading-7 text-slate">{description}</p></div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="bg-white py-20 sm:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-            <SectionHeading
-              eyebrow="Take a closer look"
-              title="Original work across stitches and scalable paths."
-              description="Explore different embroidery techniques and vector styles prepared around practical production goals."
-            />
-            <Link className="inline-flex items-center gap-2 font-bold text-ink hover:text-teal-dark" href="/portfolio">View the portfolio <span aria-hidden="true">→</span></Link>
-          </div>
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            <article>
-              <div className="relative aspect-square overflow-hidden rounded-3xl border border-line bg-mist shadow-lg">
-                <Image src={homeImages.embroideryShowcase.src} alt={homeImages.embroideryShowcase.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
-              </div>
-              <p className="mt-5 eyebrow text-teal-dark">Embroidery showcase</p>
-              <h3 className="mt-2 font-display text-3xl text-ink">Texture, sequencing, and detail.</h3>
-            </article>
-            <article>
-              <div className="relative aspect-square overflow-hidden rounded-3xl border border-line bg-mist shadow-lg">
-                <Image src={homeImages.vectorShowcase.src} alt={homeImages.vectorShowcase.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
-              </div>
-              <p className="mt-5 eyebrow text-teal-dark">Vector showcase</p>
-              <h3 className="mt-2 font-display text-3xl text-ink">Clean construction at every scale.</h3>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-ink py-20 text-white sm:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow text-teal-light">Quality you can verify</p>
-            <h2 className="mt-3 font-display text-4xl leading-tight sm:text-5xl">The value is in how the file is built.</h2>
-            <p className="mt-5 text-lg leading-8 text-white/65">Instead of unverified customer claims, here is what every approved production brief is designed to receive.</p>
-          </div>
-          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {qualityBenefits.map(([title, description], index) => (
-              <article className="rounded-2xl border border-white/15 bg-white/5 p-6" key={title}>
-                <span className="font-display text-3xl text-teal-light">0{index + 1}</span>
-                <h3 className="mt-7 text-lg font-bold">{title}</h3>
-                <p className="mt-3 text-sm leading-6 text-white/60">{description}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <FaqSection
-        className="bg-canvas"
-        faqs={faqs}
-        title="Helpful answers before you request a quote."
-        description="If your project has an unusual material, application, source file, or deadline, include it in the request and we will review it directly."
-      />
-
-      <QuoteSection
-        title="Send the artwork you have. We will help define the file you need."
-        description="Include the intended size, material or application, deadline, and preferred format. Select Not sure yet if you would like a recommendation."
-        idPrefix="home"
-      />
+      <Hero slide={slide} theme={theme} />
+      <Marquee />
+      {theme.id === "thanksgiving" ? <ThanksgivingWeek /> : null}
+      {theme.id === "black-friday" ? <BlackFridayStrip /> : null}
+      <SeasonalCollection collection={theme.collection} />
+      <Services />
+      <PricingPreview />
+      <Why />
+      <RecentWork />
+      <StitchOn />
+      {/* Same macaw as the hero by default, so shown only when the hero has a seasonal pair */}
+      {slide.seasonal ? <Difference /> : null}
+      <HowItWorks />
+      <Reviews />
+      <Faq />
+      <Order theme={theme} />
     </>
   );
 }

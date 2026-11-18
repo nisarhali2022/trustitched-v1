@@ -82,8 +82,12 @@ export function QuoteForm({ idPrefix = "quote", defaultService = "" }) {
             <select className="form-field" id={fieldId("service")} name="service" defaultValue={defaultService} required>
               <option value="" disabled>Select a service</option>
               <option value="digitizing">Embroidery digitizing</option>
+              <option value="puff">3D puff digitizing</option>
+              <option value="applique">Appliqué digitizing</option>
+              <option value="patch">Patch digitizing</option>
+              <option value="patches">Custom embroidered patches</option>
               <option value="vector">Vector art</option>
-              <option value="both">Both services</option>
+              <option value="both">Embroidery + vector art</option>
               <option value="unsure">Not sure yet</option>
             </select>
           </div>

@@ -1,9 +1,12 @@
 import Image from "next/image";
+import { HeroBackdrop } from "@/components/hero-backdrop";
 import Link from "next/link";
 import { CallToAction } from "@/components/call-to-action";
 import { PortfolioGallery } from "@/components/portfolio-gallery";
 import { SectionHeading } from "@/components/section-heading";
+import { SewOutGallery } from "@/components/sew-out-gallery";
 import { portfolioProjects } from "@/data/portfolio-projects";
+import { sewOutPhotos } from "@/data/sew-out-photos";
 import { createPageMetadata } from "@/lib/site";
 
 const portfolioImages = {
@@ -37,7 +40,7 @@ export default function PortfolioPage() {
   return (
     <>
       <section className="relative overflow-hidden bg-ink text-white">
-        <div className="page-hero-pattern absolute inset-0" aria-hidden="true" />
+        <HeroBackdrop />
         <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-16 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:gap-16 lg:px-8 lg:py-20">
           <div>
             <nav className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-white/55" aria-label="Breadcrumb">
@@ -90,6 +93,19 @@ export default function PortfolioPage() {
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-teal-light">Two production specialties</p>
               <p className="mt-2 text-sm leading-6 text-white/65">Stitch-ready files and scalable master artwork.</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="scroll-mt-28 bg-white py-20 sm:py-24" id="real-sew-outs">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <SectionHeading
+            eyebrow="Real sew-outs"
+            title="Finished embroidery, photographed after stitching."
+            description="Client logo caps, beanies, hoodies, sweatshirts, and home decor from Trustitched projects, covering 3D puff, appliqué, small lettering, and multicolor detail. Client logos are shown with permission."
+          />
+          <div className="mt-10">
+            <SewOutGallery photos={sewOutPhotos} />
           </div>
         </div>
       </section>
